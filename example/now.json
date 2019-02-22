@@ -11,13 +11,5 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-  "headers": [
-    {
-      "src": "/_nuxt/.+",
-      "headers": {
-        "cache-control": "s-maxage=31536000"
-      }
-    }
   ]
 }
