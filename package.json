@@ -16,12 +16,12 @@
     "@now/build-utils": "^0.4.34"
   },
   "dependencies": {
+    "@now/node-bridge": "^0.1.10",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.1"
   },
   "devDependencies": {
     "@now/build-utils": "^0.4.34",
-    "@now/node-bridge": "^0.1.10",
     "@nuxtjs/eslint-config": "^0.0.1",
     "eslint": "^5.14.1",
     "eslint-config-standard": "^12.0.0",
