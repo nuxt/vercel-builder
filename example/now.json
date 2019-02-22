@@ -5,5 +5,19 @@
       "src": "nuxt.config.js",
       "use": "@nuxtjs/now-builder"
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "headers": [
+    {
+      "src": "/_nuxt/.+",
+      "headers": {
+        "cache-control": "s-maxage=31536000"
+      }
+    }
   ]
 }
