@@ -1,5 +1,6 @@
 .vscode
 node_modules
+node_modules_dev
 *.log
 .DS_Store
 coverage

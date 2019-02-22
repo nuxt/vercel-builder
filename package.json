@@ -12,6 +12,12 @@
     "test": "jest",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/node_modules_dev/"
+    ]
+  },
   "peerDependencies": {
     "@now/build-utils": "^0.4.34"
   },
