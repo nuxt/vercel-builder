@@ -8,7 +8,7 @@ it('Should build the standard example', async () => {
     path.join(__dirname, 'fixture')
   )
   // console.log(buildResult)
-  expect(buildResult['/']).toBeDefined()
+  expect(buildResult.index).toBeDefined()
 
   const filePaths = Object.keys(buildResult)
   expect(filePaths).toMatchSnapshot()
