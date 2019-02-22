@@ -16,7 +16,7 @@
     "@now/build-utils": "^0.4.34"
   },
   "dependencies": {
-    "@now/node-bridge": "^0.1.10",
+    "@now/node-bridge": "^1.0.0-canary.2",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.1"
   },

@@ -147,10 +147,10 @@
     node-fetch "2.2.0"
     yazl "2.4.3"
 
-"@now/node-bridge@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-0.1.10.tgz#f2a719f33ee838f1bd9341ee9b18847827386a94"
-  integrity sha512-Xdi2g89af8+VN7Agjm/Mzy5SGnKPN0xyGdo+htlzsylWaDBDYggTzReSi16SWt3Jn1mYs0/NqebStawT7Kmc+g==
+"@now/node-bridge@^1.0.0-canary.2":
+  version "1.0.0-canary.2"
+  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.0.0-canary.2.tgz#665accdddf68b7a5757d6d07f38f29b365a652d1"
+  integrity sha512-QZGNx4d04vsGaEI68kNS7Ln02BagE5cKu3Ni95mF3Ew74O7tnYdN6iaL30dvSMRu0ENzdeqfDa1vWQckKQA5wg==
 
 "@nuxtjs/eslint-config@^0.0.1":
   version "0.0.1"
