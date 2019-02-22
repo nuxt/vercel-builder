@@ -3,7 +3,6 @@
 exports[`Should build the standard example 1`] = `
 Array [
   "index",
-  "test.txt",
   "_nuxt/4dca236641a06e17cf59.js",
   "_nuxt/677e470d84634cc70055.js",
   "_nuxt/ce3b34413778dac69288.js",
