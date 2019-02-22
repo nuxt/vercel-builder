@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "nuxt-start-edge": "2.5.0-25846570.febcd6c5"
+  },
+  "devDependencies": {
+    "nuxt-edge": "2.5.0-25846570.febcd6c5"
+  }
+}

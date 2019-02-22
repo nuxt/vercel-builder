@@ -1,0 +1,36 @@
+{
+  "name": "@nuxtjs/now-builder",
+  "version": "0.0.0-alpha.1",
+  "license": "MIT",
+  "repository": "nuxt/now-builder",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint lib example",
+    "test": "jest",
+    "update-fixture": "cd test/fixture && yarn && rm -rf node_modules"
+  },
+  "peerDependencies": {
+    "@now/build-utils": "^0.4.34"
+  },
+  "dependencies": {
+    "execa": "^1.0.0",
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {
+    "@now/build-utils": "^0.4.34",
+    "@now/node-bridge": "^0.1.10",
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "eslint": "^5.14.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "jest": "^24.1.0"
+  }
+}
