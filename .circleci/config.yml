@@ -31,3 +31,8 @@ jobs:
       - run:
           name: Tests
           command: yarn jest
+
+      # Coverage
+      - run:
+          name: Coverage
+          command: yarn codecov
