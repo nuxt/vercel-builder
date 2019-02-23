@@ -1,7 +1,9 @@
 # Now Builder for Nuxt.js
 
+
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![packagephobia][packagephobia-src]][packagephobia-href]
 [![Circle CI][circle-ci-src]][circle-ci-href]
 [![Codecov][codecov-src]][codecov-href]
 [![Dependencies][david-dm-src]][david-dm-href]
@@ -111,3 +113,6 @@ Copyright (c) Nuxt Community
 
 [standard-js-src]: https://flat.badgen.net/badge/code%20style/standard/f2a
 [standard-js-href]: https://standardjs.com
+
+[packagephobia-src]: https://flat.badgen.net/packagephobia/install/@nuxtjs/now-builder
+[packagephobia-href]: https://packagephobia.now.sh/result?p=@nuxtjs/now-builder
