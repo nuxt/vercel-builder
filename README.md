@@ -1,4 +1,4 @@
-# @nuxtjs/now-builder
+# Now Builder for Nuxt.js
 
 The Now Nuxt.js Builder takes a [Nuxt.js application](https://nuxtjs.org), defined by a `nuxt.config.js` entrypoint and deploys it to Now2 serverless environment.
 
