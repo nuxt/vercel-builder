@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.8.0](https://github.com/nuxt/now-builder/compare/v0.7.3...v0.8.0) (2019-02-23)
+
+
+### Bug Fixes
+
+* use nuxt config for server port ([8384841](https://github.com/nuxt/now-builder/commit/8384841))
+
+
+### Features
+
+* improve messages ([23c78ab](https://github.com/nuxt/now-builder/commit/23c78ab))
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [0.7.3](https://github.com/nuxt/now-builder/compare/v0.7.2...v0.7.3) (2019-02-23)
 
 
