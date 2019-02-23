@@ -57,7 +57,6 @@ Then define builds and routes in `now.json` configuration file:
   ],
   "routes": [
     { "src": "/_nuxt/.+", "headers": { "cache-control": "s-maxage=31536000" } },
-    { "src": "/(.*).(.*)" },
     { "src": "/(.*)", "dest": "/"}
   ]
 }
