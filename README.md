@@ -6,7 +6,7 @@ It features built-in caching of `node_modules` and all multi-stage build for fas
 
 ## When to use it
 
-`@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
+If you are using Now platform, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
 
 For more information on why you should use Nuxt.js for your project, see [the Nuxt.js website](https://nuxtjs.org).
 
@@ -57,6 +57,8 @@ Then define builds and routes in `now.json` configuration file:
 ```
 
 Upon deployment, you will get a URL like this: https://nuxtjs-8fnzfb1ci.now.sh
+
+See [example](./example) for a more complete deployable example.
 
 ## Technical Details
 
