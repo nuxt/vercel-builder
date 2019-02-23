@@ -11,7 +11,8 @@
     "lint": "eslint lib example test",
     "test": "jest test",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules",
-    "update-example": "cd test/example && yarn && rm -rf node_modules"
+    "update-example": "cd test/example && yarn && rm -rf node_modules",
+    "release": "standard-version && git push --follow-tags && npm publish"
   },
   "dependencies": {
     "@now/node-bridge": "^1.0.0-canary.2",
@@ -32,6 +33,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.2",
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "standard-version": "^5.0.0"
   }
 }
