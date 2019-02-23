@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.2](https://github.com/nuxt/now-builder/compare/v0.7.1...v0.7.2) (2019-02-23)
+
+
+### Bug Fixes
+
+* dont use --frozen-lockfile when package changed ([ff432c2](https://github.com/nuxt/now-builder/commit/ff432c2))
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [0.7.1](https://github.com/nuxt/now-builder/compare/v0.7.0...v0.7.1) (2019-02-23)
 
 
