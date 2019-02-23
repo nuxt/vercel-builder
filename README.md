@@ -101,14 +101,14 @@ Copyright (c) Nuxt Community
 [npm-downloads-src]: https://img.shields.io/npm/v/@nuxtjs/now-builder/latest.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/now-builder
 
-[circle-ci-src]: https://img.shields.io/circleci/project/github/nuxt-community/now-builder-module.svg?style=flat-square
-[circle-ci-href]: https://circleci.com/gh/nuxt-community/now-builder-module
+[circle-ci-src]: https://img.shields.io/circleci/project/github/nuxt/now-builder.svg?style=flat-square
+[circle-ci-href]: https://circleci.com/gh/nuxt/now-builder
 
-[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/now-builder-module.svg?style=flat-square
-[codecov-href]: https://codecov.io/gh/nuxt-community/now-builder-module
+[codecov-src]: https://img.shields.io/codecov/c/github/nuxt/now-builder.svg?style=flat-square
+[codecov-href]: https://codecov.io/gh/nuxt/now-builder
 
-[david-dm-src]: https://david-dm.org/nuxt-community/now-builder-module/status.svg?style=flat-square
-[david-dm-href]: https://david-dm.org/nuxt-community/now-builder-module
+[david-dm-src]: https://david-dm.org/nuxt/now-builder/status.svg?style=flat-square
+[david-dm-href]: https://david-dm.org/nuxt/now-builder
 
 [standard-js-src]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square
 [standard-js-href]: https://standardjs.com
