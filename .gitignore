@@ -8,3 +8,4 @@ coverage
 .nuxt
 dist
 .cache
+.tmp

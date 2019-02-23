@@ -31,7 +31,7 @@ async function runBuildLambda(inputPath) {
     config: build.config
   })
 
-  const workPath = path.join(__dirname, '../../.cache', path.basename(inputPath))
+  const workPath = path.join(__dirname, '../../.tmp', path.basename(inputPath))
   await fs.remove(workPath)
   await fs.mkdirs(workPath)
 
@@ -42,9 +42,16 @@ async function runBuildLambda(inputPath) {
     config: build.config
   })
 
+  const cacheResult = await wrapper.prepareCache({
+    cachePath: path.join(workPath, '.cache'),
+    workPath,
+    entrypoint
+  })
+
   return {
     analyzeResult,
-    buildResult
+    buildResult,
+    cacheResult
   }
 }
 
