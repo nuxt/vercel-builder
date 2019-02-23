@@ -1,3 +1,4 @@
+
 # Now Builder for Nuxt.js
 
 
@@ -77,7 +78,7 @@ The installation algorithm of dependencies works as follows:
 - If a `package-lock.json` is present, `npm install` is used
 - Otherwise, `yarn` is used.
 
-**NOTE:** Using `yarn` is HIGHLY recommanded!
+**NOTE:** Using `yarn` is HIGHLY recommended!
 
 ### Private npm modules
 
