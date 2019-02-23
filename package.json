@@ -23,7 +23,8 @@
   "dependencies": {
     "@now/node-bridge": "^1.0.0-canary.2",
     "execa": "^1.0.0",
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "semver": "^5.6.0"
   },
   "devDependencies": {
     "@now/build-utils": "^0.4.34",
