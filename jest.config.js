@@ -4,7 +4,7 @@ module.exports = {
   collectCoverageFrom: [
     'lib/**/*.js'
   ],
-  tmodulePathIgnorePatterns: [
+  modulePathIgnorePatterns: [
     '/node_modules/',
     '/node_modules_dev/',
     '/node_modules_prod/'
