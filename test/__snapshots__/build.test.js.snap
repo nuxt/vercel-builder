@@ -3,10 +3,9 @@
 exports[`Should build the standard example 1`] = `
 Array [
   "index",
-  "_nuxt/4dca236641a06e17cf59.js",
-  "_nuxt/677e470d84634cc70055.js",
-  "_nuxt/ce3b34413778dac69288.js",
-  "_nuxt/da6e4de62d51c29ee9bb.js",
+  "_nuxt/08001e3704db5d6f0c4a.js",
+  "_nuxt/259f4864a00b6ff19cd3.js",
+  "_nuxt/f3c502d6c98ebea29c1a.js",
   "_nuxt/LICENSES",
 ]
 `;

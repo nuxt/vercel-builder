@@ -9,13 +9,15 @@
   ],
   "scripts": {
     "lint": "eslint lib example test",
-    "test": "jest",
+    "test": "jest test",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules"
   },
   "jest": {
-    "testPathIgnorePatterns": [
+    "testEnvironment": "node",
+    "modulePathIgnorePatterns": [
       "/node_modules/",
-      "/node_modules_dev/"
+      "/node_modules_dev/",
+      "/node_modules_prod/"
     ]
   },
   "dependencies": {
