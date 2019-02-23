@@ -8,7 +8,7 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint lib example",
+    "lint": "eslint lib example test",
     "test": "jest",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules"
   },
