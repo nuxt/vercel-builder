@@ -1,5 +1,12 @@
 # Now Builder for Nuxt.js
 
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Circle CI][circle-ci-src]][circle-ci-href]
+[![Codecov][codecov-src]][codecov-href]
+[![Dependencies][david-dm-src]][david-dm-href]
+[![Standard JS][standard-js-src]][standard-js-href]
+
 The Now Nuxt.js Builder takes a [Nuxt.js application](https://nuxtjs.org), defined by a `nuxt.config.js` entrypoint and deploys it to Now2 serverless environment.
 
 It features built-in caching of `node_modules` and all multi-stage build for fast and small-sized deployments.
@@ -81,6 +88,27 @@ The Node.js version used is the latest in the **8 branch**.
 
 # License
 
-Docs and Builder inspired by [Next.js](https://nextjs.org) by [Zeit.co](https://zeit.co).
+[MIT License](./LICENSE)
 
-MIT - Nuxt.js Team
+Docs and Builder inspired by [Next.js](https://nextjs.org) by [Zeit.co](https://zeit.co)
+
+Copyright (c) Nuxt Community
+
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/dt/@nuxtjs/now-builder.svg?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@nuxtjs/now-builder
+
+[npm-downloads-src]: https://img.shields.io/npm/v/@nuxtjs/now-builder/latest.svg?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/now-builder
+
+[circle-ci-src]: https://img.shields.io/circleci/project/github/nuxt-community/now-builder-module.svg?style=flat-square
+[circle-ci-href]: https://circleci.com/gh/nuxt-community/now-builder-module
+
+[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/now-builder-module.svg?style=flat-square
+[codecov-href]: https://codecov.io/gh/nuxt-community/now-builder-module
+
+[david-dm-src]: https://david-dm.org/nuxt-community/now-builder-module/status.svg?style=flat-square
+[david-dm-href]: https://david-dm.org/nuxt-community/now-builder-module
+
+[standard-js-src]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square
+[standard-js-href]: https://standardjs.com
