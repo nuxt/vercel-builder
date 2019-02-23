@@ -3,7 +3,12 @@
   "builds": [
     {
       "src": "www/nuxt.config.js",
-      "use": "../.."
+      "use": "../..",
+      "config": {
+        "serverFiles": [
+          "custom/*.js"
+        ]
+      }
     }
   ]
 }

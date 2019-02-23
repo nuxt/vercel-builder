@@ -56,7 +56,11 @@ Then define builds and routes in `now.json` configuration file:
 {
   "version": 2,
   "builds": [
-    { "src": "nuxt.config.js", "use": "@nuxtjs/now-builder" }
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder",
+      "config": {}
+    }
   ],
   "routes": [
     { "src": "/_nuxt/.+", "headers": { "cache-control": "s-maxage=31536000" } },
@@ -68,6 +72,29 @@ Then define builds and routes in `now.json` configuration file:
 Upon deployment, you will get a URL like this: https://nuxtjs-8fnzfb1ci.now.sh
 
 See [example](./example) for a more complete deployable example.
+
+## Config
+
+### `serverFiles`
+
+- Type: `Array`
+
+If you need to include some additional files to the server lambda like a local module or serverMiddleware which are NOT inside `static` or dist (built by webpack),
+you can use this option. Each item can be a glob pattern.
+
+Example:
+
+```json
+{
+  "src": "nuxt.config.js",
+  "use": "@nuxtjs/now-builder",
+  "config": {
+    "serverFiles": [
+      "server-middleware/**"
+    ]
+  }
+}
+```
 
 ## Technical Details
 
