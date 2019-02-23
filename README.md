@@ -95,20 +95,20 @@ Docs and Builder inspired by [Next.js](https://nextjs.org) by [Zeit.co](https://
 Copyright (c) Nuxt Community
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/dt/@nuxtjs/now-builder.svg?style=flat-square
+[npm-version-src]: https://flat.badgen.net/npm/dt/@nuxtjs/now-builder
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/now-builder
 
-[npm-downloads-src]: https://img.shields.io/npm/v/@nuxtjs/now-builder/latest.svg?style=flat-square
+[npm-downloads-src]: https://flat.badgen.net/npm/v/@nuxtjs/now-builder
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/now-builder
 
-[circle-ci-src]: https://img.shields.io/circleci/project/github/nuxt/now-builder.svg?style=flat-square
+[circle-ci-src]: https://flat.badgen.net/circleci/github/nuxt/now-builder
 [circle-ci-href]: https://circleci.com/gh/nuxt/now-builder
 
-[codecov-src]: https://img.shields.io/codecov/c/github/nuxt/now-builder.svg?style=flat-square
+[codecov-src]: https://flat.badgen.net/codecov/c/github/nuxt/now-builder
 [codecov-href]: https://codecov.io/gh/nuxt/now-builder
 
-[david-dm-src]: https://david-dm.org/nuxt/now-builder/status.svg?style=flat-square
+[david-dm-src]: https://flat.badgen.net/david/dep/nuxt/now-builder
 [david-dm-href]: https://david-dm.org/nuxt/now-builder
 
-[standard-js-src]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square
+[standard-js-src]: https://flat.badgen.net/badge/code%20style/standard/f2a
 [standard-js-href]: https://standardjs.com
