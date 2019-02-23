@@ -2,7 +2,8 @@ module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
   collectCoverageFrom: [
-    'lib/**/*.js'
+    'lib/**/*.js',
+    '!lib/launcher.js'
   ],
   modulePathIgnorePatterns: [
     '/node_modules/',
