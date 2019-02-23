@@ -1,21 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder"
-    }
+    { "src": "nuxt.config.js", "use": "@nuxtjs/now-builder" }
   ],
   "routes": [
-    {
-      "src": "/_nuxt/.+",
-      "headers": {
-        "cache-control": "s-maxage=31536000"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
+    { "src": "/_nuxt/.+", "headers": { "cache-control": "s-maxage=31536000" } },
+    { "src": "*.*" },
+    { "src": "/(.*)", "dest": "/"}
   ]
 }
