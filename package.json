@@ -12,14 +12,6 @@
     "test": "jest test",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "modulePathIgnorePatterns": [
-      "/node_modules/",
-      "/node_modules_dev/",
-      "/node_modules_prod/"
-    ]
-  },
   "dependencies": {
     "@now/node-bridge": "^1.0.0-canary.2",
     "execa": "^1.0.0",
