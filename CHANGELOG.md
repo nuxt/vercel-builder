@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.3](https://github.com/nuxt/now-builder/compare/v0.8.2...v0.8.3) (2019-02-23)
+
+
+### Bug Fixes
+
+* typo in launcher.js ([6735777](https://github.com/nuxt/now-builder/commit/6735777))
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [0.8.2](https://github.com/nuxt/now-builder/compare/v0.8.1...v0.8.2) (2019-02-23)
 
 
