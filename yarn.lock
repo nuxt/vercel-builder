@@ -647,10 +647,10 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-consola@^2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/consola/-/consola-2.5.2.tgz#8944d7cc76efbfdb47dcca18d8a96d491823e294"
-  integrity sha512-W43BJsbRnYuiNk5UfCR1LWkjjhUIxaSYbVeFus98mZJuV3ZbwuzCHQc87fKiMm3d3nXjZHoVMA+96IQwdmVp0Q==
+consola@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/consola/-/consola-2.5.3.tgz#f31386d0e7a460a5b7a698a640c5679268db0961"
+  integrity sha512-kLQDZW5TfTds9F/QGt7X0YlEyVDYXdrjkcqPVD+GuZZSJbW1KgEP3b59A1d9S7Tv3Q8kQyu/r6wOeAODjKVvVQ==
 
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
