@@ -1,6 +1,9 @@
 {
   "private": true,
   "license": "MIT",
+  "dependencies": {
+    "access-log": "^0.4.1"
+  },
   "devDependencies": {
     "now": "^14.0.0",
     "nuxt-edge": "2.5.0-25848007.21b1b865"

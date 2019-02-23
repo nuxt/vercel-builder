@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "eslint lib example test",
     "test": "jest test",
-    "update-fixture": "cd test/fixture && yarn && rm -rf node_modules"
+    "update-fixture": "cd test/fixture && yarn && rm -rf node_modules",
+    "update-example": "cd test/example && yarn && rm -rf node_modules"
   },
   "dependencies": {
     "@now/node-bridge": "^1.0.0-canary.2",
