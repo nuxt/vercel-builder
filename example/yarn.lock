@@ -4239,7 +4239,7 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-edge@^2.5.0-25848007.21b1b865:
+nuxt-edge@^2.5.0-25849450.8ea0f868:
   version "2.5.0-25849450.8ea0f868"
   resolved "https://registry.yarnpkg.com/nuxt-edge/-/nuxt-edge-2.5.0-25849450.8ea0f868.tgz#ed832e855c2b94be02a9639c8b59483c05d3b840"
   integrity sha512-1yYsYDhshhHa2oVVICOyrQGQ407VocPv9h57BKzTR5NZWn64QdEp/KjckomWb6eWcdUExO4lW+qP9NpQoPVCcA==
