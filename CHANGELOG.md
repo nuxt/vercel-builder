@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.10.0](https://github.com/nuxt/now-builder/compare/v0.9.0...v0.10.0) (2019-02-24)
+
+
+### Features
+
+* use yarn-offline-mirror ([19ba79f](https://github.com/nuxt/now-builder/commit/19ba79f))
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 # [0.9.0](https://github.com/nuxt/now-builder/compare/v0.8.3...v0.9.0) (2019-02-24)
 
 
