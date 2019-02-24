@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.12.0](https://github.com/nuxt/now-builder/compare/v0.11.0...v0.12.0) (2019-02-24)
+
+
+### Features
+
+* cache /tmp/cache ([a22d17e](https://github.com/nuxt/now-builder/commit/a22d17e))
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 # [0.11.0](https://github.com/nuxt/now-builder/compare/v0.10.1...v0.11.0) (2019-02-24)
 
 
