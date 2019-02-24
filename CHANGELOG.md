@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.1](https://github.com/nuxt/now-builder/compare/v0.12.0...v0.12.1) (2019-02-24)
+
+
+### Bug Fixes
+
+* keep everything inside workDir ([befc4a4](https://github.com/nuxt/now-builder/commit/befc4a4))
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 # [0.12.0](https://github.com/nuxt/now-builder/compare/v0.11.0...v0.12.0) (2019-02-24)
 
 
