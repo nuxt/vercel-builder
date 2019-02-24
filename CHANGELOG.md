@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.11.0](https://github.com/nuxt/now-builder/compare/v0.10.1...v0.11.0) (2019-02-24)
+
+
+### Features
+
+* use node_modules caching again ([85e4ed2](https://github.com/nuxt/now-builder/commit/85e4ed2))
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [0.10.1](https://github.com/nuxt/now-builder/compare/v0.10.0...v0.10.1) (2019-02-24)
 
 
