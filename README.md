@@ -12,7 +12,7 @@
 
 The Now Nuxt.js Builder takes a [Nuxt.js application](https://nuxtjs.org), defined by a `nuxt.config.js` entrypoint and deploys it to Now2 serverless environment.
 
-It features built-in caching of `node_modules` and all multi-stage build for fast and small-sized deployments.
+It features built-in caching of `node_modules` and yarn global cache (works even by dependency changes!) and multi-stage build for fast and small-sized deployments.
 
 ## When to use it
 
