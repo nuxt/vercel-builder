@@ -19,15 +19,4 @@ it('Should build the standard example', async () => {
   for (const file of buildFiles) {
     expect(buildResult[file]).toBeDefined()
   }
-
-  // Cache files
-  const cacheFiles = [
-    'node_modules_dev/@babel/core/package.json',
-    'node_modules_prod/@nuxt/core-edge/package.json',
-    'node_modules_dev/.yarn-integrity',
-    'node_modules_prod/.yarn-integrity'
-  ]
-  for (const file of cacheFiles) {
-    expect(cacheResult[file]).toBeDefined()
-  }
 }, FOUR_MINUTES)
