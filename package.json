@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@now/node-bridge": "^1.0.0-canary.2",
-    "consola": "^2.5.4",
+    "consola": "^2.5.5",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.1",
     "semver": "^5.6.0"
