@@ -131,10 +131,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@now/build-utils@^0.4.34":
-  version "0.4.34"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.4.34.tgz#11839d06c3c720f0672fb71eab9ad1915e2099d9"
-  integrity sha512-bE8bhtGq/RIq7c//+r9Eawk9oWKz1b3AUJ5Tk4ijxSzFuqH26nnfn853OJXCVfZvT4xgsIVDUnpVyXR6z7y6gg==
+"@now/build-utils@^0.4.36":
+  version "0.4.36"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.4.36.tgz#e112b92a4cda71ec7e34e0a622d3ba5234ba21bc"
+  integrity sha512-RUHW8B4bvhK98SN4yvhOI9zo9DbPbkv9nQfDxcTiOCWuNPI08SxnrbGLm7IZ3ACk52bii2LWyx89ZsYOi1RCvQ==
   dependencies:
     async-retry "1.2.3"
     async-sema "2.1.4"
