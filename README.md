@@ -1,6 +1,4 @@
-
 # Now Builder for Nuxt.js
-
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -45,9 +43,9 @@ Create a simple `nuxt.config.js` file:
 ```js
 export default {
   head: {
-    title: 'My Nuxt.js Application!'
+    title: "My Nuxt.js Application!"
   }
-}
+};
 ```
 
 Then define builds and routes in `now.json` configuration file:
@@ -73,6 +71,8 @@ Upon deployment, you will get a URL like this: https://nuxtjs-8fnzfb1ci.now.sh
 
 See [example](./example) for a more complete deployable example.
 
+See [Deploying two Nuxt apps side-by-side](./two-nuxt-apps.md) for details on deploying two nuxt apps in one Now Monorepo.
+
 ## Config
 
 ### `serverFiles`
@@ -89,9 +89,7 @@ Example:
   "src": "nuxt.config.js",
   "use": "@nuxtjs/now-builder",
   "config": {
-    "serverFiles": [
-      "server-middleware/**"
-    ]
+    "serverFiles": ["server-middleware/**"]
   }
 }
 ```
@@ -124,23 +122,18 @@ Docs and Builder inspired by [Next.js](https://nextjs.org) by [Zeit.co](https://
 Copyright (c) Nuxt Community
 
 <!-- Badges -->
+
 [npm-version-src]: https://flat.badgen.net/npm/dt/@nuxtjs/now-builder
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/now-builder
-
 [npm-downloads-src]: https://flat.badgen.net/npm/v/@nuxtjs/now-builder
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/now-builder
-
 [circle-ci-src]: https://flat.badgen.net/circleci/github/nuxt/now-builder
 [circle-ci-href]: https://circleci.com/gh/nuxt/now-builder
-
 [codecov-src]: https://flat.badgen.net/codecov/c/github/nuxt/now-builder
 [codecov-href]: https://codecov.io/gh/nuxt/now-builder
-
 [david-dm-src]: https://flat.badgen.net/david/dep/nuxt/now-builder
 [david-dm-href]: https://david-dm.org/nuxt/now-builder
-
 [standard-js-src]: https://flat.badgen.net/badge/code%20style/standard/f2a
 [standard-js-href]: https://standardjs.com
-
 [packagephobia-src]: https://flat.badgen.net/packagephobia/install/@nuxtjs/now-builder
 [packagephobia-href]: https://packagephobia.now.sh/result?p=@nuxtjs/now-builder

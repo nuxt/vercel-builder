@@ -1,0 +1,35 @@
+{
+	"public": false,
+	"version": 2,
+	"builds": [
+		{ "src": "app/nuxt.config.js", "use": "@unr/now-builder" },
+		{ "src": "admin/nuxt.config.js", "use": "@unr/now-builder" }
+	],
+	"routes": [
+		{
+			"src": "/admin/_nuxt/(.*)",
+			"dest": "/_nuxt/$1",
+			"headers": {
+				"cache-control": "s-maxage=31536000"
+			}
+		},
+		{
+			"src": "/_nuxt/.+",
+			"headers": {
+				"cache-control": "s-maxage=31536000"
+			}
+		},
+		{
+			"src": "^/admin",
+			"dest": "/admin"
+		},
+		{
+			"src": "^/admin/(.*)",
+			"dest": "/admin"
+		},
+		{
+			"src": "^/(.*)",
+			"dest": "/"
+		}
+	]
+}

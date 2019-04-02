@@ -1,0 +1,16 @@
+{
+  "name": "main-example-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nuxt --config-file app/nuxt.config.app.js",
+    "build": "nuxt build --config-file app/nuxt.config.app.js",
+    "start": "nuxt start --config-file app/nuxt.config.app.js"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
