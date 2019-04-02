@@ -20,7 +20,7 @@
     "esm": "^3.2.22",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.1",
-    "semver": "^5.7.0"
+    "semver": "^6.0.0"
   },
   "devDependencies": {
     "@now/build-utils": "^0.4.38",
