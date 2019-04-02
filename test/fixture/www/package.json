@@ -2,6 +2,6 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "nuxt-edge": "2.5.0-25846570.febcd6c5"
+    "nuxt-edge": "2.6.0-25903509.e155ea43"
   }
 }
