@@ -69,9 +69,9 @@ Then define builds and routes in `now.json` configuration file:
 
 Upon deployment, you will get a URL like this: https://nuxtjs-8fnzfb1ci.now.sh
 
-See [example](./example) for a more complete deployable example.
+See [Basic Example](./examples/basic) for a more complete deployable example.
 
-See [Deploying two Nuxt apps side-by-side](./two-nuxt-apps.md) for details on deploying two nuxt apps in one Now Monorepo.
+See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) for details on deploying two nuxt apps in one Now Monorepo.
 
 ## Config
 
