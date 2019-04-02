@@ -2,8 +2,8 @@
 	"public": false,
 	"version": 2,
 	"builds": [
-		{ "src": "app/nuxt.config.js", "use": "@unr/now-builder" },
-		{ "src": "admin/nuxt.config.js", "use": "@unr/now-builder" }
+		{ "src": "app/nuxt.config.js", "use": "@nuxtjs/now-builder" },
+		{ "src": "admin/nuxt.config.js", "use": "@nuxtjs/now-builder" }
 	],
 	"routes": [
 		{

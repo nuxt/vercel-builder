@@ -1,14 +1,16 @@
 <template>
-	<section class='container'>
-		<div>
-			<h1>Second</h1>
-			<NuxtLink to='/'>Go back</NuxtLink>
-		</div>
-	</section>
+  <section class="container">
+    <div>
+      <h1>Second</h1>
+      <NuxtLink to="/">
+        Go back
+      </NuxtLink>
+    </div>
+  </section>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style>

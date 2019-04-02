@@ -5,6 +5,6 @@
     "access-log": "^0.4.1"
   },
   "devDependencies": {
-    "nuxt-edge": "^2.5.0-25886238.a5654876"
+    "nuxt-edge": "^2.6.0-25903509.e155ea43"
   }
 }

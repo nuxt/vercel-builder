@@ -1,32 +1,40 @@
 <template>
-	<div class='links'>
-		<div class='link-target' @click='toggleLinks'>
-			Links
-			<strong>v</strong>
-			<div v-if='active' class='links-dropdown' ref='dropdown'>
-				<NuxtLink to='/first'>First</NuxtLink>
-				<NuxtLink to='/second'>Second</NuxtLink>
-				<NuxtLink to='/third'>Third</NuxtLink>
-				<NuxtLink to='/fourth'>Fourth</NuxtLink>
-			</div>
-		</div>
-	</div>
+  <div class="links">
+    <div class="link-target" @click="toggleLinks">
+      Links
+      <strong>v</strong>
+      <div v-if="active" ref="dropdown" class="links-dropdown">
+        <NuxtLink to="/first">
+          First
+        </NuxtLink>
+        <NuxtLink to="/second">
+          Second
+        </NuxtLink>
+        <NuxtLink to="/third">
+          Third
+        </NuxtLink>
+        <NuxtLink to="/fourth">
+          Fourth
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Links",
+  name: 'Links',
   data() {
     return {
       active: false
-    };
+    }
   },
   methods: {
     toggleLinks() {
-      this.active = !this.active;
+      this.active = !this.active
     }
   }
-};
+}
 </script>
 
 <style>
