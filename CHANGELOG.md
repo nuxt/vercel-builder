@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.1](https://github.com/nuxt/now-builder/compare/v0.14.0...v0.14.1) (2019-04-03)
+
+
+### Bug Fixes
+
+* read nuxt.config after yarn install. fixes [#26](https://github.com/nuxt/now-builder/issues/26) ([a5a1068](https://github.com/nuxt/now-builder/commit/a5a1068))
+
+
+
 # [0.14.0](https://github.com/nuxt/now-builder/compare/v0.13.1...v0.14.0) (2019-04-02)
 
 
