@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.2](https://github.com/nuxt/now-builder/compare/v0.14.1...v0.14.2) (2019-04-30)
+
+
+### Bug Fixes
+
+* add package.json to serverFiles ([#21](https://github.com/nuxt/now-builder/issues/21)) ([3b4e3d9](https://github.com/nuxt/now-builder/commit/3b4e3d9))
+* allow using nuxt 2.4.0 ([#29](https://github.com/nuxt/now-builder/issues/29)) ([2e096c2](https://github.com/nuxt/now-builder/commit/2e096c2))
+
+
+
 ## [0.14.1](https://github.com/nuxt/now-builder/compare/v0.14.0...v0.14.1) (2019-04-03)
 
 
