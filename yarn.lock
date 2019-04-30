@@ -283,10 +283,10 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/yargs" "^12.0.9"
 
-"@now/build-utils@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.5.0.tgz#e551e66ef8fd6ad1c321832b681b176cd502c689"
-  integrity sha512-XFwCy0+7U6ftk0rlKsJy8cpZ3Tgs3nCnmbBsPrr3p93+uDmSJGfHwLnFVcURo6b9BdWLt1Ft6fESr6y27widug==
+"@now/build-utils@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.5.1.tgz#c6dbcae0eae637e329bd46c55256709f50c55ad7"
+  integrity sha512-JRofUFQLJ9ex42xDt8+9OTBYmtIlDOM7y5Le8707y3IWjQBNbY6tUlwD7GH+Tu5g0/P+M2FWzc5llamSy4sLgg==
   dependencies:
     async-retry "1.2.3"
     async-sema "2.1.4"
