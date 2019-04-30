@@ -23,7 +23,7 @@
     "semver": "^6.0.0"
   },
   "devDependencies": {
-    "@now/build-utils": "^0.4.40",
+    "@now/build-utils": "^0.5.0",
     "@nuxtjs/eslint-config": "^0.0.1",
     "codecov": "^3.3.0",
     "eslint": "^5.16.0",
