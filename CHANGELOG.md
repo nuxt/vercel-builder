@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.4](https://github.com/nuxt/now-builder/compare/v0.14.3...v0.14.4) (2019-05-27)
+
+
+
 ## [0.14.3](https://github.com/nuxt/now-builder/compare/v0.14.2...v0.14.3) (2019-04-30)
 
 
