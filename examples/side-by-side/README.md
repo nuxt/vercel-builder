@@ -118,13 +118,13 @@ Our routes will include:
       "src": "/admin/_nuxt/(.*)",
       "dest": "/_nuxt/$1",
       "headers": {
-        "cache-control": "s-maxage=31536000"
+        "Cache-Control": "max-age=31557600"
       }
     },
     {
       "src": "/_nuxt/.+",
       "headers": {
-        "cache-control": "s-maxage=31536000"
+        "Cache-Control": "max-age=31557600"
       }
     },
     {
