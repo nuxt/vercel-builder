@@ -26,7 +26,7 @@
     "@now/build-utils": "^0.5.5",
     "@nuxtjs/eslint-config": "^0.0.1",
     "codecov": "^3.5.0",
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jest": "^22.6.4",
