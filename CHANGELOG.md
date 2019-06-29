@@ -1,6 +1,17 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.14.5](https://github.com/nuxt/now-builder/compare/v0.14.4...v0.14.5) (2019-06-29)
+
+
+### Bug Fixes
+
+* pin @now/node-bridge dependency to 1.2.1 ([#67](https://github.com/nuxt/now-builder/issues/67)) ([72090c6](https://github.com/nuxt/now-builder/commit/72090c6))
+* pin all non dev dependencies ([f386391](https://github.com/nuxt/now-builder/commit/f386391))
+* use preferLocal: true for execa ([00318b4](https://github.com/nuxt/now-builder/commit/00318b4))
+
+
 
 ## [0.14.4](https://github.com/nuxt/now-builder/compare/v0.14.3...v0.14.4) (2019-05-27)
 
