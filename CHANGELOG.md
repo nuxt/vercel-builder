@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.6](https://github.com/nuxt/now-builder/compare/v0.14.5...v0.14.6) (2019-06-29)
+
+
+### Bug Fixes
+
+* downgrade execa to 1.x ([55b01bb](https://github.com/nuxt/now-builder/commit/55b01bb))
+
+
+
 ### [0.14.5](https://github.com/nuxt/now-builder/compare/v0.14.4...v0.14.5) (2019-06-29)
 
 
