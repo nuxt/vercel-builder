@@ -303,10 +303,10 @@
     node-fetch "2.2.0"
     yazl "2.4.3"
 
-"@now/node-bridge@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.1.3.tgz#e37a79dbdbeee950e07bda47efc3ab1b92313bde"
-  integrity sha512-HkKRjZr02/CgUUILbd5WkeghrsmFa767UgZMIyDyIjOKF57U0YKmL94F6KQ3UYrBpnNXvPJgqU4/jJhUdHEPkQ==
+"@now/node-bridge@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.2.1.tgz#9539033c849f0026bdb6a36d06b4917e24dd5ff9"
+  integrity sha512-SgofDSqQjc2nbPYz1qxjrsovU3SvYxn4zxJYzBrNA4i986aB3/zmSSEneBnDjNnjS2RsttjjhRFDBdjX5EeNEw==
 
 "@nuxtjs/eslint-config@^0.0.1":
   version "0.0.1"

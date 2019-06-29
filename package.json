@@ -15,7 +15,7 @@
     "release": "standard-version && git push --follow-tags && npm publish"
   },
   "dependencies": {
-    "@now/node-bridge": "^1.1.3",
+    "@now/node-bridge": "1.2.1",
     "consola": "^2.7.1",
     "esm": "^3.2.25",
     "execa": "^1.0.0",
