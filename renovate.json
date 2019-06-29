@@ -3,6 +3,7 @@
     "@nuxtjs"
   ],
   "ignoreDeps": [
-    "@now/node-bridge"
+    "@now/node-bridge",
+    "execa"
   ]
 }

@@ -18,7 +18,7 @@
     "@now/node-bridge": "1.2.1",
     "consola": "2.9.0",
     "esm": "3.2.25",
-    "execa": "2.0.1",
+    "execa": "1.0.0",
     "fs-extra": "8.1.0",
     "semver": "6.1.2"
   },
