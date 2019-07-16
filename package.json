@@ -15,21 +15,21 @@
     "release": "standard-version && git push --follow-tags && npm publish"
   },
   "dependencies": {
-    "@now/node-bridge": "1.2.1",
+    "@now/node-bridge": "1.2.2",
     "consola": "2.9.0",
     "esm": "3.2.25",
-    "execa": "1.0.0",
+    "execa": "2.0.3",
     "fs-extra": "8.1.0",
-    "semver": "6.1.2"
+    "semver": "6.2.0"
   },
   "devDependencies": {
-    "@now/build-utils": "^0.7.0",
-    "@nuxtjs/eslint-config": "^0.0.1",
+    "@now/build-utils": "^0.8.6",
+    "@nuxtjs/eslint-config": "^1.0.1",
     "codecov": "^3.5.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jest": "^22.7.1",
+    "eslint-plugin-jest": "^22.8.0",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
