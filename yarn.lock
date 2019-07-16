@@ -285,10 +285,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@now/build-utils@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.7.0.tgz#3f51a2bab8b0b10764a5b92bfec3148b16bf8ecb"
-  integrity sha512-eWSLZj5tROrvZh3b6oQ4fkvwhUt362FjVWh/JpGz6cxkGgOo+p942Erdc6g+ho+uCY5UndCCezzXLrUCsuC4Xg==
+"@now/build-utils@^0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.7.4.tgz#0e4a779827353e081829dc087c3e0cd57d94c1ae"
+  integrity sha512-m2AGs6mmqCeUxQ/b79dVANT0XBsqQTvtFO9f+Nlp9NXVSL+khgsaTLH9KYTV8Xoldnnk/5d42gIKOHa9dLPj7g==
   dependencies:
     async-retry "1.2.3"
     async-sema "2.1.4"
@@ -1453,10 +1453,10 @@ eslint-plugin-import@^2.18.0:
     read-pkg-up "^2.0.0"
     resolve "^1.11.0"
 
-eslint-plugin-jest@^22.7.1:
-  version "22.7.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.7.1.tgz#5dcdf8f7a285f98040378220d6beca581f0ab2a1"
-  integrity sha512-CrT3AzA738neimv8G8iK2HCkrCwHnAJeeo7k5TEHK86VMItKl6zdJT/tHBDImfnVVAYsVs4Y6BUdBZQCCgfiyw==
+eslint-plugin-jest@^22.8.0:
+  version "22.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.8.0.tgz#242ef5459e8da25d2c41438e95eb546e03d7fae1"
+  integrity sha512-2VftZMfILmlhL3VMq5ptHRIuyyXb3ShDEDb1J1UjvWNzm4l+UK/YmwNuTuJcM0gv8pJuOfiR/8ZptJ8Ou68pFw==
 
 eslint-plugin-node@^9.1.0:
   version "9.1.0"
@@ -4252,7 +4252,12 @@ semver@6.1.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.1.tgz#53f53da9b30b2103cd4f15eab3a18ecbcb210c9b"
   integrity sha512-rWYq2e5iYW+fFe/oPPtYJxYgjBm8sC4rmoGdUOgBB7VnwKt6HrL793l2voH1UlsyYZpJ4g0wfjnTEO1s1NP2eQ==
 
-semver@6.1.2, semver@^6.0.0, semver@^6.1.0:
+semver@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.2.0.tgz#4d813d9590aaf8a9192693d6c85b9344de5901db"
+  integrity sha512-jdFC1VdUGT/2Scgbimf7FSx9iJLXoqfglSF+gJeuNWVpiE37OIbc1jywR/GJyFdz3mnkz2/id0L0J/cr0izR5A==
+
+semver@^6.0.0, semver@^6.1.0:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.2.tgz#079960381376a3db62eb2edc8a3bfb10c7cfe318"
   integrity sha512-z4PqiCpomGtWj8633oeAdXm1Kn1W++3T8epkZYnwiVgIYIJ0QHszhInYSJTYxebByQH7KVCEAn8R9duzZW2PhQ==
