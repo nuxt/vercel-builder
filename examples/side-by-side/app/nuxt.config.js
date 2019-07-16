@@ -11,7 +11,7 @@ module.exports = {
   build: {
     publicPath: '_nuxt/app',
 
-    extend(config) {
+    extend (config) {
       // Support ~shared alias
       config.resolve.alias.shared = resolve(__dirname, '../shared')
       config.resolve.alias['~shared'] = resolve(__dirname, '../shared')

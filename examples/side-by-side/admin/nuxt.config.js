@@ -16,7 +16,7 @@ module.exports = {
     publicPath: '_nuxt/admin',
 
     // add support for ~/shared
-    extend(config) {
+    extend (config) {
       // Add '~/shared' as an alias.
       config.resolve.alias.shared = resolve(__dirname, '../shared')
       config.resolve.alias['~shared'] = resolve(__dirname, '../shared')

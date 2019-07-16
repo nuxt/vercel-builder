@@ -2,7 +2,7 @@ const path = require('path')
 const glob = require('@now/build-utils/fs/glob')
 const fs = require('fs-extra')
 
-function runAnalyze(wrapper, context) {
+function runAnalyze (wrapper, context) {
   if (wrapper.analyze) {
     return wrapper.analyze(context)
   }
@@ -10,7 +10,7 @@ function runAnalyze(wrapper, context) {
   return 'this-is-a-fake-analyze-result-from-default-analyze'
 }
 
-async function runBuildLambda(inputPath) {
+async function runBuildLambda (inputPath) {
   const inputFiles = await glob('**', inputPath)
 
   const nowJsonRef = inputFiles['now.json']

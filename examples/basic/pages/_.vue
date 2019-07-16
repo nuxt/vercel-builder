@@ -181,7 +181,7 @@
 <script>
 export default {
   computed: {
-    path() {
+    path () {
       return this.$route.params.pathMatch
     }
   }

@@ -24,13 +24,13 @@
 <script>
 export default {
   name: 'Links',
-  data() {
+  data () {
     return {
       active: false
     }
   },
   methods: {
-    toggleLinks() {
+    toggleLinks () {
       this.active = !this.active
     }
   }
