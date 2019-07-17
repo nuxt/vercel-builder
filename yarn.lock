@@ -285,10 +285,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@now/build-utils@^0.8.7":
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.8.7.tgz#d335c221ef87955111fe680eb346023fd6b662c9"
-  integrity sha512-BoG90ly+7zAxw8bty5Pi2EEXJDTX8xeMwxRRthHcStc6uMs0Olu7OdXIIGCS8J6lXKowl+lrX6ctRjCgzwGLfg==
+"@now/build-utils@^0.8.8":
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.8.8.tgz#9fa8bfd44935a0cc76c01533ded37d92e85c869c"
+  integrity sha512-tnfPZVJ0HrjdOr/cfPY90zxy753lP99Gl1Xwx274WLWz3re525JPv8KI98B93sAzi3jmWV6t2I3twJovxo3v0g==
   dependencies:
     async-retry "1.2.3"
     async-sema "2.1.4"
@@ -1483,10 +1483,15 @@ eslint-plugin-import@^2.18.0:
     read-pkg-up "^2.0.0"
     resolve "^1.11.0"
 
-eslint-plugin-jest@^22.7.2, eslint-plugin-jest@^22.8.0:
+eslint-plugin-jest@^22.7.2:
   version "22.8.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.8.0.tgz#242ef5459e8da25d2c41438e95eb546e03d7fae1"
   integrity sha512-2VftZMfILmlhL3VMq5ptHRIuyyXb3ShDEDb1J1UjvWNzm4l+UK/YmwNuTuJcM0gv8pJuOfiR/8ZptJ8Ou68pFw==
+
+eslint-plugin-jest@^22.9.0:
+  version "22.9.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.9.0.tgz#2573dbcb4f1066b96a6e6d3b9aa439c80b28975a"
+  integrity sha512-V89BUiwf76FHlhj1mlNhNyvpzTy8VbWCh2RZpKYz/XDSl/pcuwFiE/LMt7r3q1sRKygzEMjbYeDob8MMuvakXg==
 
 eslint-plugin-node@^9.1.0:
   version "9.1.0"
