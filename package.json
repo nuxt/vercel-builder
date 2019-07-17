@@ -20,6 +20,7 @@
     "esm": "3.2.25",
     "execa": "2.0.3",
     "fs-extra": "8.1.0",
+    "resolve-from": "^5.0.0",
     "semver": "6.2.0"
   },
   "devDependencies": {
