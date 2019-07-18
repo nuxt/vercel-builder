@@ -285,10 +285,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@now/build-utils@^0.8.8":
-  version "0.8.8"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.8.8.tgz#9fa8bfd44935a0cc76c01533ded37d92e85c869c"
-  integrity sha512-tnfPZVJ0HrjdOr/cfPY90zxy753lP99Gl1Xwx274WLWz3re525JPv8KI98B93sAzi3jmWV6t2I3twJovxo3v0g==
+"@now/build-utils@^0.8.9":
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.8.9.tgz#46cdef93eceaee6dadca11ec784bde7509fa44af"
+  integrity sha512-dosrrE4SyV0BQwncqzXu1HJlnIJAUv3Nf6Z1NUp2V58DfwsNeZFIHKhAI46hBsQMhsAkum1SsFdXTPgVj/sTQQ==
   dependencies:
     async-retry "1.2.3"
     async-sema "2.1.4"
