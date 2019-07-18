@@ -62,10 +62,6 @@ Then define builds and routes in `now.json` configuration file:
       "use": "@nuxtjs/now-builder",
       "config": {}
     }
-  ],
-  "routes": [
-    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
-    { "src": "/(.*)", "dest": "/" }
   ]
 }
 ```
