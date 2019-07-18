@@ -8,8 +8,10 @@ it('Should build the standard example', async () => {
     path.join(__dirname, 'fixture')
   )
 
+  const { output, routes } = buildResult
   // Lambda
-  expect(buildResult.index).toBeDefined()
+  expect(output.index).toBeDefined()
+  expect(routes).toBeDefined()
 
   // Build files
   const buildFiles = [
@@ -17,6 +19,6 @@ it('Should build the standard example', async () => {
     '_nuxt/LICENSES'
   ]
   for (const file of buildFiles) {
-    expect(buildResult[file]).toBeDefined()
+    expect(output[file]).toBeDefined()
   }
 }, FOUR_MINUTES)
