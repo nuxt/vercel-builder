@@ -106,7 +106,7 @@ The installation algorithm of dependencies works as follows:
 - If a `package-lock.json` is present, `npm install` is used
 - Otherwise, `yarn` is used.
 
-**NOTE:** Using `yarn` is HIGHLY recommended!
+**NOTE:** Using `yarn` is HIGHLY recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality !
 
 ### Private npm modules
 
