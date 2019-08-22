@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.3](https://github.com/nuxt/now-builder/compare/v0.15.2...v0.15.3) (2019-08-22)
+
+
+### Features
+
+* add support for yarn workspaces ([#103](https://github.com/nuxt/now-builder/issues/103)) ([a4a7e94](https://github.com/nuxt/now-builder/commit/a4a7e94))
+
 ### [0.14.6](https://github.com/nuxt/now-builder/compare/v0.14.5...v0.14.6) (2019-06-29)
 
 
