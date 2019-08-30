@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/nuxt/now-builder/compare/v0.15.3...v0.16.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* allow installing node 10 dependencies ([#109](https://github.com/nuxt/now-builder/issues/109)) ([20962de](https://github.com/nuxt/now-builder/commit/20962de))
+* test for presence of dependencies before accessing ([#116](https://github.com/nuxt/now-builder/issues/116)) ([4fc181d](https://github.com/nuxt/now-builder/commit/4fc181d))
+
+
+### Features
+
+* add required options for typescript projects ([#110](https://github.com/nuxt/now-builder/issues/110)) ([100e6f4](https://github.com/nuxt/now-builder/commit/100e6f4))
+* expose static files as routes ([#106](https://github.com/nuxt/now-builder/issues/106)) ([d66931d](https://github.com/nuxt/now-builder/commit/d66931d))
+
+
+
 ### [0.15.3](https://github.com/nuxt/now-builder/compare/v0.15.2...v0.15.3) (2019-08-22)
 
 
