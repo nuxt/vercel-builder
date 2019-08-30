@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.1](https://github.com/nuxt/now-builder/compare/v0.16.0...v0.16.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* fix typescript dependency test ([#118](https://github.com/nuxt/now-builder/issues/118)) ([5d41eee](https://github.com/nuxt/now-builder/commit/5d41eee))
+
+
+
 ## [0.16.0](https://github.com/nuxt/now-builder/compare/v0.15.3...v0.16.0) (2019-08-30)
 
 
