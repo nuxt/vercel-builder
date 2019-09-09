@@ -43,7 +43,7 @@ async function runBuildLambda (inputPath) {
   })
 
   const cacheResult = await wrapper.prepareCache({
-    cachePath: path.join(workPath, '.cache'),
+    prepareCachePath: path.join(workPath, '.cache'),
     workPath,
     entrypoint
   })
