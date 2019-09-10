@@ -9,3 +9,4 @@ coverage
 dist
 .cache
 .tmp
+!lib/.yarnclean

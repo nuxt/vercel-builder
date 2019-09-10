@@ -23,7 +23,8 @@ async function runBuildLambda (inputPath) {
 
   inputFiles[entrypoint].digest = 'this-is-a-fake-digest-for-non-default-analyze'
 
-  const wrapper = require(build.use)
+  let wrapper = require(build.use)
+  wrapper = wrapper.default || wrapper
 
   const analyzeResult = runAnalyze(wrapper, {
     files: inputFiles,

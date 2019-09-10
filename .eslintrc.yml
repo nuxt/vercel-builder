@@ -1,3 +1,16 @@
-extends: "@nuxtjs"
+extends:
+  - "plugin:@typescript-eslint/recommended"
+  - "@nuxtjs"
 rules:
   no-console: 1
+  "@typescript-eslint/no-var-requires": 0
+plugins:
+  - "@typescript-eslint"
+parserOptions:
+  parser: "@typescript-eslint/parser"
+  tsconfigRootDir: "./src"
+  ecmaFeatures:
+    jsx: false
+  useJSXTextNode: false
+  ecmaVersion: 11
+  sourceType: "module"

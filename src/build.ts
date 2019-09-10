@@ -1,15 +1,21 @@
-const path = require('path')
-const resolveFrom = require('resolve-from')
-const fs = require('fs-extra')
-const semver = require('semver')
-const consola = require('consola')
-const esm = require('esm')
+import path from 'path'
+import resolveFrom from 'resolve-from'
+import fs from 'fs-extra'
+import { gte, gt } from 'semver'
+import consola from 'consola'
+import esm from 'esm'
 
-const { createLambda, download, FileFsRef, FileBlob, getNodeVersion, getSpawnOptions } = require('@now/build-utils')
+import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Route, Lambda, File, PackageJson } from '@now/build-utils'
 
-const { exec, validateEntrypoint, globAndPrefix, glob, preparePkgForProd, startStep, endStep } = require('./utils')
+import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep } from './utils'
 
-async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
+interface BuilderOutput {
+  watch?: string[];
+  output: Record<string, Lambda | File | FileFsRef>;
+  routes: Route[];
+}
+
+async function build ({ files, entrypoint, workPath, config = {}, meta = {} }: BuildOptions): Promise<BuilderOutput> {
   // ----------------- Prepare build -----------------
   startStep('Prepare build')
 
@@ -30,7 +36,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
   consola.log('Working directory:', process.cwd())
 
   // Read package.json
-  let pkg
+  let pkg: PackageJson
   try {
     pkg = await fs.readJson('package.json')
   } catch (e) {
@@ -40,13 +46,16 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
   // Node version
   const nodeVersion = await getNodeVersion(rootDir)
   const spawnOpts = getSpawnOptions(meta, nodeVersion)
+  if (!spawnOpts.env) {
+    spawnOpts.env = {}
+  }
 
   const usesTypescript = pkg.dependencies && (Object.keys(pkg.dependencies).includes('@nuxt/typescript-build') || Object.keys(pkg.dependencies).includes('@nuxt/typescript'))
   if (usesTypescript) {
-    spawnOpts.env.NODE_PRESERVE_SYMLINKS = 1
+    spawnOpts.env.NODE_PRESERVE_SYMLINKS = '1'
   }
 
-  if (usesTypescript && (await fs.exists('tsconfig.json'))) {
+  if (usesTypescript && (fs.existsSync('tsconfig.json'))) {
     let tsConfig
     try {
       tsConfig = await fs.readJson('tsconfig.json')
@@ -58,7 +67,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
   }
 
   // Detect npm (prefer yarn)
-  const isYarn = !await fs.exists('package-lock.json')
+  const isYarn = !fs.existsSync('package-lock.json')
   consola.log('Using', isYarn ? 'yarn' : 'npm')
 
   // Write .npmrc
@@ -68,7 +77,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
   }
 
   // Write .yarnclean
-  if (isYarn && !await fs.exists('.yarnclean')) {
+  if (isYarn && !fs.existsSync('.yarnclean')) {
     await fs.copyFile(path.join(__dirname, '.yarnclean'), '.yarnclean')
   }
 
@@ -84,7 +93,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
 
   // Prepare node_modules
   await fs.mkdirp('node_modules_dev')
-  if (await fs.exists('node_modules')) {
+  if (fs.existsSync('node_modules')) {
     await fs.unlink('node_modules')
   }
   await fs.symlink('node_modules_dev', 'node_modules')
@@ -121,7 +130,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
 
   // Execute nuxt build
-  if (await fs.exists(buildDir)) {
+  if (fs.existsSync(buildDir)) {
     consola.warn(buildDir, 'exists! Please ensure to ignore it with `.nowignore`')
   }
 
@@ -137,7 +146,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
 
   // Use node_modules_prod
   await fs.mkdirp('node_modules_prod')
-  if (await fs.exists('node_modules')) {
+  if (fs.existsSync('node_modules')) {
     await fs.unlink('node_modules')
   }
   await fs.symlink('node_modules_prod', 'node_modules')
@@ -163,10 +172,10 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
 
   // Validate nuxt version
   const nuxtPkg = require(resolveFrom(rootDir, `@nuxt/core${nuxtDep.suffix}/package.json`))
-  if (!semver.gte(nuxtPkg.version, '2.4.0')) {
+  if (!gte(nuxtPkg.version, '2.4.0')) {
     throw new Error(`nuxt >= 2.4.0 is required, detected version ${nuxtPkg.version}`)
   }
-  if (semver.gt(nuxtPkg.version, '3.0.0')) {
+  if (gt(nuxtPkg.version, '3.0.0')) {
     consola.warn('WARNING: nuxt >= 3.0.0 is not tested against this builder!')
   }
 
@@ -194,7 +203,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
   const nodeModules = await globAndPrefix('**', nodeModulesDir, 'node_modules')
 
   // Lambdas
-  const lambdas = {}
+  const lambdas: Record<string, Lambda> = {}
 
   const launcherPath = path.join(__dirname, 'launcher.js')
   const launcherSrc = (await fs.readFile(launcherPath, 'utf8'))
@@ -211,7 +220,7 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
 
   // Extra files to be included in lambda
   const serverFiles = [
-    ...(config.serverFiles || []),
+    ...(Array.isArray(config.serverFiles) ? config.serverFiles : []),
     'package.json'
   ]
 
@@ -248,4 +257,4 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }) {
   }
 }
 
-module.exports = build
+export = build

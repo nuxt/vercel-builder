@@ -1,7 +1,10 @@
+import { IncomingMessage, ServerResponse } from 'http'
+import esmCompiler from 'esm'
+
 const startTime = process.hrtime()
 
 // Load Config
-const esm = require('esm')(module, {
+const esm = esmCompiler(module, {
   cjs: {
     dedefault: true
   }
@@ -23,17 +26,17 @@ const readyPromise = nuxt.ready().then(() => {
   const hrTimeMs = ((hrTime[0] * 1e9) + hrTime[1]) / 1e6
   // eslint-disable-next-line no-console
   console.log(`λ Cold start took: ${hrTimeMs}ms`)
-}).catch((error) => {
+}).catch((error: any) => {
   // eslint-disable-next-line no-console
   console.error('λ Error while initializing nuxt:', error)
   process.exit(1)
 })
 
-// Create brdige and start listening
+// Create bridge and start listening
 const { Server } = require('http') // eslint-disable-line import/order
 const { Bridge } = require('./now__bridge.js')
 
-const server = new Server(async (req, res) => {
+const server = new Server(async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
   if (!isReady) {
     await readyPromise
   }
@@ -43,4 +46,4 @@ const bridge = new Bridge(server)
 
 bridge.listen()
 
-exports.launcher = bridge.launcher
+export const launcher = bridge.launcher

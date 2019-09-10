@@ -1,9 +1,10 @@
-const path = require('path')
-const execa = require('execa')
-const { glob } = require('@now/build-utils')
-const consola = require('consola')
+import path from 'path'
+import { SpawnOptions } from 'child_process'
+import execa from 'execa'
+import { glob, Files, PackageJson } from '@now/build-utils'
+import consola from 'consola'
 
-async function exec (cmd, args, { env, ...opts } = {}) {
+export async function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<void> {
   args = args.filter(Boolean)
 
   consola.log('Running', cmd, ...args)
@@ -13,7 +14,7 @@ async function exec (cmd, args, { env, ...opts } = {}) {
     stderr: process.stderr,
     preferLocal: false,
     env: {
-      MINIMAL: 1,
+      MINIMAL: '1',
       NODE_OPTIONS: '--max_old_space_size=3000',
       ...env
     },
@@ -24,7 +25,7 @@ async function exec (cmd, args, { env, ...opts } = {}) {
 /**
  * Validate if the entrypoint is allowed to be used
  */
-function validateEntrypoint (entrypoint) {
+export function validateEntrypoint (entrypoint: string): void {
   const filename = path.basename(entrypoint)
 
   if (['package.json', 'nuxt.config.js'].includes(filename) === false) {
@@ -44,43 +45,54 @@ function validateEntrypoint (entrypoint) {
 //   return newFiles
 // }
 
-function renameFiles (files, renameFn) {
-  const newFiles = {}
+export function renameFiles (files: Files, renameFn: (fileName: string) => string): Files {
+  const newFiles: Files = {}
   for (const fileName in files) {
     newFiles[renameFn(fileName)] = files[fileName]
   }
   return newFiles
 }
 
-async function globAndRename (pattern, opts, renameFn) {
+export async function globAndRename (pattern: string, opts: any, renameFn: (fileName: string) => string): Promise<Files> {
   const files = await glob(pattern, opts)
   return renameFiles(files, renameFn)
 }
 
-function globAndPrefix (pattern, opts, prefix) {
+export function globAndPrefix (pattern: string, opts: any, prefix: string): Promise<Files> {
   return globAndRename(pattern, opts, name => path.join(prefix, name))
 }
 
-function findNuxtDep (pkg) {
-  for (const section of ['dependencies', 'devDependencies']) {
-    for (const suffix of ['-edge', '']) {
-      const name = 'nuxt' + suffix
-      const version = pkg[section][name]
-      if (version) {
-        const semver = version.replace(/^[\^~><=]{1,2}/, '')
-        return {
-          name,
-          version,
-          semver,
-          suffix,
-          section
+interface NuxtVersion {
+  name: string;
+  version: string;
+  semver: string;
+  suffix: string;
+  section: string;
+}
+
+export function findNuxtDep (pkg: PackageJson): void | NuxtVersion {
+  for (const section of ['dependencies', 'devDependencies'] as const) {
+    const deps = pkg[section]
+    if (deps) {
+      for (const suffix of ['-edge', '']) {
+        const name = 'nuxt' + suffix
+        const version = deps[name]
+        if (version) {
+          const semver = version.replace(/^[\^~><=]{1,2}/, '')
+          return {
+            name,
+            version,
+            semver,
+            suffix,
+            section
+          }
         }
       }
     }
   }
 }
 
-function preparePkgForProd (pkg) {
+export function preparePkgForProd (pkg: PackageJson): NuxtVersion {
   // Ensure fields exist
   if (!pkg.dependencies) {
     pkg.dependencies = {}
@@ -112,40 +124,30 @@ function preparePkgForProd (pkg) {
   return nuxtDependency
 }
 
-let _step, _stepStartTime
+let _step: string | undefined
+let _stepStartTime: [number, number] | undefined
 
 const dash = ' ----------------- '
 
-function startStep (step) {
-  endStep()
-  consola.log(dash + step + dash)
-  _step = step
-  _stepStartTime = process.hrtime()
-}
-
-function hrToMs (hr) {
+export function hrToMs (hr: [number, number]): number {
   const hrTime = process.hrtime(hr)
   return ((hrTime[0] * 1e9) + hrTime[1]) / 1e6
 }
 
-function endStep () {
+export function endStep (): void {
   if (!_step) {
     return
   }
-  consola.info(`${_step} took: ${hrToMs(_stepStartTime)} ms`)
+  if (_step && _stepStartTime) {
+    consola.info(`${_step} took: ${hrToMs(_stepStartTime)} ms`)
+  }
   _step = undefined
   _stepStartTime = undefined
 }
 
-module.exports = {
-  exec,
-  validateEntrypoint,
-  // filterFiles,
-  renameFiles,
-  glob,
-  globAndRename,
-  globAndPrefix,
-  preparePkgForProd,
-  startStep,
-  endStep
+export function startStep (step: string): void {
+  endStep()
+  consola.log(dash + step + dash)
+  _step = step
+  _stepStartTime = process.hrtime()
 }
