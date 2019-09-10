@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.2](https://github.com/nuxt/now-builder/compare/v0.16.1...v0.16.2) (2019-09-10)
+
+
+### Bug Fixes
+
+* use new object property from Now ([#122](https://github.com/nuxt/now-builder/issues/122)) ([d01e992](https://github.com/nuxt/now-builder/commit/d01e992)), closes [#111](https://github.com/nuxt/now-builder/issues/111)
+
 ### [0.16.1](https://github.com/nuxt/now-builder/compare/v0.16.0...v0.16.1) (2019-08-30)
 
 
