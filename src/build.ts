@@ -15,7 +15,7 @@ interface BuilderOutput {
   routes: Route[];
 }
 
-async function build ({ files, entrypoint, workPath, config = {}, meta = {} }: BuildOptions): Promise<BuilderOutput> {
+export async function build ({ files, entrypoint, workPath, config = {}, meta = {} }: BuildOptions): Promise<BuilderOutput> {
   // ----------------- Prepare build -----------------
   startStep('Prepare build')
 
@@ -256,5 +256,3 @@ async function build ({ files, entrypoint, workPath, config = {}, meta = {} }: B
     ]
   }
 }
-
-export = build
