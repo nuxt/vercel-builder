@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/now-builder",
-  "version": "0.16.2",
+  "version": "0.16.3",
   "license": "MIT",
   "repository": "nuxt/now-builder",
   "main": "lib/index.js",

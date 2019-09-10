@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.3](https://github.com/nuxt/now-builder/compare/v0.16.2...v0.16.3) (2019-09-10)
+
+
+### Bug Fixes
+
+* consume default export of nuxt config file ([#124](https://github.com/nuxt/now-builder/issues/124)) ([22dff63](https://github.com/nuxt/now-builder/commit/22dff63)), closes [#43](https://github.com/nuxt/now-builder/issues/43)
+
 ### [0.16.2](https://github.com/nuxt/now-builder/compare/v0.16.1...v0.16.2) (2019-09-10)
 
 
