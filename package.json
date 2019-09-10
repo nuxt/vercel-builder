@@ -8,11 +8,11 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint --ext .vue,.js lib examples test",
-    "test": "jest test",
+    "lint": "eslint --ext .vue,.js,.ts src examples test",
+    "test": "tsc && jest test",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules",
     "update-example": "cd test/example && yarn && rm -rf node_modules",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "tsc && standard-version && git push --follow-tags && npm publish"
   },
   "dependencies": {
     "@now/node-bridge": "1.2.2",
