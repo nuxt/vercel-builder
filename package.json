@@ -24,13 +24,13 @@
     "semver": "6.3.0"
   },
   "devDependencies": {
-    "@now/build-utils": "^0.9.13",
+    "@now/build-utils": "^0.9.14",
     "@nuxtjs/eslint-config": "^1.1.2",
     "codecov": "^3.5.0",
-    "eslint": "^6.2.2",
+    "eslint": "^6.3.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.16.0",
+    "eslint-plugin-jest": "^22.17.0",
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
