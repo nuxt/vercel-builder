@@ -292,10 +292,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@now/build-utils@^0.9.14":
-  version "0.9.14"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.9.14.tgz#9e81828d3a2be697db0d8c44cbe9ae519003ee6f"
-  integrity sha512-fDyo/1Zb2StDhFKfoNf+M9nY5RhfuofpGXVwL8IjYUodze1VPDFX039Ut8zUVlujIFkSl8QMl8iu9fYr0H2ERg==
+"@now/build-utils@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.10.0.tgz#3a1a3f9ff2fbf9f2704e677e3957a576e7ca3770"
+  integrity sha512-wa7V4c1yvZ3yODc1MH5yHwJL1r5tEJeDz/MVilMSVB1o2b6UWo1DZQPGGsvpLCbHxj62+RG0iV1XUw7/qDqFig==
 
 "@now/node-bridge@1.2.2":
   version "1.2.2"
