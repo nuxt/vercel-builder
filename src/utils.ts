@@ -3,6 +3,7 @@ import { SpawnOptions } from 'child_process'
 import execa from 'execa'
 import { glob, Files, PackageJson } from '@now/build-utils'
 import consola from 'consola'
+import { IOptions } from 'glob'
 
 export async function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<void> {
   args = args.filter(Boolean)
@@ -53,12 +54,12 @@ export function renameFiles (files: Files, renameFn: (fileName: string) => strin
   return newFiles
 }
 
-export async function globAndRename (pattern: string, opts: any, renameFn: (fileName: string) => string): Promise<Files> {
+export async function globAndRename (pattern: string, opts: IOptions | string, renameFn: (fileName: string) => string): Promise<Files> {
   const files = await glob(pattern, opts)
   return renameFiles(files, renameFn)
 }
 
-export function globAndPrefix (pattern: string, opts: any, prefix: string): Promise<Files> {
+export function globAndPrefix (pattern: string, opts: IOptions | string, prefix: string): Promise<Files> {
   return globAndRename(pattern, opts, name => path.join(prefix, name))
 }
 

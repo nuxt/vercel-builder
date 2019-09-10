@@ -26,7 +26,7 @@ const readyPromise = nuxt.ready().then(() => {
   const hrTimeMs = ((hrTime[0] * 1e9) + hrTime[1]) / 1e6
   // eslint-disable-next-line no-console
   console.log(`λ Cold start took: ${hrTimeMs}ms`)
-}).catch((error: any) => {
+}).catch((error: string | Error) => {
   // eslint-disable-next-line no-console
   console.error('λ Error while initializing nuxt:', error)
   process.exit(1)
