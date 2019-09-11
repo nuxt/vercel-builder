@@ -3,11 +3,11 @@ import resolveFrom from 'resolve-from'
 import fs from 'fs-extra'
 import { gte, gt } from 'semver'
 import consola from 'consola'
-import esm from 'esm'
 
 import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Route, Lambda, File, PackageJson } from '@now/build-utils'
 
-import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep } from './utils'
+import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig } from './utils'
+import { prepareTypescriptEnvironment, compileTypescriptBuildFiles } from './typescript'
 
 interface BuilderOutput {
   watch?: string[];
@@ -46,24 +46,14 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // Node version
   const nodeVersion = await getNodeVersion(rootDir)
   const spawnOpts = getSpawnOptions(meta, nodeVersion)
-  if (!spawnOpts.env) {
-    spawnOpts.env = {}
-  }
 
-  const usesTypescript = pkg.dependencies && (Object.keys(pkg.dependencies).includes('@nuxt/typescript-build') || Object.keys(pkg.dependencies).includes('@nuxt/typescript'))
+  // Prepare TypeScript environment if required.
+  const usesTypescript = (pkg.devDependencies && Object.keys(pkg.devDependencies).includes('@nuxt/typescript-build')) || (pkg.dependencies && Object.keys(pkg.dependencies).includes('@nuxt/typescript'))
+
   if (usesTypescript) {
-    spawnOpts.env.NODE_PRESERVE_SYMLINKS = '1'
-  }
-
-  if (usesTypescript && (fs.existsSync('tsconfig.json'))) {
-    let tsConfig
-    try {
-      tsConfig = await fs.readJson('tsconfig.json')
-    } catch (e) {
-      throw new Error(`Can not read tsconfig.json from ${rootDir}`)
-    }
-    tsConfig.exclude = [ ...tsConfig.exclude, 'node_modules_dev', 'node_modules_prod' ]
-    await fs.writeJSON('tsconfig.json', tsConfig)
+    await prepareTypescriptEnvironment({
+      pkg, spawnOpts, rootDir
+    })
   }
 
   // Detect npm (prefer yarn)
@@ -99,7 +89,6 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   await fs.symlink('node_modules_dev', 'node_modules')
 
   // Install all dependencies
-  spawnOpts.env.NODE_ENV = 'development'
   if (isYarn) {
     await exec('yarn', [
       'install',
@@ -109,7 +98,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
       '--production=false',
       `--modules-folder=${rootDir}/node_modules`,
       `--cache-folder=${yarnCacheDir}`
-    ], spawnOpts)
+    ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
   } else {
     await exec('npm', [ 'install' ], spawnOpts)
   }
@@ -117,11 +106,13 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // ----------------- Nuxt build -----------------
   startStep('Nuxt build')
 
+  if (usesTypescript) {
+    await compileTypescriptBuildFiles({ rootDir, spawnOpts })
+  }
+
   // Read nuxt.config.js
-  const _esm = esm(module)
   const nuxtConfigName = 'nuxt.config.js'
-  let nuxtConfigFile = _esm(path.resolve(rootDir, nuxtConfigName))
-  nuxtConfigFile = nuxtConfigFile.default || nuxtConfigFile
+  const nuxtConfigFile = getNuxtConfig(rootDir, nuxtConfigName)
 
   // Read options from nuxt.config.js otherwise set sensible defaults
   const staticDir = (nuxtConfigFile.dir && nuxtConfigFile.dir.static) ? nuxtConfigFile.dir.static : 'static'
@@ -130,8 +121,6 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
 
   // Execute nuxt build
-  spawnOpts.env.NODE_ENV = 'production'
-
   if (fs.existsSync(buildDir)) {
     consola.warn(buildDir, 'exists! Please ensure to ignore it with `.nowignore`')
   }
@@ -157,7 +146,6 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   const nuxtDep = preparePkgForProd(pkg)
   await fs.writeJSON('package.json', pkg)
 
-  spawnOpts.env.NODE_ENV = 'production'
   if (isYarn) {
     await exec('yarn', [
       'install',
