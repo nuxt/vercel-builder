@@ -1,6 +1,6 @@
-const build = require('./build')
-const config = require('./config')
-const prepareCache = require('./prepare-cache')
+import { build } from './build'
+import config from './config'
+import prepareCache from './prepare-cache'
 
 // Docs: https://zeit.co/docs/v2/deployments/builders/developer-guide/
 module.exports = {

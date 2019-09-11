@@ -8,10 +8,11 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint --ext .vue,.js lib examples test",
-    "test": "jest test",
+    "lint": "eslint --ext .vue,.js,.ts src examples test",
+    "test": "tsc && jest test",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules",
     "update-example": "cd test/example && yarn && rm -rf node_modules",
+    "prepublish": "tsc",
     "release": "standard-version && git push --follow-tags && npm publish"
   },
   "dependencies": {
@@ -26,6 +27,14 @@
   "devDependencies": {
     "@now/build-utils": "^0.10.0",
     "@nuxtjs/eslint-config": "^1.1.2",
+    "@types/execa": "^0.9.0",
+    "@types/fs-extra": "^8.0.0",
+    "@types/glob": "^7.1.1",
+    "@types/node": "^12.7.4",
+    "@types/resolve-from": "^5.0.1",
+    "@types/semver": "^6.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
     "codecov": "^3.5.0",
     "eslint": "^6.3.0",
     "eslint-config-standard": "^14.1.0",
@@ -36,6 +45,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^5.2.3",
     "jest": "^24.9.0",
-    "standard-version": "^7.0.0"
+    "standard-version": "^7.0.0",
+    "typescript": "^3.6.2"
   }
 }

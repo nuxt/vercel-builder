@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": ["esnext"],
+    "target": "esnext",
+    "module": "commonjs",
+    "sourceMap": false,
+    "declaration": true
+  },
+  "exclude": ["node_modules", "lib", "test"]
+}

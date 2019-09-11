@@ -1,9 +1,12 @@
-const path = require('path')
-const fs = require('fs-extra')
-const consola = require('consola')
-const { glob, startStep, endStep } = require('./utils')
+import path from 'path'
+import { PrepareCacheOptions, glob, FileRef } from '@now/build-utils'
 
-async function prepareCache ({ prepareCachePath, workPath, entrypoint }) {
+import fs from 'fs-extra'
+import consola from 'consola'
+import { startStep, endStep } from './utils'
+
+// Amend below line once https://github.com/zeit/now/issues/2992 is resolved
+async function prepareCache ({ prepareCachePath, workPath, entrypoint }: PrepareCacheOptions & { prepareCachePath: string }): Promise<Record<string, FileRef>> {
   const entryDir = path.dirname(entrypoint)
   const rootDir = path.join(workPath, entryDir)
   const cacheDir = path.join(prepareCachePath, entryDir)
@@ -16,11 +19,11 @@ async function prepareCache ({ prepareCachePath, workPath, entrypoint }) {
   endStep()
 
   startStep('Collect cache')
-  const cache = {}
+  const cache: Record<string, FileRef> = {}
   for (const dir of ['.now_cache', 'node_modules_dev', 'node_modules_prod']) {
     const src = path.join(rootDir, dir)
     const dst = path.join(cacheDir, dir)
-    if (!await fs.exists(src)) {
+    if (!fs.existsSync(src)) {
       consola.warn(src, 'not exists. skipping!')
       continue
     }
@@ -34,4 +37,4 @@ async function prepareCache ({ prepareCachePath, workPath, entrypoint }) {
   return cache
 }
 
-module.exports = prepareCache
+export default prepareCache
