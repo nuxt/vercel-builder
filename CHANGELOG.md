@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.4](https://github.com/nuxt/now-builder/compare/v0.16.3...v0.16.4) (2019-09-11)
+
+
+### Bug Fixes
+
+* force production NODE_ENV ([7333afa](https://github.com/nuxt/now-builder/commit/7333afa))
+* set NODE_ENV to production before building nuxt ([9bbaeac](https://github.com/nuxt/now-builder/commit/9bbaeac)), closes [#126](https://github.com/nuxt/now-builder/issues/126)
+* set NODE_ENV to production before building nuxt ([#127](https://github.com/nuxt/now-builder/issues/127)) ([db76f1c](https://github.com/nuxt/now-builder/commit/db76f1c))
+
 ### [0.16.3](https://github.com/nuxt/now-builder/compare/v0.16.2...v0.16.3) (2019-09-10)
 
 

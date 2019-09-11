@@ -130,6 +130,8 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
 
   // Execute nuxt build
+  spawnOpts.env.NODE_ENV = 'production'
+
   if (fs.existsSync(buildDir)) {
     consola.warn(buildDir, 'exists! Please ensure to ignore it with `.nowignore`')
   }
