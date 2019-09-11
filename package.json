@@ -12,7 +12,8 @@
     "test": "tsc && jest test",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules",
     "update-example": "cd test/example && yarn && rm -rf node_modules",
-    "release": "tsc && standard-version && git push --follow-tags && npm publish"
+    "prepublish": "tsc",
+    "release": "standard-version && git push --follow-tags && npm publish"
   },
   "dependencies": {
     "@now/node-bridge": "1.2.2",
