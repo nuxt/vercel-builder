@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@nuxt/typescript-build": "^0.2.6",
+    "nuxt": "^2.9.2"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^0.1.5"
+  }
+}

@@ -22,3 +22,23 @@ it('Should build the standard example', async () => {
     expect(output[file]).toBeDefined()
   }
 }, FOUR_MINUTES)
+
+it('Should build a Typescript example', async () => {
+  const { buildResult } = await runBuildLambda(
+    path.join(__dirname, 'fixture-ts')
+  )
+
+  const { output, routes } = buildResult
+  // Lambda
+  expect(output.index).toBeDefined()
+  expect(routes).toBeDefined()
+
+  // Build files
+  const buildFiles = [
+    'test.txt',
+    '_nuxt/LICENSES'
+  ]
+  for (const file of buildFiles) {
+    expect(output[file]).toBeDefined()
+  }
+}, FOUR_MINUTES)
