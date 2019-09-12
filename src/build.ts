@@ -106,8 +106,9 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // ----------------- Nuxt build -----------------
   startStep('Nuxt build')
 
+  let compiledTypescriptFiles: string[] = []
   if (usesTypescript) {
-    await compileTypescriptBuildFiles({ rootDir, spawnOpts })
+    compiledTypescriptFiles = await compileTypescriptBuildFiles({ rootDir, spawnOpts })
   }
 
   // Read nuxt.config.js
@@ -211,6 +212,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // Extra files to be included in lambda
   const serverFiles = [
     ...(Array.isArray(config.serverFiles) ? config.serverFiles : []),
+    ...compiledTypescriptFiles,
     'package.json'
   ]
 

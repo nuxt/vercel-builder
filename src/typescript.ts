@@ -1,6 +1,5 @@
 import { SpawnOptions } from 'child_process'
 import path from 'path'
-import { ExecaReturns } from 'execa'
 import fs from 'fs-extra'
 import replaceInFile from 'replace-in-file'
 
@@ -40,7 +39,7 @@ export async function prepareTypescriptEnvironment ({ pkg, spawnOpts, rootDir }:
   }
 }
 
-export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts }: CompileTypescriptOptions): Promise<ExecaReturns[]> {
+export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts }: CompileTypescriptOptions): Promise<string[]> {
   const nuxtConfigName = getNuxtConfigName(rootDir)
   if (nuxtConfigName === 'nuxt.config.ts') {
     await exec('tsc', [nuxtConfigName], spawnOpts)
@@ -61,20 +60,20 @@ export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts }: Compi
       itemPath = item.handler
     }
     if (itemPath) {
-      itemPath = itemPath.replace(/^[@~]\//, './').replace(/\.ts$/, '')
-      const resolvedPath = path.resolve(rootDir, itemPath)
+      const resolvedPath = path.resolve(rootDir, itemPath.replace(/^[@~]\//, './').replace(/\.ts$/, ''))
       if (fs.existsSync(`${resolvedPath}.ts`)) {
         filesToCompile.push(resolvedPath)
         replaceInFile.sync({
           files: path.resolve(rootDir, 'nuxt.config.js'),
-          from: new RegExp(`(?<=['"])${itemPath}.ts(?=['"])`, 'g'),
-          to: itemPath
+          from: new RegExp(`(?<=['"\`])${itemPath}(?=['"\`])`, 'g'),
+          to: itemPath.replace(/\.ts$/, '')
         })
       }
     }
     return filesToCompile
   }, [] as string[])
-  return Promise.all(
+  await Promise.all(
     filesToCompile.map(file => exec('tsc', [file]))
   )
+  return filesToCompile.map(file => file.replace(rootDir, '.').replace(/\.ts$/, '') + '.js')
 }
