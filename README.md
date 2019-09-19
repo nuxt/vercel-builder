@@ -105,7 +105,26 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](http
 
 ### Node.js version
 
-The Node.js version used is the latest **8.x release** or (if your `package.json` specifies Node 10 in `engines`, the latest **10.x release**).
+The Node.js version used is the latest **8.10.x release** or (if your `package.json` specifies Node 10 in `engines`, the latest **10.x release**) - see [Now documentation](https://zeit.co/docs/v2/advanced/builders#static-build-project-node.js-version).
+
+## Troubleshooting
+
+### Environment variables
+
+Because of Nuxt.js' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
+
+You may, therefore, need to include them in your `now.json` in both the `env` and `build.env` keys (see [Now documentation](https://zeit.co/docs/v2/advanced/configuration#env)). For example:
+
+```json
+  "env": {
+    "MY_VARIABLE": true
+  },
+  "build": {
+    "env": {
+      "MY_VARIABLE": true
+    }
+  }
+```
 
 # License
 
