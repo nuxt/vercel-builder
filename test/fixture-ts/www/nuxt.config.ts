@@ -1,6 +1,10 @@
-const { resolve } = require('path')
+import { resolve } from 'path'
+import thing from './another'
 
 module.exports = {
+  env: {
+    thing
+  },
   rootDir: resolve(__dirname, '../..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
