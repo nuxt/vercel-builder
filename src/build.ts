@@ -106,9 +106,10 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // ----------------- Nuxt build -----------------
   startStep('Nuxt build')
 
-  let compiledTypescriptFiles: string[] = []
+  let compiledTypescriptFiles: { [filePath: string]: FileFsRef } = {}
   if (usesTypescript) {
-    compiledTypescriptFiles = await compileTypescriptBuildFiles({ rootDir, spawnOpts })
+    const tscOptions = config.tscOptions as string[] | undefined
+    compiledTypescriptFiles = await compileTypescriptBuildFiles({ rootDir, spawnOpts, tscOptions })
   }
 
   // Read nuxt.config.js
@@ -206,13 +207,13 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
     'now__bridge.js': new FileFsRef({ fsPath: require('@now/node-bridge') }),
     [nuxtConfigName]: new FileFsRef({ fsPath: path.resolve(rootDir, nuxtConfigName) }),
     ...serverDistFiles,
+    ...compiledTypescriptFiles,
     ...nodeModules
   }
 
   // Extra files to be included in lambda
   const serverFiles = [
     ...(Array.isArray(config.serverFiles) ? config.serverFiles : []),
-    ...compiledTypescriptFiles,
     'package.json'
   ]
 
