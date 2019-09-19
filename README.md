@@ -109,6 +109,10 @@ The Node.js version used is the latest **8.10.x release** or (if your `package.j
 
 ## Troubleshooting
 
+### serverMiddleware
+
+If you use a module (such as `@nuxtjs/auth`) that registers custom serverMiddleware, you may encounter 404 errors. You may be better off creating Now serverless functions in place of serverMiddleware.
+
 ### Environment variables
 
 Because of Nuxt.js' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
