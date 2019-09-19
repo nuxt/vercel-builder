@@ -42,10 +42,6 @@ export async function prepareTypescriptEnvironment ({ pkg, spawnOpts, rootDir }:
   }
 }
 
-function convertToOptions (options: string[]): string[] {
-  return options.map((option, index) => !(index % 2) ? `--${option}` : `${option}`)
-}
-
 async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptions = {}): Promise<string[]> {
   let compilerOptions: string[] = []
 
@@ -60,11 +56,11 @@ async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptio
   }
   compilerOptions = Object.keys(options).reduce((compilerOptions, option) => {
     if (compilerOptions && !['rootDirs', 'paths'].includes(option)) {
-      compilerOptions.push(option, String(options[option]))
+      compilerOptions.push(`--${option}`, String(options[option]))
     }
     return compilerOptions
   }, [] as string[])
-  return convertToOptions([ ...compilerOptions, 'noEmit', 'false', 'rootDir', rootDir, 'outDir', 'now_compiled' ])
+  return [ ...compilerOptions, '--noEmit', 'false', '--rootDir', rootDir, '--outDir', 'now_compiled' ]
 }
 
 export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts, tscOptions }: CompileTypescriptOptions): Promise<{ [filePath: string]: FileFsRef }> {
