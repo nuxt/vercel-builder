@@ -5,9 +5,10 @@
       "src": "www/nuxt.config.ts",
       "use": "../..",
       "config": {
-        "serverFiles": [
-          "custom/*.js"
-        ]
+        "serverFiles": ["custom/*.js"],
+        "tscOptions": {
+          "sourceMap": false
+        }
       }
     }
   ]

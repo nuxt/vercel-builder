@@ -7,7 +7,7 @@ import consola from 'consola'
 import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Route, Lambda, File, PackageJson } from '@now/build-utils'
 
 import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig } from './utils'
-import { prepareTypescriptEnvironment, compileTypescriptBuildFiles } from './typescript'
+import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
 
 interface BuilderOutput {
   watch?: string[];
@@ -108,7 +108,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
 
   let compiledTypescriptFiles: { [filePath: string]: FileFsRef } = {}
   if (usesTypescript) {
-    const tscOptions = config.tscOptions as string[] | undefined
+    const tscOptions = config.tscOptions as JsonOptions | undefined
     compiledTypescriptFiles = await compileTypescriptBuildFiles({ rootDir, spawnOpts, tscOptions })
   }
 

@@ -7,10 +7,12 @@ import { PackageJson, glob, FileFsRef } from '@now/build-utils'
 
 import { getNuxtConfig, getNuxtConfigName, exec } from './utils'
 
+export interface JsonOptions { [key: string]: number | boolean | string | Array<number | boolean | string> }
+
 interface CompileTypescriptOptions {
     spawnOpts: SpawnOptions;
     rootDir: string;
-    tscOptions?: string[];
+    tscOptions?: JsonOptions;
 }
 
 interface PrepareTypescriptOptions {
@@ -44,25 +46,24 @@ function convertToOptions (options: string[]): string[] {
   return options.map((option, index) => !(index % 2) ? `--${option}` : `${option}`)
 }
 
-async function getTypescriptCompilerOptions (rootDir: string, options?: string[]): Promise<string[]> {
+async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptions = {}): Promise<string[]> {
   let compilerOptions: string[] = []
+
   if (fs.existsSync('tsconfig.json')) {
-    let tsConfig: { compilerOptions?: { [key: string]: string | number | boolean } }
+    let tsConfig: { compilerOptions?: JsonOptions }
     try {
       tsConfig = await fs.readJson('tsconfig.json')
     } catch (e) {
       throw new Error(`Can not read tsconfig.json from ${rootDir}`)
     }
-    compilerOptions = Object.keys(tsConfig.compilerOptions || {}).reduce((options, option) => {
-      if (tsConfig.compilerOptions && !['rootDirs', 'paths'].includes(option)) {
-        options.push(option, String(tsConfig.compilerOptions[option]))
-      }
-      return options
-    }, [] as string[])
+    options = { ...tsConfig.compilerOptions, ...options }
   }
-  if (options && Array.isArray(options)) {
-    compilerOptions = [...compilerOptions, ...options]
-  }
+  compilerOptions = Object.keys(options).reduce((compilerOptions, option) => {
+    if (compilerOptions && !['rootDirs', 'paths'].includes(option)) {
+      compilerOptions.push(option, String(options[option]))
+    }
+    return compilerOptions
+  }, [] as string[])
   return convertToOptions([ ...compilerOptions, 'noEmit', 'false', 'rootDir', rootDir, 'outDir', 'now_compiled' ])
 }
 
