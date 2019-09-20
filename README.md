@@ -10,13 +10,13 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-The Now Nuxt.js Builder takes a [Nuxt.js application](https://nuxtjs.org), defined by a `nuxt.config` entrypoint and deploys it to Now2 serverless environment.
+This Now builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it to a Now v2 serverless environment.
 
-It features built-in caching of `node_modules` and yarn global cache (works even by dependency changes!) and multi-stage build for fast and small-sized deployments.
+It features built-in caching of `node_modules` and the yarn global cache (even with dependency changes!) and multi-stage build for fast and small deployments.
 
 ## When to use it
 
-If you are using Now platform, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
+If you are using the Now platform, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
 
 For more information on why you should use Nuxt.js for your project, see [the Nuxt.js website](https://nuxtjs.org).
 
@@ -45,12 +45,12 @@ Create a simple `nuxt.config.js` file:
 ```js
 export default {
   head: {
-    title: "My Nuxt.js Application!"
-  }
-};
+    title: 'My Nuxt.js Application!',
+  },
+}
 ```
 
-Then define builds and routes in `now.json` configuration file:
+Then define the build in `now.json`:
 
 ```json
 {
@@ -77,14 +77,13 @@ See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) fo
 
 References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
 
-## Config
+## Configuration
 
 ### `serverFiles`
 
 - Type: `Array`
 
-If you need to include some additional files to the server lambda like a local module or serverMiddleware which are NOT inside `static` or dist (built by webpack),
-you can use this option. Each item can be a glob pattern.
+If you need to include files in the server lambda that are not built by webpack or within `static/`, such as a local module or serverMiddleware, you may specify them with this option. Each item can be a glob pattern.
 
 Example:
 
@@ -116,16 +115,13 @@ If you need to pass TypeScript compiler options to override your `tsconfig.json`
 }
 ```
 
-## Technical Details
+## Technical details
 
-### Dependencies installation
+### Dependency installation
 
-The installation algorithm of dependencies works as follows:
+Package dependencies are installed with either `npm` (if a `package-lock.json` is present) or `yarn`.
 
-- If a `package-lock.json` is present, `npm install` is used
-- Otherwise, `yarn` is used.
-
-**NOTE:** Using `yarn` is HIGHLY recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality !
+**NOTE:** Using `yarn` is HIGHLY recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality , which can decrease lambda size.
 
 ### Private npm modules
 
@@ -133,13 +129,32 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](http
 
 ### Node.js version
 
-The Node.js version used is the latest in the **8 branch**.
+The Node.js version used is the latest **8.10.x release** or (if your `package.json` specifies Node 10 in `engines`, the latest **10.x release**) - see [Now documentation](https://zeit.co/docs/v2/advanced/builders#static-build-project-node.js-version).
+
+## Troubleshooting
+
+### Environment variables
+
+Because of Nuxt.js' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
+
+You may, therefore, need to include them in your `now.json` in both the `env` and `build.env` keys (see [Now documentation](https://zeit.co/docs/v2/advanced/configuration#env)). For example:
+
+```json
+  "env": {
+    "MY_VARIABLE": true
+  },
+  "build": {
+    "env": {
+      "MY_VARIABLE": true
+    }
+  }
+```
 
 # License
 
 [MIT License](./LICENSE)
 
-Docs and Builder inspired by [Next.js](https://nextjs.org) by [Zeit.co](https://zeit.co)
+Documentation and builder inspired by [Next.js](https://nextjs.org) by [Zeit.co](https://zeit.co)
 
 Copyright (c) Nuxt Community
 
