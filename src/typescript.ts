@@ -66,10 +66,8 @@ async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptio
 export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts, tscOptions }: CompileTypescriptOptions): Promise<{ [filePath: string]: FileFsRef }> {
   const nuxtConfigName = getNuxtConfigName(rootDir)
   const compilerOptions = await getTypescriptCompilerOptions(rootDir, tscOptions)
-  fs.mkdirp('now_compiled')
-  if (nuxtConfigName === 'nuxt.config.ts') {
-    await exec('tsc', [...compilerOptions, nuxtConfigName], spawnOpts)
-  }
+  await fs.mkdirp('now_compiled')
+  await exec('tsc', [...compilerOptions, nuxtConfigName], spawnOpts)
   const nuxtConfigFile = getNuxtConfig(rootDir, 'now_compiled/nuxt.config.js')
   const { serverMiddleware, modules } = nuxtConfigFile
 

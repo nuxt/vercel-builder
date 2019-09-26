@@ -6,7 +6,7 @@ import consola from 'consola'
 
 import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Route, Lambda, File, PackageJson } from '@now/build-utils'
 
-import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig } from './utils'
+import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
 
 interface BuilderOutput {
@@ -49,6 +49,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
 
   // Prepare TypeScript environment if required.
   const usesTypescript = (pkg.devDependencies && Object.keys(pkg.devDependencies).includes('@nuxt/typescript-build')) || (pkg.dependencies && Object.keys(pkg.dependencies).includes('@nuxt/typescript'))
+  const needsTypescriptBuild = getNuxtConfigName(rootDir) === 'nuxt.config.ts'
 
   if (usesTypescript) {
     await prepareTypescriptEnvironment({
@@ -107,7 +108,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   startStep('Nuxt build')
 
   let compiledTypescriptFiles: { [filePath: string]: FileFsRef } = {}
-  if (usesTypescript) {
+  if (needsTypescriptBuild) {
     const tscOptions = config.tscOptions as JsonOptions | undefined
     compiledTypescriptFiles = await compileTypescriptBuildFiles({ rootDir, spawnOpts, tscOptions })
   }
