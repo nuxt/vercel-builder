@@ -97,7 +97,7 @@ Example:
 }
 ```
 
-### `tscConfig`
+### `tscOptions`
 
 - Type: `Object`
 
