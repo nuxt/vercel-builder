@@ -30,7 +30,7 @@ jobs:
       # Tests
       - run:
           name: Tests
-          command: yarn tsc && yarn jest
+          command: yarn build && yarn jest
 
       # Coverage
       - run:
