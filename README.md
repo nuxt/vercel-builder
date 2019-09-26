@@ -10,7 +10,7 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-This Now builder takes a [Nuxt.js application](https://nuxtjs.org), defined by a `nuxt.config.js` entrypoint and deploys it to Now v2 serverless environment.
+This Now builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it to a Now v2 serverless environment.
 
 It features built-in caching of `node_modules` and the yarn global cache (even with dependency changes!) and multi-stage build for fast and small deployments.
 
@@ -71,6 +71,12 @@ See [Basic Example](./examples/basic) for a more complete deployable example.
 
 See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) for details on deploying two nuxt apps in one Now Monorepo.
 
+## Using with TypeScript
+
+`now-builder` supports TypeScript runtime compilation, though it does so in a slightly different from `@nuxt/typescript-runtime`. It adds in a pre-compilation step as part of building the lambda for files not compiled by Webpack, such as `nuxt.config.ts`, local modules and serverMiddleware.
+
+References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
+
 ## Configuration
 
 ### `serverFiles`
@@ -87,6 +93,24 @@ Example:
   "use": "@nuxtjs/now-builder",
   "config": {
     "serverFiles": ["server-middleware/**"]
+  }
+}
+```
+
+### `tscConfig`
+
+- Type: `Object`
+
+If you need to pass TypeScript compiler options to override your `tsconfig.json`, you can pass them here. See [the TypeScript documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for valid options. Example:
+
+```json
+{
+  "src": "nuxt.config.ts",
+  "use": "@nuxtjs/now-builder",
+  "config": {
+    "tscOptions": {
+      "sourceMap": false
+    }
   }
 }
 ```

@@ -4,7 +4,7 @@
     "outDir": "lib",
     "strict": true,
     "esModuleInterop": true,
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "target": "esnext",
     "module": "commonjs",
     "sourceMap": false,

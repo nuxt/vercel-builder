@@ -1,16 +1,19 @@
 import path from 'path'
 import { SpawnOptions } from 'child_process'
-import execa from 'execa'
+import fs from 'fs-extra'
+import execa, { ExecaReturns } from 'execa'
+import esm from 'esm'
 import { glob, Files, PackageJson } from '@now/build-utils'
 import consola from 'consola'
 import { IOptions } from 'glob'
+import { Configuration as NuxtConfiguration } from '@nuxt/types'
 
-export async function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<void> {
+export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<ExecaReturns> {
   args = args.filter(Boolean)
 
   consola.log('Running', cmd, ...args)
 
-  await execa('npx', [cmd, ...args], {
+  return execa('npx', [cmd, ...args], {
     stdout: process.stdout,
     stderr: process.stderr,
     preferLocal: false,
@@ -29,9 +32,9 @@ export async function exec (cmd: string, args: string[], { env, ...opts }: Spawn
 export function validateEntrypoint (entrypoint: string): void {
   const filename = path.basename(entrypoint)
 
-  if (['package.json', 'nuxt.config.js'].includes(filename) === false) {
+  if (['package.json', 'nuxt.config.js', 'nuxt.config.ts'].includes(filename) === false) {
     throw new Error(
-      'Specified "src" for "@nuxt/now-builder" has to be "package.json" or "nuxt.config.js"'
+      'Specified "src" for "@nuxt/now-builder" has to be "package.json", "nuxt.config.js" or "nuxt.config.ts"'
     )
   }
 }
@@ -151,4 +154,19 @@ export function startStep (step: string): void {
   consola.log(dash + step + dash)
   _step = step
   _stepStartTime = process.hrtime()
+}
+
+export function getNuxtConfig (rootDir: string, nuxtConfigName: string): NuxtConfiguration {
+  const _esm = esm(module)
+  const nuxtConfigFile = _esm(path.resolve(rootDir, nuxtConfigName))
+  return nuxtConfigFile.default || nuxtConfigFile
+}
+
+export function getNuxtConfigName (rootDir: string): string {
+  for (const filename of ['nuxt.config.ts', 'nuxt.config.js']) {
+    if (fs.existsSync(path.resolve(rootDir, filename))) {
+      return filename
+    }
+  }
+  throw new Error(`Can not read nuxt.config from ${rootDir}`)
 }
