@@ -6,10 +6,10 @@ import consola from 'consola'
 import { startStep, endStep } from './utils'
 
 // Amend below line once https://github.com/zeit/now/issues/2992 is resolved
-async function prepareCache ({ prepareCachePath, workPath, entrypoint }: PrepareCacheOptions & { prepareCachePath: string }): Promise<Record<string, FileRef>> {
+async function prepareCache ({ cachePath, workPath, entrypoint }: PrepareCacheOptions): Promise<Record<string, FileRef>> {
   const entryDir = path.dirname(entrypoint)
   const rootDir = path.join(workPath, entryDir)
-  const cacheDir = path.join(prepareCachePath, entryDir)
+  const cacheDir = path.join(cachePath, entryDir)
 
   consola.log('Cache dir:', cacheDir)
 
