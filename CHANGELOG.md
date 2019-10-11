@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.5](https://github.com/nuxt/now-builder/compare/v0.16.4...v0.16.5) (2019-10-11)
+
+
+### Bug Fixes
+
+* prepare cache against workCache ([#136](https://github.com/nuxt/now-builder/issues/136)) ([8dfac11](https://github.com/nuxt/now-builder/commit/8dfac11)), closes [#133](https://github.com/nuxt/now-builder/issues/133)
+* remove boilerplate routes from example ([#140](https://github.com/nuxt/now-builder/issues/140)) ([d0a50cb](https://github.com/nuxt/now-builder/commit/d0a50cb))
+* revert to using cachePath ([#135](https://github.com/nuxt/now-builder/issues/135)) ([da7409e](https://github.com/nuxt/now-builder/commit/da7409e)), closes [#133](https://github.com/nuxt/now-builder/issues/133)
+* test for presence of nuxt.config.ts before compile ([a218681](https://github.com/nuxt/now-builder/commit/a218681))
+
 ### [0.16.4](https://github.com/nuxt/now-builder/compare/v0.16.3...v0.16.4) (2019-09-11)
 
 
