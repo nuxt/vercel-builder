@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.6](https://github.com/nuxt/now-builder/compare/v0.16.5...v0.16.6) (2019-10-23)
+
+
+### Bug Fixes
+
+* install devDependencies with npm ([c14deee](https://github.com/nuxt/now-builder/commit/c14deee)), closes [#143](https://github.com/nuxt/now-builder/issues/143)
+
 ### [0.16.5](https://github.com/nuxt/now-builder/compare/v0.16.4...v0.16.5) (2019-10-11)
 
 
