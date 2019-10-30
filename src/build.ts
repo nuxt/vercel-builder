@@ -121,6 +121,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   const staticDir = (nuxtConfigFile.dir && nuxtConfigFile.dir.static) ? nuxtConfigFile.dir.static : 'static'
   const publicPath = ((nuxtConfigFile.build && nuxtConfigFile.build.publicPath) ? nuxtConfigFile.build.publicPath : '/_nuxt/').replace(/^\//, '')
   const buildDir = nuxtConfigFile.buildDir ? path.relative(rootDir, nuxtConfigFile.buildDir) : '.nuxt'
+  const srcDir = nuxtConfigFile.srcDir ? path.relative(rootDir, nuxtConfigFile.srcDir) : '.'
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
 
   // Execute nuxt build
@@ -181,7 +182,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   startStep('Collect artifacts')
 
   // Static files
-  const staticFiles = await glob('**', path.join(rootDir, staticDir))
+  const staticFiles = await glob('**', path.join(rootDir, srcDir, staticDir))
 
   // Client dist files
   const clientDistDir = path.join(rootDir, buildDir, 'dist/client')
