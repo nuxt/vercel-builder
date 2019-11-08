@@ -84,7 +84,8 @@ export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts, tscOpti
       itemPath = item.handler
     }
     if (itemPath) {
-      const resolvedPath = path.resolve(rootDir, itemPath.replace(/^[@~]\//, './').replace(/\.ts$/, ''))
+      const srcDir = nuxtConfigFile.srcDir ? path.relative(rootDir, nuxtConfigFile.srcDir) : '.'
+      const resolvedPath = path.resolve(rootDir, itemPath.replace(/^[@~]\//, `${srcDir}/`).replace(/\.ts$/, ''))
       if (fs.existsSync(`${resolvedPath}.ts`)) {
         filesToCompile.push(resolvedPath)
         replaceInFile.sync({
