@@ -947,15 +947,15 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@now/build-utils@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-0.10.1.tgz#6f50d3a811c8cbefc643e295fa52239e93d7ef77"
-  integrity sha512-+FszUNz+JilS3OD0gY/F38H2Crz+OLHKjzW1uHHF7MHkklGWdkhT9KI3ae44RrpNLJK7TQ8hfB2grdrAOK2aHw==
+"@now/build-utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-1.0.0.tgz#e0ff44fe0757d9a51c459bd5a53583770d78b091"
+  integrity sha512-3rbf8Xxj+E0OblHIjLmkWkF0pT5+mybOsVu8aWZUWc1qjb31TknUY01D7Z6rmY6Vkm7wxfw3pMSnvaG5GLqAOg==
 
-"@now/node-bridge@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.2.2.tgz#b4740d8806227b8dd1d4d8481e21b3b30ad299b4"
-  integrity sha512-E5xqal3QRN8RvcQ4Q82vtg/hvWmQWaIYp2bJHd550Ps/kemGabcwAAQsP/TUM/4b5oYlOmjrfuYPq9AhMvFqkQ==
+"@now/node-bridge@1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.2.6.tgz#76cce67f268b5038d2444754d9aa0c4bf2e7da0d"
+  integrity sha512-wPLsbRuR3vytseTXqOoh5zKY+I4+RwqFoOHQAzmVVns6kyXm8Q9gQAk2T+tanGJ3T2fMPs89MqEXB70TypcTng==
 
 "@nuxt/babel-preset-app@2.10.2":
   version "2.10.2"
