@@ -8,6 +8,12 @@ import consola from 'consola'
 import { IOptions } from 'glob'
 import { Configuration as NuxtConfiguration } from '@nuxt/types'
 
+type Mutable<T> = {
+  -readonly [P in keyof T]: T[P] extends ReadonlyArray<infer U> ? Mutable<U>[] : Mutable<T[P]>
+}
+
+export type MutablePackageJson = Mutable<PackageJson>
+
 export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<ExecaReturns> {
   args = args.filter(Boolean)
 
@@ -74,7 +80,7 @@ interface NuxtVersion {
   section: string;
 }
 
-export function findNuxtDep (pkg: PackageJson): void | NuxtVersion {
+export function findNuxtDep (pkg: MutablePackageJson): void | NuxtVersion {
   for (const section of ['dependencies', 'devDependencies'] as const) {
     const deps = pkg[section]
     if (deps) {
@@ -96,7 +102,7 @@ export function findNuxtDep (pkg: PackageJson): void | NuxtVersion {
   }
 }
 
-export function preparePkgForProd (pkg: PackageJson): NuxtVersion {
+export function preparePkgForProd (pkg: MutablePackageJson): NuxtVersion {
   // Ensure fields exist
   if (!pkg.dependencies) {
     pkg.dependencies = {}
