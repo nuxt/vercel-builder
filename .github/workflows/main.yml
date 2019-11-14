@@ -30,10 +30,10 @@ jobs:
         run: yarn && yarn test
 
       - name: Lint
-        command: yarn lint
+        run: yarn lint
 
       - name: Tests
-        command: yarn build && yarn jest
+        run: yarn build && yarn jest
 
       - name: Coverage
-        command: yarn codecov
+        run: yarn codecov
