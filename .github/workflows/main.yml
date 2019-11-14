@@ -26,9 +26,6 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: NODE_ENV=dev yarn
 
-      - name: Test project
-        run: yarn && yarn test
-
       - name: Lint
         run: yarn lint
 
