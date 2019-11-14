@@ -42,8 +42,8 @@ export async function prepareTypescriptEnvironment ({ pkg, spawnOpts, rootDir }:
   }
 }
 
-async function readAndMergeOptions (filename: string, rootDir: string, options: JsonOptions) {
-  let newOptions = options
+async function readAndMergeOptions (filename: string, rootDir: string, options: JsonOptions): JsonOptions {
+  let newOptions: JsonOptions = options
   if (fs.existsSync(filename)) {
     let tsConfig: { compilerOptions?: JsonOptions }
     try {

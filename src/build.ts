@@ -212,12 +212,12 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
     ...compiledTypescriptFiles,
     ...nodeModules
   }
-  
+
   // Extra files to be included in lambda
   const serverFiles = [
     ...(Array.isArray(config.includeFiles) ? config.includeFiles : config.includeFiles ? [config.includeFiles] : []),
     ...(Array.isArray(config.serverFiles) ? config.serverFiles : []),
-    'package.json',
+    'package.json'
   ]
 
   for (const pattern of serverFiles) {
