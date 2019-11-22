@@ -129,7 +129,7 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](http
 
 ### Node.js version
 
-The Node.js version used is the latest **8.10.x release** or (if your `package.json` specifies Node 10 in `engines`, the latest **10.x release**) - see [Now documentation](https://zeit.co/docs/v2/advanced/builders#static-build-project-node.js-version).
+The Node.js version used is the latest 8.10.x release. Alternatively, you can specify Node 10 or Node 12 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
 
 ## Troubleshooting
 
