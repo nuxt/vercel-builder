@@ -101,7 +101,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
       `--cache-folder=${yarnCacheDir}`
     ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
   } else {
-    await exec('npm', [ 'install' ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
+    await exec('npm', ['install'], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
   }
 
   // ----------------- Nuxt build -----------------
@@ -161,7 +161,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
       `--cache-folder=${yarnCacheDir}`
     ], spawnOpts)
   } else {
-    await exec('npm', [ 'install' ], spawnOpts)
+    await exec('npm', ['install'], spawnOpts)
   }
 
   // Validate nuxt version

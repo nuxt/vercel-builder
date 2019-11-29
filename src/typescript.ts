@@ -32,7 +32,7 @@ export async function prepareTypescriptEnvironment ({ pkg, spawnOpts, rootDir }:
     } catch (e) {
       throw new Error(`Can not read tsconfig.json from ${rootDir}`)
     }
-    tsConfig.exclude = [ ...(tsConfig.exclude || []), 'node_modules_dev', 'node_modules_prod' ]
+    tsConfig.exclude = [...(tsConfig.exclude || []), 'node_modules_dev', 'node_modules_prod']
     await fs.writeJSON('tsconfig.json', tsConfig)
   }
 
@@ -60,7 +60,7 @@ async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptio
     }
     return compilerOptions
   }, [] as string[])
-  return [ ...compilerOptions, '--noEmit', 'false', '--rootDir', rootDir, '--outDir', 'now_compiled' ]
+  return [...compilerOptions, '--noEmit', 'false', '--rootDir', rootDir, '--outDir', 'now_compiled']
 }
 
 export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts, tscOptions }: CompileTypescriptOptions): Promise<{ [filePath: string]: FileFsRef }> {
