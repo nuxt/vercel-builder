@@ -12,19 +12,26 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [8, 10, 12]
 
     steps:
       - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
 
       - uses: actions/cache@v1
         id: cache
         with:
           path: "node_modules"
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: NODE_ENV=dev yarn
+        run: yarn
 
       - name: Audit dependencies
         run: yarn audit
