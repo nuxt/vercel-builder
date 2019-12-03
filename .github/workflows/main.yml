@@ -1,4 +1,4 @@
-name: CI
+name: test
 
 on:
   push:
@@ -19,18 +19,24 @@ jobs:
       - uses: actions/cache@v1
         id: cache
         with:
-          path: 'node_modules'
+          path: "node_modules"
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: NODE_ENV=dev yarn
 
+      - name: Audit dependencies
+        run: yarn audit
+
       - name: Lint
         run: yarn lint
 
-      - name: Tests
-        run: yarn build && yarn jest
+      - name: Build
+        run: yarn build
+
+      - name: Test
+        run: yarn jest
 
       - name: Coverage
         run: yarn codecov
