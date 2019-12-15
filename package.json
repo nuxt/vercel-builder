@@ -22,7 +22,7 @@
     "esm": "3.2.25",
     "execa": "^1.0.0",
     "fs-extra": "8.1.0",
-    "replace-in-file": "^4.2.0",
+    "replace-in-file": "^5.0.2",
     "resolve-from": "^5.0.0",
     "semver": "6.3.0"
   },
