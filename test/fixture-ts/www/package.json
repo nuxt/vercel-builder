@@ -3,7 +3,7 @@
   "license": "MIT",
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.1",
-    "nuxt-edge": "2.11.0-26275689.64fb46c0"
+    "nuxt": "2.10.0"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.3.2"
