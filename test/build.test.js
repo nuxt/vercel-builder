@@ -16,7 +16,8 @@ it('Should build the standard example', async () => {
   // Build files
   const buildFiles = [
     'test.txt',
-    '_nuxt/LICENSES'
+    '_nuxt/LICENSES',
+    'now-build'
   ]
   for (const file of buildFiles) {
     expect(output[file]).toBeDefined()

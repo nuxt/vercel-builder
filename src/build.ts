@@ -104,6 +104,22 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
     await exec('npm', ['install'], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
   }
 
+  // ----------------- Pre build -----------------
+  if (pkg.scripts && Object.keys(pkg.scripts).includes('now-build')) {
+    startStep('Pre build')
+    const command = pkg.scripts['now-build']
+    if (isYarn) {
+      await exec('yarn', [
+        'now-build'
+      ], spawnOpts)
+    } else {
+      await exec('npm', [
+        'run',
+        'now-build'
+      ], spawnOpts);
+    }
+  }
+
   // ----------------- Nuxt build -----------------
   startStep('Nuxt build')
 
