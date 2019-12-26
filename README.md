@@ -5,7 +5,7 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![packagephobia][packagephobia-src]][packagephobia-href]
-[![Circle CI][circle-ci-src]][circle-ci-href]
+[![Github actions status][github-ci-src]][github-ci-href]
 [![Codecov][codecov-src]][codecov-href]
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
@@ -139,6 +139,8 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](http
 
 The Node.js version used is the latest 8.10.x release. Alternatively, you can specify Node 10 or Node 12 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
 
+**Note that Nuxt 2.11+ requires Node 10+.**
+
 ## Troubleshooting
 
 ### Environment variables
@@ -172,8 +174,8 @@ Copyright (c) Nuxt Community
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/now-builder
 [npm-downloads-src]: https://flat.badgen.net/npm/v/@nuxtjs/now-builder
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/now-builder
-[circle-ci-src]: https://flat.badgen.net/circleci/github/nuxt/now-builder
-[circle-ci-href]: https://circleci.com/gh/nuxt/now-builder
+[github-ci-src]: https://flat.badgen.net//github/checks/nuxt/now-builder
+[github-ci-href]: https://github.com/nuxt/now-builder/actions
 [codecov-src]: https://flat.badgen.net/codecov/c/github/nuxt/now-builder
 [codecov-href]: https://codecov.io/gh/nuxt/now-builder
 [david-dm-src]: https://flat.badgen.net/david/dep/nuxt/now-builder
