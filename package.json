@@ -13,6 +13,7 @@
     "test": "yarn build && jest test",
     "update-fixture": "cd test/fixture && yarn && rm -rf node_modules",
     "update-example": "cd test/example && yarn && rm -rf node_modules",
+    "prepack": "yarn build",
     "prepublish": "yarn build",
     "release": "standard-version && git push --follow-tags && npm publish"
   },
