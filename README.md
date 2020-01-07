@@ -141,6 +141,10 @@ The Node.js version used is the latest 8.10.x release. Alternatively, you can sp
 
 **Note that Nuxt 2.11+ requires Node 10+.**
 
+### `now-build` script support
+
+This builder will run a given [custom build step](https://zeit.co/docs/runtimes/?query=now-build#advanced-usage/advanced-node-js-usage/custom-build-step-for-node-js) if you have added a `now-build` key under `scripts` in `package.json`.
+
 ## Troubleshooting
 
 ### Environment variables
