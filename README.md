@@ -137,9 +137,7 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](http
 
 ### Node.js version
 
-The Node.js version used is the latest 8.10.x release. Alternatively, you can specify Node 10 or Node 12 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
-
-**Note that Nuxt 2.11+ requires Node 10+.**
+The Node.js version used is the latest 10.x release. Alternatively, you can specify Node 12 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
 
 ### `now-build` script support
 
