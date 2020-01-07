@@ -47,9 +47,9 @@ Create a simple `nuxt.config.js` file:
 ```js
 export default {
   head: {
-    title: 'My Nuxt.js Application!',
-  },
-}
+    title: "My Nuxt.js Application!"
+  }
+};
 ```
 
 Then define the build in `now.json`:
@@ -137,7 +137,7 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](http
 
 ### Node.js version
 
-The Node.js version used is the latest 10.x release. Alternatively, you can specify Node 12 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
+The Node.js version used is the latest 12.x release. Alternatively, you can specify Node 10 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
 
 ### `now-build` script support
 
