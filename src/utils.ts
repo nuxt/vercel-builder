@@ -1,7 +1,7 @@
 import path from 'path'
 import { SpawnOptions } from 'child_process'
 import fs from 'fs-extra'
-import execa, { ExecaReturns } from 'execa'
+import execa, { ExecaChildProcess, Options as ExecaOptions } from "execa";
 import esm from 'esm'
 import { glob, Files, PackageJson } from '@now/build-utils'
 import consola from 'consola'
@@ -14,7 +14,7 @@ type Mutable<T> = {
 
 export type MutablePackageJson = Mutable<PackageJson>
 
-export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<ExecaReturns> {
+export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): ExecaChildProcess<string> {
   args = args.filter(Boolean)
 
   consola.log('Running', cmd, ...args)
@@ -29,7 +29,7 @@ export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOption
       ...env
     },
     ...opts
-  })
+  } as ExecaOptions)
 }
 
 /**
