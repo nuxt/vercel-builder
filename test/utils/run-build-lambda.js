@@ -19,6 +19,9 @@ async function runBuildLambda (inputPath) {
 
   const build = nowJson.builds[0]
 
+  if (!build.config) build.config = {}
+  build.config.nodeVersion = 12;
+
   const entrypoint = build.src.replace(/^\//, '') // Strip leftmost slash
 
   inputFiles[entrypoint].digest = 'this-is-a-fake-digest-for-non-default-analyze'
