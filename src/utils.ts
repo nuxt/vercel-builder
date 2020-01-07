@@ -3,10 +3,15 @@ import { SpawnOptions } from 'child_process'
 import fs from 'fs-extra'
 import execa, { ExecaReturns } from 'execa'
 import esm from 'esm'
-import { glob, Files, PackageJson } from '@now/build-utils'
+import { glob, Files } from '@now/build-utils'
 import consola from 'consola'
 import { IOptions } from 'glob'
 import { Configuration as NuxtConfiguration } from '@nuxt/types'
+
+interface PackageJson {
+  dependencies: { [key: string]: string };
+  devDependencies: { [key: string]: string };
+}
 
 export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<ExecaReturns> {
   args = args.filter(Boolean)

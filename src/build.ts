@@ -4,7 +4,8 @@ import fs from 'fs-extra'
 import { gte, gt } from 'semver'
 import consola from 'consola'
 
-import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Route, Lambda, File, PackageJson } from '@now/build-utils'
+import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Lambda, File, PackageJson } from '@now/build-utils'
+import { Route } from '@now/routing-utils'
 
 import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
@@ -162,7 +163,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   await fs.symlink('node_modules_prod', 'node_modules')
 
   // Only keep core dependency
-  const nuxtDep = preparePkgForProd(pkg)
+  const nuxtDep = preparePkgForProd(pkg as any)
   await fs.writeJSON('package.json', pkg)
 
   if (isYarn) {
