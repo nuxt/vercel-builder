@@ -1,11 +1,11 @@
-name: test
+name: publish
 
 on:
   release:
     types: [published]
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,6 +37,7 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-      - run: npm publish --access public
+      - name: Publish new release
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
