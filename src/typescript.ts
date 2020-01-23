@@ -42,18 +42,26 @@ export async function prepareTypescriptEnvironment ({ pkg, spawnOpts, rootDir }:
   }
 }
 
+async function readAndMergeOptions (filename: string, rootDir: string, options: JsonOptions): Promise<JsonOptions> {
+  let newOptions: JsonOptions = options
+  if (fs.existsSync(filename)) {
+    let tsConfig: { compilerOptions?: JsonOptions }
+    try {
+      tsConfig = await fs.readJson(filename)
+    } catch (e) {
+      throw new Error(`Can not read ${filename} from ${rootDir}`)
+    }
+    newOptions = { ...tsConfig.compilerOptions, ...options }
+  }
+  return newOptions
+}
+
 async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptions = {}): Promise<string[]> {
   let compilerOptions: string[] = []
 
-  if (fs.existsSync('tsconfig.json')) {
-    let tsConfig: { compilerOptions?: JsonOptions }
-    try {
-      tsConfig = await fs.readJson('tsconfig.json')
-    } catch (e) {
-      throw new Error(`Can not read tsconfig.json from ${rootDir}`)
-    }
-    options = { ...tsConfig.compilerOptions, ...options }
-  }
+  options = await readAndMergeOptions('tsconfig.json', rootDir, options)
+  options = await readAndMergeOptions('tsconfig.now.json', rootDir, options)
+
   compilerOptions = Object.keys(options).reduce((compilerOptions, option) => {
     if (compilerOptions && !['rootDirs', 'paths'].includes(option)) {
       compilerOptions.push(`--${option}`, String(options[option]))

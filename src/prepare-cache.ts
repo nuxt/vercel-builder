@@ -5,7 +5,6 @@ import fs from 'fs-extra'
 import consola from 'consola'
 import { startStep, endStep } from './utils'
 
-// Amend below line once https://github.com/zeit/now/issues/2992 is resolved
 async function prepareCache ({ workPath, entrypoint }: PrepareCacheOptions): Promise<Record<string, FileRef>> {
   const entryDir = path.dirname(entrypoint)
 

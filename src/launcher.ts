@@ -1,4 +1,5 @@
-import { IncomingMessage, ServerResponse } from 'http'
+import http, { IncomingMessage, ServerResponse } from 'http'
+import { Bridge as BridgeType } from '@now/node-bridge/bridge'
 import esmCompiler from 'esm'
 
 const startTime = process.hrtime()
@@ -36,14 +37,16 @@ const readyPromise = nuxt.ready().then(() => {
 const { Server } = require('http') // eslint-disable-line import/order
 const { Bridge } = require('./now__bridge.js')
 
-const server = new Server(async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
-  if (!isReady) {
-    await readyPromise
+const server = new (Server as typeof http.Server)(
+  async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
+    if (!isReady) {
+      await readyPromise
+    }
+    nuxt.server.app(req, res)
   }
-  nuxt.server.app(req, res)
-})
-const bridge = new Bridge(server)
+)
+const bridge = new (Bridge as typeof BridgeType)(server)
 
 bridge.listen()
 
-export const launcher = bridge.launcher
+export const launcher: typeof bridge.launcher = bridge.launcher
