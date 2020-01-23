@@ -1,33 +1,26 @@
 name: test
 
 on:
-  push:
-    branches:
-      - master
-      - release/*
-  pull_request:
-    branches:
-      - master
+  release:
+    types: [published]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [10, 12]
 
     steps:
       - uses: actions/checkout@v1
 
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
 
       - uses: actions/cache@v1
         id: cache
         with:
           path: "node_modules"
-          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
@@ -43,3 +36,7 @@ jobs:
         run: yarn codecov
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
