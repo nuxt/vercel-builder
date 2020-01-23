@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/nuxt/now-builder/compare/v0.16.6...v0.17.0) (2020-01-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* @nuxt/now-builder no longer supports node v8
+
+* docs: correct default version
+
+* chore: upgrade now deps
+
+Co-authored-by: Steven <steven@ceriously.com>
+
+### Features
+
+* add support for now-build script ([#168](https://github.com/nuxt/now-builder/issues/168)) ([5266188](https://github.com/nuxt/now-builder/commit/526618864ffe2e0dd8fc3ea6cab99b674fc4088b))
+* support new config options ([#158](https://github.com/nuxt/now-builder/issues/158)) ([01a241a](https://github.com/nuxt/now-builder/commit/01a241a52f485d973b541d843777bca6331bb133))
+
+
+### Bug Fixes
+
+* pin old version of nuxt for compat with node 8 ([d4408fd](https://github.com/nuxt/now-builder/commit/d4408fdddcb1b41e4945ab706e93a1a6bcf1d68f))
+* use srcDir to retrieve static folder ([#150](https://github.com/nuxt/now-builder/issues/150)) ([e23b4e5](https://github.com/nuxt/now-builder/commit/e23b4e5c5c1760179d217c6d22a871a7bf8b8e75))
+* use srcDir when compiling build files ([#152](https://github.com/nuxt/now-builder/issues/152)) ([6e25975](https://github.com/nuxt/now-builder/commit/6e25975bd33de83db2f4a24c8964af63667c6273))
+
 ### [0.16.6](https://github.com/nuxt/now-builder/compare/v0.16.5...v0.16.6) (2019-10-23)
 
 
