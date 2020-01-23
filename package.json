@@ -15,7 +15,7 @@
     "update-example": "cd test/example && yarn && rm -rf node_modules",
     "prepare": "yarn build",
     "prepublish": "yarn build",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "standard-version && git push --follow-tags"
   },
   "dependencies": {
     "@now/node-bridge": "1.2.6",
