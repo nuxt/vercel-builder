@@ -1,6 +1,6 @@
 ![now-builder](https://user-images.githubusercontent.com/904724/61308402-7a752d00-a7f0-11e9-9502-23731ccd00fd.png)
 
-# Now Builder for Nuxt.js
+# Nuxt.js Now Builder
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -10,15 +10,17 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-This Now builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it to a Now v2 serverless environment.
+This Now builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it as a serverless function in a Now v2 environment.
 
 It features built-in caching of `node_modules` and the yarn global cache (even with dependency changes!) and multi-stage build for fast and small deployments.
 
 ## When to use it
 
-If you are using the Now platform, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
+If you are using the Now platform and need SSR rendering, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
 
-For more information on why you should use Nuxt.js for your project, see [the Nuxt.js website](https://nuxtjs.org).
+If you do not need SSR rendering, consider deploying a statically generated Nuxt.js application instead. See [this guide from Now](https://zeit.co/guides/deploying-nuxtjs-with-zeit-now) for more information.
+
+You can also find more information on [the Nuxt.js website](https://nuxtjs.org).
 
 ## How to use it
 
@@ -45,9 +47,9 @@ Create a simple `nuxt.config.js` file:
 ```js
 export default {
   head: {
-    title: 'My Nuxt.js Application!',
-  },
-}
+    title: "My Nuxt.js Application!"
+  }
+};
 ```
 
 Then define the build in `now.json`:
@@ -73,7 +75,7 @@ See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) fo
 
 ## Using with TypeScript
 
-`now-builder` supports TypeScript runtime compilation, though it does so in a slightly different from `@nuxt/typescript-runtime`. It adds in a pre-compilation step as part of building the lambda for files not compiled by Webpack, such as `nuxt.config.ts`, local modules and serverMiddleware.
+`now-builder` supports TypeScript runtime compilation, though it does so in a slightly different way from `@nuxt/typescript-runtime`. It adds in a pre-compilation step as part of building the lambda for files not compiled by Webpack, such as `nuxt.config.ts`, local modules and serverMiddleware.
 
 References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
 
@@ -89,11 +91,15 @@ Example:
 
 ```json
 {
-  "src": "nuxt.config.js",
-  "use": "@nuxtjs/now-builder",
-  "config": {
-    "serverFiles": ["server-middleware/**"]
-  }
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder",
+      "config": {
+        "serverFiles": ["server-middleware/**"]
+      }
+    }
+  ]
 }
 ```
 
@@ -115,6 +121,8 @@ If you need to pass TypeScript compiler options to override your `tsconfig.json`
 }
 ```
 
+You can also include a `tsconfig.now.json` file alongside your `tsconfig.json` file. The `compilerOptions` from those files, along with any `tscOptions` passed through now.json, will be merged and the resulting options used to compile your `nuxt.config.ts`, local modules and serverMiddleware.
+
 ## Technical details
 
 ### Dependency installation
@@ -129,9 +137,7 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](http
 
 ### Node.js version
 
-The Node.js version used is the latest 8.10.x release. Alternatively, you can specify Node 10 or Node 12 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
-
-**Note that Nuxt 2.11+ requires Node 10+.**
+The Node.js version used is the latest 12.x release. Alternatively, you can specify Node 10 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
 
 ### `now-build` script support
 
