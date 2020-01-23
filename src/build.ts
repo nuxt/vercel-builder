@@ -45,7 +45,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   }
 
   // Node version
-  const nodeVersion = await getNodeVersion(rootDir)
+  const nodeVersion = await getNodeVersion(rootDir, undefined, config, meta)
   const spawnOpts = getSpawnOptions(meta, nodeVersion)
 
   // Prepare TypeScript environment if required.
@@ -244,7 +244,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // lambdaName will be titled index, unless specified in nuxt.config.js
   lambdas[lambdaName] = await createLambda({
     handler: 'now__launcher.launcher',
-    runtime: meta.isDev ? 'nodejs' : nodeVersion.runtime,
+    runtime: nodeVersion.runtime,
     files: launcherFiles,
     environment: {
       NODE_ENV: 'production'
