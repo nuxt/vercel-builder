@@ -972,10 +972,10 @@
   resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-1.3.6.tgz#ceeb0af241d80e916bb28e6e9971f4c8b52545b0"
   integrity sha512-FsBIodUn1GfqBl53jL0xV8g6t9uiwUm+hk9UhqWWFuraA2KUuh2cZBZvzyOHI/9jHCaEES/+PqxMCpdE1/mTGA==
 
-"@now/frameworks@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@now/frameworks/-/frameworks-0.0.6.tgz#d364f551c4291271824405dda974e8fbe10be1cc"
-  integrity sha512-7uhUoCv/83geixeMtCcMuS4wwGJK4T+P+WP6V9/g5v57i+i51SDLk/1Kj1kU22qDfvuDkBqD5Ko/noKmb+USZw==
+"@now/frameworks@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@now/frameworks/-/frameworks-0.0.7.tgz#8ef677c265cf84d71750a8061a54b9445a77e78b"
+  integrity sha512-b/Ym5bg/SYJclQQ/pL4NJ+jn/uoqIbXytgMa6V++8MnCnDxnu3t32g8fG/h0dWv29I89zj+NYjLnovmb06IEaA==
 
 "@now/node-bridge@1.2.6":
   version "1.2.6"
