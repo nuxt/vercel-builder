@@ -103,6 +103,29 @@ Example:
 }
 ```
 
+### `useGenerate`
+
+- Type: `Boolean`
+- Default: `false`
+
+To pre render routes during the build using `nuxt generate` se this to true. Routes that are not generated will fallback to the server lambda, use the [exclude configuration](https://nuxtjs.org/api/configuration-generate#exclude) to disabled generation of certain routes.
+
+Example:
+
+```json
+{
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder",
+      "config": {
+        "useGenerate": true
+      }
+    }
+  ]
+}
+```
+
 ### `tscOptions`
 
 - Type: `Object`

@@ -43,3 +43,25 @@ it('Should build a Typescript example', async () => {
     expect(output[file]).toBeDefined()
   }
 }, FOUR_MINUTES)
+
+it('Should build the standard example with generated files', async () => {
+  const { buildResult } = await runBuildLambda(
+    path.join(__dirname, 'fixture-generated')
+  )
+
+  const { output, routes } = buildResult
+  // Lambda
+  expect(output.index).toBeDefined()
+  expect(routes).toBeDefined()
+
+  // Generated files
+  const generatedFiles = [
+    'index.html',
+    'dynamic/1/index.html',
+    'dynamic/2/index.html'
+  ]
+
+  for (const file of generatedFiles) {
+    expect(output[file]).toBeDefined()
+  }
+}, FOUR_MINUTES)
