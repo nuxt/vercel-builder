@@ -33,7 +33,7 @@
   "devDependencies": {
     "@now/build-utils": "1.3.9",
     "@now/frameworks": "0.0.9",
-    "@now/routing-utils": "1.5.2",
+    "@now/routing-utils": "1.5.3",
     "@nuxt/types": "^0.6.1",
     "@nuxtjs/eslint-config": "^2.0.0",
     "@types/aws-lambda": "^8.10.40",
