@@ -967,25 +967,25 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@now/build-utils@1.3.8":
-  version "1.3.8"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-1.3.8.tgz#78e5a2bdd7dddf316e0f428885108fccd631df0c"
-  integrity sha512-QcAuxxEVMjSCnnMnqiGMkRv/mQBS3FQNQXnr7AJS+5NjYU/5fbym3zr1BgCnjqYRGdyaZkDjmqmsxcQ2rSb1kw==
+"@now/build-utils@1.3.9":
+  version "1.3.9"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-1.3.9.tgz#90b4d13b417918d48e52f09fc8a0a50a2c1feb4e"
+  integrity sha512-3PBYs0JwKi9UPfXXsoiZkO5i3leadEvt5FsVi5i2WOhYH3+6KjUoXKT5Vq819n9bnGPNEfaJCFYCp+h+thHq2g==
 
-"@now/frameworks@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@now/frameworks/-/frameworks-0.0.8.tgz#d0156a48d58af65341f754e68b4b5b8fea98e6a5"
-  integrity sha512-/vXeOGXpUoxiGqxYrbnI9cqQmmy7v9KukttYW1h+2l35tUuMcF1XcSVhuRuN3fsVrA7mSCU2gOAdVF9cOv20Bw==
+"@now/frameworks@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@now/frameworks/-/frameworks-0.0.9.tgz#c712c14380e79d3182859bfe6b75d4dde604be17"
+  integrity sha512-EGo36Jr4urJ8Okw+SfkLUqAjutrz9Ydy5D7bt/cyqqyrtbsh98NB73QBYPqKTrC2esVuerX0C5aG7DR8JXh+6Q==
 
 "@now/node-bridge@1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.2.6.tgz#76cce67f268b5038d2444754d9aa0c4bf2e7da0d"
   integrity sha512-wPLsbRuR3vytseTXqOoh5zKY+I4+RwqFoOHQAzmVVns6kyXm8Q9gQAk2T+tanGJ3T2fMPs89MqEXB70TypcTng==
 
-"@now/routing-utils@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@now/routing-utils/-/routing-utils-1.5.1.tgz#7f85b17e4e7b293d6bc649e3f73c1c50cc24f8df"
-  integrity sha512-k+dxEEmqJyV3+jqVdN2ZQQlbMnO/vT0F0xrfy1rMddcpjM99ToN6iIoIgrYslNVcbyWjbFOY6u2q6ql+71CNSQ==
+"@now/routing-utils@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@now/routing-utils/-/routing-utils-1.5.2.tgz#b62d3cc1ec249e2a4b22959f7c18473cdce3ca39"
+  integrity sha512-KqUk10MyaF4m0Uqx5tok6o0e5gL05QoGN0OZRzFcZaqoE/HvZA3/dh9rw0+lNACjQiwc4+I9PO2H016wxFonmg==
   dependencies:
     path-to-regexp "6.1.0"
   optionalDependencies:
