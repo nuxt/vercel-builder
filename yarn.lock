@@ -982,10 +982,10 @@
   resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.2.6.tgz#76cce67f268b5038d2444754d9aa0c4bf2e7da0d"
   integrity sha512-wPLsbRuR3vytseTXqOoh5zKY+I4+RwqFoOHQAzmVVns6kyXm8Q9gQAk2T+tanGJ3T2fMPs89MqEXB70TypcTng==
 
-"@now/routing-utils@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@now/routing-utils/-/routing-utils-1.5.2.tgz#b62d3cc1ec249e2a4b22959f7c18473cdce3ca39"
-  integrity sha512-KqUk10MyaF4m0Uqx5tok6o0e5gL05QoGN0OZRzFcZaqoE/HvZA3/dh9rw0+lNACjQiwc4+I9PO2H016wxFonmg==
+"@now/routing-utils@1.5.3":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@now/routing-utils/-/routing-utils-1.5.3.tgz#04196dc7d37c2e23a70cdac7be6179076e0d57af"
+  integrity sha512-8DpYR3AkJBGENWvTE3F7/4dm1v2oO+N3g7bp6ZnpDWKFR8vwUO7oeTn/YfHiwv67pYrlXHziD5P0qILApHSc1w==
   dependencies:
     path-to-regexp "6.1.0"
   optionalDependencies:
