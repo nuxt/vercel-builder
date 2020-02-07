@@ -108,7 +108,7 @@ Example:
 - Type: `Boolean`
 - Default: `false`
 
-To pre render routes during the build using `nuxt generate` se this to true. Routes that are not generated will fallback to the server lambda, use the [exclude configuration](https://nuxtjs.org/api/configuration-generate#exclude) to disabled generation of certain routes.
+To pre-render routes during the build using `nuxt generate` set this to true. Routes that are not generated will fallback to the server lambda, use the [Nuxt.js exclude configuration](https://nuxtjs.org/api/configuration-generate#exclude) to disable generation of certain routes.
 
 Example:
 
