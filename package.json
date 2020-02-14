@@ -36,7 +36,7 @@
     "@now/routing-utils": "1.5.3",
     "@nuxt/types": "^0.6.1",
     "@nuxtjs/eslint-config": "^2.0.2",
-    "@types/aws-lambda": "^8.10.40",
+    "@types/aws-lambda": "^8.10.41",
     "@types/execa": "^0.9.0",
     "@types/fs-extra": "^8.0.1",
     "@types/glob": "^7.1.1",
