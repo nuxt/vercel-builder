@@ -5,6 +5,7 @@ module.exports = {
   srcDir: __dirname,
   generate: {
     routes: [
+      '/',
       '/dynamic/1',
       '/dynamic/2'
     ]

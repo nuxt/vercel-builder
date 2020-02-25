@@ -145,20 +145,21 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
     consola.warn(buildDir, 'exists! Please ensure to ignore it with `.nowignore`')
   }
 
-  if (config.useGenerate) {
-    await exec('nuxt', [
-      'generate',
-      '--no-lock', // #19
-      `--config-file "${nuxtConfigName}"`
-    ], spawnOpts)
-  }
-
   await exec('nuxt', [
     'build',
     '--standalone',
     '--no-lock', // #19
     `--config-file "${nuxtConfigName}"`
   ], spawnOpts)
+
+  if (config.useGenerate) {
+    await exec('nuxt', [
+      'generate',
+      '--no-build',
+      '--no-lock', // #19
+      `--config-file "${nuxtConfigName}"`
+    ], spawnOpts)
+  }
 
   // ----------------- Install dependencies -----------------
   startStep('Install dependencies')
@@ -219,7 +220,6 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // Generated static files
   const generatedDir = path.join(rootDir, 'dist')
   const generatedPagesFiles = config.useGenerate ? await globAndPrefix('**/*.html', generatedDir, './') : {}
-  const generatedBundleFiles = config.useGenerate ? await globAndPrefix('**.js', path.join(generatedDir, '_nuxt'), '_nuxt') : {}
 
   // node_modules_prod
   const nodeModulesDir = path.join(rootDir, 'node_modules_prod')
@@ -273,8 +273,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
       ...lambdas,
       ...clientDistFiles,
       ...staticFiles,
-      ...generatedPagesFiles,
-      ...generatedBundleFiles
+      ...generatedPagesFiles
     },
     routes: [
       { src: `/${publicPath}.+`, headers: { 'Cache-Control': 'max-age=31557600' } },
