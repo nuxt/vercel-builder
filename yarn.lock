@@ -967,10 +967,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@now/build-utils@1.3.9":
-  version "1.3.9"
-  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-1.3.9.tgz#90b4d13b417918d48e52f09fc8a0a50a2c1feb4e"
-  integrity sha512-3PBYs0JwKi9UPfXXsoiZkO5i3leadEvt5FsVi5i2WOhYH3+6KjUoXKT5Vq819n9bnGPNEfaJCFYCp+h+thHq2g==
+"@now/build-utils@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@now/build-utils/-/build-utils-2.0.0.tgz#29a695211672ff70f09136d0eaa987be74dbf2ea"
+  integrity sha512-Ski5m5u0N6XLnSrITnDr87jomthrFiHHOK9gxbm2pT0sDvJUhDfVhyyibVGzgxa5DfHEIMr6KNxSxIUDCpY2nw==
 
 "@now/frameworks@0.0.10":
   version "0.0.10"
