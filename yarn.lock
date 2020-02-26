@@ -1143,10 +1143,10 @@
     serve-static "^1.14.1"
     server-destroy "^1.0.1"
 
-"@nuxt/types@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@nuxt/types/-/types-0.6.2.tgz#950f59af154d1426108476e7a83549ac16faac5b"
-  integrity sha512-eOMeUeXYCs4nOjfnr+q4Od//9j9DcBSSrMnygNRDu3RuqgPTBy879FNj+xj5SMvIRjLR5lxzFlGjvTUK9wFwTQ==
+"@nuxt/types@^0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@nuxt/types/-/types-0.6.3.tgz#5e5b538a118804191670980fedacf780e214fb98"
+  integrity sha512-3HbpRGRya1KOR8b9NtSSt9cSJpdIZ/i8PMK7V6THNipsKnWfaDWysQQt4VOxOvDawe098FygkyUNPJRs3SOIIw==
   dependencies:
     "@types/autoprefixer" "^9.7.0"
     "@types/babel__core" "^7.1.4"
@@ -1164,7 +1164,7 @@
     "@types/terser-webpack-plugin" "^2.2.0"
     "@types/webpack" "^4.41.6"
     "@types/webpack-bundle-analyzer" "^2.13.3"
-    "@types/webpack-dev-middleware" "^2.0.3"
+    "@types/webpack-dev-middleware" "^3.7.0"
     "@types/webpack-hot-middleware" "^2.25.0"
 
 "@nuxt/utils@2.11.0":
@@ -1612,10 +1612,10 @@
   dependencies:
     "@types/webpack" "*"
 
-"@types/webpack-dev-middleware@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@types/webpack-dev-middleware/-/webpack-dev-middleware-2.0.3.tgz#aefb145281b3326a052325d583d2339debbf1be3"
-  integrity sha512-DzNJJ6ah/6t1n8sfAgQyEbZ/OMmFcF9j9P3aesnm7G6/iBFR/qiGin8K89J0RmaWIBzhTMdDg3I5PmKmSv7N9w==
+"@types/webpack-dev-middleware@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@types/webpack-dev-middleware/-/webpack-dev-middleware-3.7.0.tgz#3f90ddf22aef2c592eae528c08739bc4807a7d62"
+  integrity sha512-qBJ0+FXarzHwcnIYEc5W41LxC0r74kUIkjCbYBTXq4eKjuFSbt5tSohU5sZYKNnsmHteLJ73Fg+bD4oECCcJxg==
   dependencies:
     "@types/connect" "*"
     "@types/memory-fs" "*"
