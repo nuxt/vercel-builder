@@ -152,7 +152,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
     `--config-file "${nuxtConfigName}"`
   ], spawnOpts)
 
-  if (config.useGenerate) {
+  if (config.generateStaticRoutes) {
     await exec('nuxt', [
       'generate',
       '--no-build',
@@ -219,7 +219,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
 
   // Generated static files
   const generatedDir = path.join(rootDir, 'dist')
-  const generatedPagesFiles = config.useGenerate ? await globAndPrefix('**/*.html', generatedDir, './') : {}
+  const generatedPagesFiles = config.generateStaticRoutes ? await globAndPrefix('**/*.html', generatedDir, './') : {}
 
   // node_modules_prod
   const nodeModulesDir = path.join(rootDir, 'node_modules_prod')

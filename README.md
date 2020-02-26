@@ -103,7 +103,7 @@ Example:
 }
 ```
 
-### `useGenerate`
+### `generateStaticRoutes`
 
 - Type: `Boolean`
 - Default: `false`
@@ -119,7 +119,7 @@ Example:
       "src": "nuxt.config.js",
       "use": "@nuxtjs/now-builder",
       "config": {
-        "useGenerate": true
+        "generateStaticRoutes": true
       }
     }
   ]
