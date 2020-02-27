@@ -103,6 +103,29 @@ Example:
 }
 ```
 
+### `generateStaticRoutes`
+
+- Type: `Boolean`
+- Default: `false`
+
+To pre-render routes during the build using `nuxt generate` set this to true. Routes that are not generated will fallback to the server lambda. You will need to [specify the routes to be generated](https://nuxtjs.org/api/configuration-generate/#routes) in your `nuxt.config`.
+
+Example:
+
+```json
+{
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder",
+      "config": {
+        "generateStaticRoutes": true
+      }
+    }
+  ]
+}
+```
+
 ### `tscOptions`
 
 - Type: `Object`

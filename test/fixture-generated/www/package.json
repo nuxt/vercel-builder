@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "now-build": "echo 1 > static/now-build"
+  },
+  "devDependencies": {
+    "nuxt": "2.10.0"
+  },
+  "engines": {
+    "node": ">=10.x"
+  }
+}

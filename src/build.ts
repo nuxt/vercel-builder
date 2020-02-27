@@ -152,6 +152,15 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
     `--config-file "${nuxtConfigName}"`
   ], spawnOpts)
 
+  if (config.generateStaticRoutes) {
+    await exec('nuxt', [
+      'generate',
+      '--no-build',
+      '--no-lock', // #19
+      `--config-file "${nuxtConfigName}"`
+    ], spawnOpts)
+  }
+
   // ----------------- Install dependencies -----------------
   startStep('Install dependencies')
 
@@ -208,6 +217,10 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   const serverDistDir = path.join(rootDir, buildDir, 'dist/server')
   const serverDistFiles = await globAndPrefix('**', serverDistDir, path.join(buildDir, 'dist/server'))
 
+  // Generated static files
+  const generatedDir = path.join(rootDir, 'dist')
+  const generatedPagesFiles = config.generateStaticRoutes ? await globAndPrefix('**/*.html', generatedDir, './') : {}
+
   // node_modules_prod
   const nodeModulesDir = path.join(rootDir, 'node_modules_prod')
   const nodeModules = await globAndPrefix('**', nodeModulesDir, 'node_modules')
@@ -259,12 +272,14 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
     output: {
       ...lambdas,
       ...clientDistFiles,
-      ...staticFiles
+      ...staticFiles,
+      ...generatedPagesFiles
     },
     routes: [
       { src: `/${publicPath}.+`, headers: { 'Cache-Control': 'max-age=31557600' } },
       ...Object.keys(staticFiles).map(file => ({ src: `/${file}`, headers: { 'Cache-Control': 'max-age=31557600' } })),
-      { src: '/(.*)', dest: '/' }
+      { handle: 'filesystem' },
+      { src: '/(.*)', dest: '/index' }
     ]
   }
 }
