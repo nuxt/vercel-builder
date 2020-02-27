@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.17.1](https://github.com/nuxt/now-builder/compare/v0.17.0...v0.17.1) (2020-02-27)
+
+
+### Features
+
+* add option to include static generated pages ([#185](https://github.com/nuxt/now-builder/issues/185)) ([a488cb6](https://github.com/nuxt/now-builder/commit/a488cb68917c6b70d32e77f43b73a8d0199a8010))
+
 ## [0.17.0](https://github.com/nuxt/now-builder/compare/v0.16.6...v0.17.0) (2020-01-23)
 
 
