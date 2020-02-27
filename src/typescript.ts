@@ -87,7 +87,10 @@ export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts, tscOpti
     if (typeof item === 'string') {
       itemPath = item
     } else if (typeof item === 'object' && Array.isArray(item)) {
-      itemPath = item[0]
+      if (typeof item[0] === 'string') {
+        itemPath = item[0]
+      }
+      // We do not need to handle inline modules
     } else if (typeof item === 'object' && typeof item.handler === 'string') {
       itemPath = item.handler
     }
