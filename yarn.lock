@@ -1305,10 +1305,10 @@
     "@types/browserslist" "*"
     postcss "7.x.x"
 
-"@types/aws-lambda@^8.10.44":
-  version "8.10.44"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.44.tgz#b50fe6568290bab258b92ab62c3029df66e7a1df"
-  integrity sha512-FsA+gjO9NOqNFN57PHnjNRyTvhhUMreejO1nHKi5LsnUoDktiLSvYSu/5TxQd/VxNd6mZJ4/V4rKbyOGSZvVUA==
+"@types/aws-lambda@^8.10.45":
+  version "8.10.45"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.45.tgz#7865c3211fb5c50ff415d93b8e9972c48f9e48bb"
+  integrity sha512-qoELSb2Pt2QRpC/9Egw7BlQMQM+3SUAsTr8Z6FoSVR86ffX3qU5pPVgtM6BTfWcIWfTaKZta0ARlYAOHE1tauA==
 
 "@types/babel__core@^7.1.0", "@types/babel__core@^7.1.4":
   version "7.1.6"
@@ -1509,7 +1509,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^13.7.6":
+"@types/node@*":
   version "13.7.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.6.tgz#cb734a7c191472ae6a2b3a502b4dfffcea974113"
   integrity sha512-eyK7MWD0R1HqVTp+PtwRgFeIsemzuj4gBFSQxfPHY5iMjS7474e5wq+VFgTcdpyHeNxyKSaetYAjdMLJlKoWqA==
@@ -1518,6 +1518,11 @@
   version "12.12.28"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.28.tgz#3a2b5f8d21f96ace690a8832ae9779114612575f"
   integrity sha512-g73GJYJDXgf0jqg+P9S8h2acWbDXNkoCX8DLtJVu7Fkn788pzQ/oJsrdJz/2JejRf/SjfZaAhsw+3nd1D5EWGg==
+
+"@types/node@^13.7.7":
+  version "13.7.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.7.tgz#1628e6461ba8cc9b53196dfeaeec7b07fa6eea99"
+  integrity sha512-Uo4chgKbnPNlxQwoFmYIwctkQVkMMmsAoGGU4JKwLuvBefF0pCq4FybNSnfkfRCpC7ZW7kttcC/TrRtAJsvGtg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
