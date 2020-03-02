@@ -1143,26 +1143,26 @@
     serve-static "^1.14.1"
     server-destroy "^1.0.1"
 
-"@nuxt/types@^0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@nuxt/types/-/types-0.6.3.tgz#5e5b538a118804191670980fedacf780e214fb98"
-  integrity sha512-3HbpRGRya1KOR8b9NtSSt9cSJpdIZ/i8PMK7V6THNipsKnWfaDWysQQt4VOxOvDawe098FygkyUNPJRs3SOIIw==
+"@nuxt/types@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@nuxt/types/-/types-0.6.4.tgz#2b24ad2e8d378128d48a4ab6603b8cca39d53680"
+  integrity sha512-OgnckJJlbjf2TihgJleKJiP94J7lpltV+EV9uoOySD62UzwKNR+KmcdS/ZdlaidqvVpBDQyvrp3nDVn/mwMOxQ==
   dependencies:
     "@types/autoprefixer" "^9.7.0"
-    "@types/babel__core" "^7.1.4"
+    "@types/babel__core" "^7.1.6"
     "@types/compression" "^1.7.0"
     "@types/connect" "^3.4.33"
     "@types/etag" "^1.8.0"
     "@types/file-loader" "^4.2.0"
     "@types/html-minifier" "^3.5.3"
     "@types/less" "^3.0.1"
-    "@types/node" "^12.12.27"
+    "@types/node" "^12.12.29"
     "@types/node-sass" "^4.11.0"
     "@types/optimize-css-assets-webpack-plugin" "^5.0.1"
     "@types/pug" "^2.0.4"
     "@types/serve-static" "^1.13.3"
     "@types/terser-webpack-plugin" "^2.2.0"
-    "@types/webpack" "^4.41.6"
+    "@types/webpack" "^4.41.7"
     "@types/webpack-bundle-analyzer" "^2.13.3"
     "@types/webpack-dev-middleware" "^3.7.0"
     "@types/webpack-hot-middleware" "^2.25.0"
@@ -1310,7 +1310,7 @@
   resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.45.tgz#7865c3211fb5c50ff415d93b8e9972c48f9e48bb"
   integrity sha512-qoELSb2Pt2QRpC/9Egw7BlQMQM+3SUAsTr8Z6FoSVR86ffX3qU5pPVgtM6BTfWcIWfTaKZta0ARlYAOHE1tauA==
 
-"@types/babel__core@^7.1.0", "@types/babel__core@^7.1.4":
+"@types/babel__core@^7.1.0", "@types/babel__core@^7.1.6":
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.6.tgz#16ff42a5ae203c9af1c6e190ed1f30f83207b610"
   integrity sha512-tTnhWszAqvXnhW7m5jQU9PomXSiKXk2sFxpahXvI20SZKu9ylPi8WtIxueZ6ehDWikPT0jeFujMj3X4ZHuf3Tg==
@@ -1514,10 +1514,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.6.tgz#cb734a7c191472ae6a2b3a502b4dfffcea974113"
   integrity sha512-eyK7MWD0R1HqVTp+PtwRgFeIsemzuj4gBFSQxfPHY5iMjS7474e5wq+VFgTcdpyHeNxyKSaetYAjdMLJlKoWqA==
 
-"@types/node@^12.12.27":
-  version "12.12.28"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.28.tgz#3a2b5f8d21f96ace690a8832ae9779114612575f"
-  integrity sha512-g73GJYJDXgf0jqg+P9S8h2acWbDXNkoCX8DLtJVu7Fkn788pzQ/oJsrdJz/2JejRf/SjfZaAhsw+3nd1D5EWGg==
+"@types/node@^12.12.29":
+  version "12.12.29"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.29.tgz#46275f028b4e463b9ac5fefc1d08bc66cc193f25"
+  integrity sha512-yo8Qz0ygADGFptISDj3pOC9wXfln/5pQaN/ysDIzOaAWXt73cNHmtEC8zSO2Y+kse/txmwIAJzkYZ5fooaS5DQ==
 
 "@types/node@^13.7.7":
   version "13.7.7"
@@ -1633,10 +1633,22 @@
     "@types/source-list-map" "*"
     source-map "^0.6.1"
 
-"@types/webpack@*", "@types/webpack@^4.41.6":
+"@types/webpack@*":
   version "4.41.6"
   resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.6.tgz#c76afbdef59159d12e3e1332dc264b75574722a2"
   integrity sha512-iWRpV5Ej+8uKrgxp6jXz3v7ZTjgtuMXY+rsxQjFNU0hYCnHkpA7vtiNffgxjuxX4feFHBbz0IF76OzX2OqDYPw==
+  dependencies:
+    "@types/anymatch" "*"
+    "@types/node" "*"
+    "@types/tapable" "*"
+    "@types/uglify-js" "*"
+    "@types/webpack-sources" "*"
+    source-map "^0.6.0"
+
+"@types/webpack@^4.41.7":
+  version "4.41.7"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.7.tgz#22be27dbd4362b01c3954ca9b021dbc9328d9511"
+  integrity sha512-OQG9viYwO0V1NaNV7d0n79V+n6mjOV30CwgFPIfTzwmk8DHbt+C4f2aBGdCYbo3yFyYD6sjXfqqOjwkl1j+ulA==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
