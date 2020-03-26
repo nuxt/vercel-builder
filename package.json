@@ -58,5 +58,8 @@
     "nuxt": "2.12.1",
     "standard-version": "^7.1.0",
     "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "minimist": ">=1.2.2"
   }
 }
