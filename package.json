@@ -34,7 +34,7 @@
     "@now/build-utils": "2.2.0",
     "@now/frameworks": "0.0.12",
     "@now/routing-utils": "1.8.0",
-    "@nuxt/types": "^0.6.4",
+    "@nuxt/types": "^0.7.0",
     "@nuxtjs/eslint-config": "^2.0.2",
     "@types/aws-lambda": "^8.10.46",
     "@types/execa": "^0.9.0",
@@ -60,6 +60,6 @@
     "typescript": "^3.8.3"
   },
   "resolutions": {
-    "minimist": ">=1.2.2"
+    "minimist": ">=1.2.5"
   }
 }
