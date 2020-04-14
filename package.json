@@ -31,9 +31,9 @@
     "semver": "6.3.0"
   },
   "devDependencies": {
-    "@now/build-utils": "2.2.0",
-    "@now/frameworks": "0.0.12",
-    "@now/routing-utils": "1.8.0",
+    "@now/build-utils": "2.2.1",
+    "@now/frameworks": "0.0.13",
+    "@now/routing-utils": "1.8.1",
     "@nuxt/types": "^0.7.4",
     "@nuxtjs/eslint-config": "^2.0.2",
     "@types/aws-lambda": "^8.10.48",
