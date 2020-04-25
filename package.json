@@ -34,7 +34,7 @@
     "@now/build-utils": "2.2.1",
     "@now/frameworks": "0.0.13",
     "@now/routing-utils": "1.8.1",
-    "@nuxt/types": "^0.7.4",
+    "@nuxt/types": "^0.7.5",
     "@nuxtjs/eslint-config": "^2.0.2",
     "@types/aws-lambda": "^8.10.51",
     "@types/execa": "^0.9.0",
