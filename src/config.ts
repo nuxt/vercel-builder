@@ -1,4 +1,4 @@
-import { Config } from '@now/build-utils'
+import { Config } from '@vercel/build-utils'
 
 const config: Config = {
   maxLambdaSize: '50mb'

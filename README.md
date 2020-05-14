@@ -10,15 +10,15 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-This Now builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it as a serverless function in a Now v2 environment.
+This Vercel builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it as a serverless function in a Vercel environment.
 
 It features built-in caching of `node_modules` and the yarn global cache (even with dependency changes!) and multi-stage build for fast and small deployments.
 
 ## When to use it
 
-If you are using the Now platform and need SSR rendering, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
+If you are using the Vercel and need SSR rendering, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
 
-If you do not need SSR rendering, consider deploying a statically generated Nuxt.js application instead. See [this guide from Now](https://zeit.co/guides/deploying-nuxtjs-with-zeit-now) for more information.
+If you do not need SSR rendering, consider deploying a statically generated Nuxt.js application instead. See [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
 
 You can also find more information on [the Nuxt.js website](https://nuxtjs.org).
 
@@ -71,7 +71,7 @@ Upon deployment, you will get a URL like this: https://nuxtjs-8fnzfb1ci.now.sh
 
 See [Basic Example](./examples/basic) for a more complete deployable example.
 
-See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) for details on deploying two nuxt apps in one Now Monorepo.
+See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) for details on deploying two Nuxt apps in one monorepo.
 
 ## Using with TypeScript
 
@@ -156,15 +156,15 @@ Package dependencies are installed with either `npm` (if a `package-lock.json` i
 
 ### Private npm modules
 
-To install private npm modules, define `NPM_TOKEN` as a [build environment](https://zeit.co/docs/v2/deployments/configuration#build.env) in `now.json`.
+To install private npm modules, define `NPM_TOKEN` as a [build environment](https://vercel.com/docs/configuration#project/build-env) in `now.json`.
 
 ### Node.js version
 
-The Node.js version used is the latest 12.x release. Alternatively, you can specify Node 10 in your `package.json` - see [Now documentation](https://zeit.co/docs/runtimes#official-runtimes/node-js/node-js-version).
+The Node.js version used is the latest 12.x release. Alternatively, you can specify Node 10 in your `package.json` - see [Vercel documentation](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version).
 
 ### `now-build` script support
 
-This builder will run a given [custom build step](https://zeit.co/docs/runtimes/?query=now-build#advanced-usage/advanced-node-js-usage/custom-build-step-for-node-js) if you have added a `now-build` key under `scripts` in `package.json`.
+This builder will run a given [custom build step](https://vercel.com/docs/runtimes?query=now-build#advanced-usage/advanced-node-js-usage/custom-build-step-for-node-js) if you have added a `now-build` key under `scripts` in `package.json`.
 
 ## Troubleshooting
 
@@ -172,7 +172,7 @@ This builder will run a given [custom build step](https://zeit.co/docs/runtimes/
 
 Because of Nuxt.js' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
 
-You may, therefore, need to include them in your `now.json` in both the `env` and `build.env` keys (see [Now documentation](https://zeit.co/docs/v2/advanced/configuration#env)). For example:
+You may, therefore, need to include them in your `now.json` in both the `env` and `build.env` keys (see [Vercel documentation](https://vercel.com/docs/configuration#project/env)). For example:
 
 ```json
   "env": {
@@ -189,7 +189,7 @@ You may, therefore, need to include them in your `now.json` in both the `env` an
 
 [MIT License](./LICENSE)
 
-Documentation and builder inspired by [Next.js](https://nextjs.org) by [Zeit.co](https://zeit.co)
+Documentation and builder inspired by [Next.js](https://nextjs.org) by [Vercel](https://vercel.com)
 
 Copyright (c) Nuxt Community
 

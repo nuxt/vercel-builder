@@ -1,5 +1,5 @@
 import http, { IncomingMessage, ServerResponse } from 'http'
-import { Bridge as BridgeType } from '@now/node-bridge/bridge'
+import { Bridge as BridgeType } from '@vercel/node-bridge/bridge'
 import esmCompiler from 'esm'
 
 const startTime = process.hrtime()

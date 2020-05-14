@@ -1,5 +1,5 @@
 import path from 'path'
-import { PrepareCacheOptions, glob, FileRef } from '@now/build-utils'
+import { PrepareCacheOptions, glob, FileRef } from '@vercel/build-utils'
 
 import fs from 'fs-extra'
 import consola from 'consola'

@@ -4,8 +4,8 @@ import fs from 'fs-extra'
 import { gte, gt } from 'semver'
 import consola from 'consola'
 
-import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Lambda, File } from '@now/build-utils'
-import { Route } from '@now/routing-utils'
+import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Lambda, File } from '@vercel/build-utils'
+import { Route } from '@vercel/routing-utils'
 
 import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName, MutablePackageJson } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
@@ -235,7 +235,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
 
   const launcherFiles = {
     'now__launcher.js': new FileBlob({ data: launcherSrc }),
-    'now__bridge.js': new FileFsRef({ fsPath: require('@now/node-bridge') }),
+    'now__bridge.js': new FileFsRef({ fsPath: require('@vercel/node-bridge') }),
     [nuxtConfigName]: new FileFsRef({ fsPath: path.resolve(rootDir, nuxtConfigName) }),
     ...serverDistFiles,
     ...compiledTypescriptFiles,

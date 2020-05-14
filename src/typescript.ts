@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import replaceInFile from 'replace-in-file'
 
-import { PackageJson, glob, FileFsRef } from '@now/build-utils'
+import { PackageJson, glob, FileFsRef } from '@vercel/build-utils'
 
 import { getNuxtConfig, getNuxtConfigName, exec } from './utils'
 
@@ -63,7 +63,7 @@ async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptio
   options = await readAndMergeOptions('tsconfig.now.json', rootDir, options)
 
   compilerOptions = Object.keys(options).reduce((compilerOptions, option) => {
-    if (compilerOptions && !['rootDirs', 'paths'].includes(option)) {
+    if (compilerOptions && !['rootDirs', 'paths', 'outDir', 'rootDir', 'noEmit'].includes(option)) {
       compilerOptions.push(`--${option}`, String(options[option]))
     }
     return compilerOptions

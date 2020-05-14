@@ -1,5 +1,5 @@
 const path = require('path')
-const { glob } = require('@now/build-utils')
+const { glob } = require('@vercel/build-utils')
 const fs = require('fs-extra')
 
 function runAnalyze (wrapper, context) {

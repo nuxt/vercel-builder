@@ -13,7 +13,7 @@
         </h1>
       </div>
       <h2 class="Landscape__Title">
-        Live on <a href="https://zeit.co/now">now</a>!
+        Live on <a href="https://vercel.com/home">Vercel</a>!
       </h2>
       <p class="Landscape__Page__Explanation">
         {{ path }}
