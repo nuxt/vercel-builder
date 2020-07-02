@@ -79,7 +79,7 @@ export async function compileTypescriptBuildFiles ({ rootDir, spawnOpts, tscOpti
   const nuxtConfigFile = getNuxtConfig(rootDir, 'now_compiled/nuxt.config.js')
   const { serverMiddleware, modules } = nuxtConfigFile
 
-  const filesToCompile = [
+  const filesToCompile: string[] = [
     ...(serverMiddleware || []),
     ...(modules || [])
   ].reduce((filesToCompile, item) => {
