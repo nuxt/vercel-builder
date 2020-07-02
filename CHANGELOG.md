@@ -1,7 +1,3 @@
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
 ### [0.17.2](https://github.com/nuxt/now-builder/compare/v0.17.1...v0.17.2) (2020-05-14)
 
 ### [0.17.1](https://github.com/nuxt/now-builder/compare/v0.17.0...v0.17.1) (2020-02-27)
