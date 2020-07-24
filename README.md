@@ -16,7 +16,7 @@ It features built-in caching of `node_modules` and the yarn global cache (even w
 
 ## When to use it
 
-If you are using the Vercel and need SSR rendering, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
+If you are using Vercel and need SSR rendering, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
 
 If you do not need SSR rendering, consider deploying a statically generated Nuxt.js application instead. See [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
 
