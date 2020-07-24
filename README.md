@@ -1,6 +1,6 @@
 ![now-builder](https://user-images.githubusercontent.com/904724/61308402-7a752d00-a7f0-11e9-9502-23731ccd00fd.png)
 
-# Nuxt.js Now Builder
+# Nuxt.js Vercel Builder
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -60,16 +60,15 @@ Then define the build in `now.json`:
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder",
-      "config": {}
+      "use": "@nuxtjs/now-builder
     }
   ]
 }
 ```
 
-Upon deployment, you will get a URL like this: https://nuxtjs-8fnzfb1ci.now.sh
+Upon deployment, you will get a URL like this: `https://nuxtjs-8fnzfb1ci.vercel.app`
 
-See [Basic Example](./examples/basic) for a more complete deployable example.
+See [Basic example](./examples/basic) for a more complete deployable example, including an example of how to set up `vercel dev` support.
 
 See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) for details on deploying two Nuxt apps in one monorepo.
 
@@ -158,9 +157,9 @@ Package dependencies are installed with either `npm` (if a `package-lock.json` i
 
 To install private npm modules, define `NPM_TOKEN` as a [build environment](https://vercel.com/docs/configuration#project/build-env) in `now.json`.
 
-### Node.js version
+### Node version
 
-The Node.js version used is the latest 12.x release. Alternatively, you can specify Node 10 in your `package.json` - see [Vercel documentation](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version).
+The Node version used is the latest 12.x release. Alternatively, you can specify Node 10 in your `package.json` - see [Vercel documentation](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version).
 
 ### `now-build` script support
 
@@ -182,6 +181,14 @@ You may, therefore, need to include them in your `now.json` in both the `env` an
     "env": {
       "MY_VARIABLE": true
     }
+  }
+```
+
+If you are using Nuxt 2.13+, it is recommended to use the [new runtimeConfig options](https://nuxtjs.org/guide/runtime-config/) which can decrease this duplication by only requiring that you set the variable once:
+
+```json
+  "env": {
+    "MY_VARIABLE": true
   }
 ```
 
