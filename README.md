@@ -60,7 +60,7 @@ Then define the build in `now.json`:
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder
+      "use": "@nuxtjs/now-builder"
     }
   ]
 }
