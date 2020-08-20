@@ -60,7 +60,7 @@
     "nuxt": "2.14.3",
     "release-it": "^13.6.7",
     "standard-version": "^9.0.0",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   },
   "resolutions": {
     "minimist": ">=1.2.5"
