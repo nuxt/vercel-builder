@@ -1,3 +1,5 @@
+### [0.17.4](https://github.com/nuxt/vercel-builder/compare/v0.17.3...v0.17.4) (2020-08-26)
+
 ### [0.17.3](https://github.com/nuxt/now-builder/compare/v0.17.2...v0.17.3) (2020-07-02)
 
 ### [0.17.2](https://github.com/nuxt/now-builder/compare/v0.17.1...v0.17.2) (2020-05-14)
