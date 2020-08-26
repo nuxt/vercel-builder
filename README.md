@@ -1,4 +1,4 @@
-![now-builder](https://user-images.githubusercontent.com/904724/61308402-7a752d00-a7f0-11e9-9502-23731ccd00fd.png)
+![vercel-builder](https://user-images.githubusercontent.com/904724/61308402-7a752d00-a7f0-11e9-9502-23731ccd00fd.png)
 
 # Nuxt.js Vercel Builder
 
@@ -16,7 +16,7 @@ It features built-in caching of `node_modules` and the yarn global cache (even w
 
 ## When to use it
 
-If you are using Vercel and need SSR rendering, `@nuxtjs/now-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
+If you are using Vercel and need SSR rendering, `@nuxtjs/vercel-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
 
 If you do not need SSR rendering, consider deploying a statically generated Nuxt.js application instead. See [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
 
@@ -60,7 +60,7 @@ Then define the build in `now.json`:
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder"
+      "use": "@nuxtjs/vercel-builder"
     }
   ]
 }
@@ -74,7 +74,7 @@ See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) fo
 
 ## Using with TypeScript
 
-`now-builder` supports TypeScript runtime compilation, though it does so in a slightly different way from `@nuxt/typescript-runtime`. It adds in a pre-compilation step as part of building the lambda for files not compiled by Webpack, such as `nuxt.config.ts`, local modules and serverMiddleware.
+`vercel-builder` supports TypeScript runtime compilation, though it does so in a slightly different way from `@nuxt/typescript-runtime`. It adds in a pre-compilation step as part of building the lambda for files not compiled by Webpack, such as `nuxt.config.ts`, local modules and serverMiddleware.
 
 References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
 
@@ -93,7 +93,7 @@ Example:
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder",
+      "use": "@nuxtjs/vercel-builder",
       "config": {
         "serverFiles": ["server-middleware/**"]
       }
@@ -116,7 +116,7 @@ Example:
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder",
+      "use": "@nuxtjs/vercel-builder",
       "config": {
         "generateStaticRoutes": true
       }
@@ -134,7 +134,7 @@ If you need to pass TypeScript compiler options to override your `tsconfig.json`
 ```json
 {
   "src": "nuxt.config.ts",
-  "use": "@nuxtjs/now-builder",
+  "use": "@nuxtjs/vercel-builder",
   "config": {
     "tscOptions": {
       "sourceMap": false
@@ -202,17 +202,17 @@ Copyright (c) Nuxt Community
 
 <!-- Badges -->
 
-[npm-version-src]: https://flat.badgen.net/npm/dt/@nuxtjs/now-builder
-[npm-version-href]: https://npmjs.com/package/@nuxtjs/now-builder
-[npm-downloads-src]: https://flat.badgen.net/npm/v/@nuxtjs/now-builder
-[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/now-builder
-[github-ci-src]: https://flat.badgen.net//github/checks/nuxt/now-builder
-[github-ci-href]: https://github.com/nuxt/now-builder/actions
-[codecov-src]: https://flat.badgen.net/codecov/c/github/nuxt/now-builder
-[codecov-href]: https://codecov.io/gh/nuxt/now-builder
-[david-dm-src]: https://flat.badgen.net/david/dep/nuxt/now-builder
-[david-dm-href]: https://david-dm.org/nuxt/now-builder
+[npm-version-src]: https://flat.badgen.net/npm/dt/@nuxtjs/vercel-builder
+[npm-version-href]: https://npmjs.com/package/@nuxtjs/vercel-builder
+[npm-downloads-src]: https://flat.badgen.net/npm/v/@nuxtjs/vercel-builder
+[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/vercel-builder
+[github-ci-src]: https://flat.badgen.net//github/checks/nuxt/vercel-builder
+[github-ci-href]: https://github.com/nuxt/vercel-builder/actions
+[codecov-src]: https://flat.badgen.net/codecov/c/github/nuxt/vercel-builder
+[codecov-href]: https://codecov.io/gh/nuxt/vercel-builder
+[david-dm-src]: https://flat.badgen.net/david/dep/nuxt/vercel-builder
+[david-dm-href]: https://david-dm.org/nuxt/vercel-builder
 [standard-js-src]: https://flat.badgen.net/badge/code%20style/standard/f2a
 [standard-js-href]: https://standardjs.com
-[packagephobia-src]: https://flat.badgen.net/packagephobia/install/@nuxtjs/now-builder
-[packagephobia-href]: https://packagephobia.now.sh/result?p=@nuxtjs/now-builder
+[packagephobia-src]: https://flat.badgen.net/packagephobia/install/@nuxtjs/vercel-builder
+[packagephobia-href]: https://packagephobia.now.sh/result?p=@nuxtjs/vercel-builder

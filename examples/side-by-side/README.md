@@ -1,8 +1,8 @@
 # Deploying two Nuxt apps side-by-side
 
-The nuxt/now-builder works out of the box for a single nuxt app. In a case where you're trying to deploy two nuxt apps side-by-side, you'll need to add some extra configuration options.
+`@nuxtjs/vercel-builder` works out of the box for a single Nuxt app. If you're trying to deploy two Nuxt apps side-by-side, you'll need to add some extra configuration options.
 
-The goal of this, is to run multiple nuxt apps in one now deployment, and allow them to use shared components.
+The goal of this, is to run multiple Nuxt apps in one Vercel deployment, and allow them to use shared components.
 
 To see this working altogether, check out [a deployable example of two side-by-side apps](./side-by-side-example).
 
@@ -10,15 +10,15 @@ To see this working altogether, check out [a deployable example of two side-by-s
 
 Lets walk through the setup of this side-by-side app. In our case, main app, and separate admin app.
 
-1. now.json should exist at root level.
+1. vercel.json should exist at root level.
 2. Each app should be in its own folder, at root level.
-3. Each individual app should have their own package.json, facilitating their own nuxt build (each app can have different dependancies)
+3. Each individual app should have their own package.json, facilitating their own Nuxt build (each app can have different dependancies)
 4. If you're using shared components, they should be available in the root folder.
 
 Your project structure should roughly look like so:
 
 ```
-now.json
+vercel.json
 
 -- app/
 ---- app files...
@@ -34,21 +34,21 @@ now.json
 
 ### Additional nuxt.config.js setup
 
-In order to customize where each of these apps is built in our nuxt/now-builder, we need to update our nuxt.config.json
+In order to customize where each of these apps is built in our `@nuxtjs/vercel-builder`, we need to update our `nuxt.config.js`.
 
 The goal here is to change our single app from building to `_nuxt` into two apps, building into `_nuxt/app` and `_nuxt/admin` respectively.
 
 For this to work, we need to update:
 
-- **srcDir** for the app, to match our now builder
+- **srcDir** for the app, to match our Vercel builder
 - **buildDir** to point to our new build folder
 - **lambdaName** there is no need to set this for the main app, but secondary app needs to have a unique lambda name.
-- **build.publicPath** this needs to match the route found in our now.json
+- **build.publicPath** this needs to match the route found in our `vercel.json`
 - **build.extend** to include support for our shared components
 
-#### Updating `app/nuxt.config.json`
+#### Updating `app/nuxt.config.js`
 
-This will build our main app to `_nuxt/app`, and serve it at `/` in our now.json routes.
+This will build our main app to `_nuxt/app`, and serve it at `/` in our `vercel.json` routes.
 
 ```js
 {
@@ -56,7 +56,7 @@ This will build our main app to `_nuxt/app`, and serve it at `/` in our now.json
   "buildDir": "_nuxt/app",
   "lambdaName": "index", // main app should be index, not needed here
   "build": {
-    // publicPath matches our now.json routes
+    // publicPath matches our vercel.json routes
     "publicPath": "_nuxt/app",
     extend(config) {
       // Add '~/shared' as an alias.
@@ -69,7 +69,7 @@ This will build our main app to `_nuxt/app`, and serve it at `/` in our now.json
 
 #### Updating `admin/nuxt.config.json`
 
-This is our secondary app, meant to run side-by-side with our main app. This will build to `_nuxt/admin` and serve it at `/admin` in our now.json routes.
+This is our secondary app, meant to run side-by-side with our main app. This will build to `_nuxt/admin` and serve it at `/admin` in our `vercel.json` routes.
 
 ```js
 {
@@ -81,7 +81,7 @@ This is our secondary app, meant to run side-by-side with our main app. This wil
     "base": "/admin/"
   },
   "build": {
-    // publicPath matches our now.json routes
+    // publicPath matches our vercel.json routes
     "publicPath": "_nuxt/admin",
     extend(config) {
       // Add '~/shared' as an alias.
@@ -92,7 +92,7 @@ This is our secondary app, meant to run side-by-side with our main app. This wil
 }
 ```
 
-### Setting up `now.json` for the deploy
+### Setting up `vercel.json` for the deploy
 
 The goal here, is two set up two sets of nuxt catch all routes, and forward them to their respective apps.
 
@@ -110,8 +110,8 @@ Our routes will include:
 {
   "version": 2,
   "builds": [
-    { "src": "app/nuxt.config.js", "use": "@nuxt/now-builder" },
-    { "src": "admin/nuxt.config.js", "use": "@nuxt/now-builder" }
+    { "src": "app/nuxt.config.js", "use": "@nuxtjs/vercel-builder" },
+    { "src": "admin/nuxt.config.js", "use": "@nuxtjs/vercel-builder" }
   ],
   "routes": [
     {
@@ -145,4 +145,4 @@ Our routes will include:
 
 ## Deploy the app.
 
-With this set up, you should be able to `now` and see your two apps live.
+With this set up, you should be able to `vc` and see your two apps live.

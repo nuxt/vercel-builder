@@ -40,7 +40,7 @@ export function validateEntrypoint (entrypoint: string): void {
 
   if (['package.json', 'nuxt.config.js', 'nuxt.config.ts'].includes(filename) === false) {
     throw new Error(
-      'Specified "src" for "@nuxt/now-builder" has to be "package.json", "nuxt.config.js" or "nuxt.config.ts"'
+      'Specified "src" for "@nuxtjs/vercel-builder" has to be "package.json", "nuxt.config.js" or "nuxt.config.ts"'
     )
   }
 }
