@@ -2123,15 +2123,15 @@
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
-"@vercel/build-utils@2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.5.0.tgz#fc8b79156be3d1cca25745af289e9fddc94ebeef"
-  integrity sha512-+RtA40d1ejTG9S8HpGeLEcmcdcNZXqrUT8CAAm0uXPG1FonccjrYxC0pt3ehhyeqDJj9Yb1+QZ58RfQagfdezQ==
+"@vercel/build-utils@2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.5.1.tgz#2f687c2d82464dd85e0ed8130bc01e5dac9b11a4"
+  integrity sha512-689ov8fGrgVnLwPbJUvgUKdSTseZiOMobR4XoZjmSmeF8+gaOpycsdGuVFzNtdFneUiQWO/k5AkY5diZj8fNgg==
 
-"@vercel/frameworks@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@vercel/frameworks/-/frameworks-0.1.0.tgz#11c2e0d944aa5985673e5ed31f898845b5339344"
-  integrity sha512-UvjMfJ0GNnYVDK9QkE4xJVOKm1uOC8eUkBr/e8iwRa5/VnrGHKQEMaM1uUZJS+VBPleusiVzIw7p7N2JsYwNpg==
+"@vercel/frameworks@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@vercel/frameworks/-/frameworks-0.1.1.tgz#c81f50f789377d67b1c90c3abd52a052cb4bc20d"
+  integrity sha512-/kE+ofSRiaAc9RCszwdbXWF0ZEbYno7X9zIJaoaWUKnlrPO+OVb8tSHU4vrTbmkfjwsuk8rr0kpXHZGtqR+mzw==
 
 "@vercel/node-bridge@1.3.1":
   version "1.3.1"
