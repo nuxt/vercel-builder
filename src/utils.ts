@@ -1,7 +1,7 @@
 import path from 'path'
 import { SpawnOptions } from 'child_process'
 import fs from 'fs-extra'
-import execa, { ExecaReturns } from 'execa'
+import execa, { ExecaReturnValue } from 'execa'
 import esm from 'esm'
 import { glob, Files, PackageJson } from '@vercel/build-utils'
 import consola from 'consola'
@@ -14,7 +14,7 @@ type Mutable<T> = {
 
 export type MutablePackageJson = Mutable<PackageJson>
 
-export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<ExecaReturns> {
+export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOptions = {}): Promise<ExecaReturnValue> {
   args = args.filter(Boolean)
 
   consola.log('Running', cmd, ...args)
@@ -28,7 +28,8 @@ export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOption
       NODE_OPTIONS: '--max_old_space_size=3000',
       ...env
     },
-    ...opts
+    ...opts,
+    stdio: Array.isArray(opts.stdio) ? opts.stdio.filter(Boolean) as Array<SpawnOptions['stdio'] extends Array<infer R> ? Array<NonNullable<R>> : never> : opts.stdio
   })
 }
 
