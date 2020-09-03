@@ -10271,10 +10271,10 @@ release-it@^13.5.6:
     yaml "1.10.0"
     yargs-parser "19.0.1"
 
-release-it@^13.7.1:
-  version "13.7.1"
-  resolved "https://registry.yarnpkg.com/release-it/-/release-it-13.7.1.tgz#c23316bb538429c1576f969731df135a6016a32e"
-  integrity sha512-OAupGLMZJBGrGRJmb8RvZ8ZQAQquKlkGGYvgRrJmkHE+jnGdf+YSvEmItBv08CwhDcwCyXdTkkN/rJ2Flt68+g==
+release-it@^14.0.1:
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/release-it/-/release-it-14.0.1.tgz#9795e53d50308b4d15de769bed5dcd31a46acce1"
+  integrity sha512-QwC3xqsoWJqTylyfFwjDUwlR4JG03OV02xr7y7YX+SY78LU2+2PmYndnZRKBsmswXPKBFe8EtP7Og34wlWmjzg==
   dependencies:
     "@iarna/toml" "2.2.5"
     "@octokit/rest" "18.0.4"
@@ -10283,7 +10283,6 @@ release-it@^13.7.1:
     cosmiconfig "7.0.0"
     debug "4.1.1"
     deprecated-obj "2.0.0"
-    detect-repo-changelog "1.0.1"
     execa "4.0.3"
     find-up "5.0.0"
     form-data "3.0.0"
@@ -10300,11 +10299,9 @@ release-it@^13.7.1:
     parse-json "5.1.0"
     semver "7.3.2"
     shelljs "0.8.4"
-    supports-color "7.2.0"
     update-notifier "4.1.1"
     url-join "4.0.1"
     uuid "8.3.0"
-    window-size "1.1.1"
     yaml "1.10.0"
     yargs-parser "19.0.4"
 
@@ -11295,13 +11292,6 @@ supports-color@7.1.0, supports-color@^7.0.0, supports-color@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.1.0.tgz#68e32591df73e25ad1c4b49108a2ec507962bfd1"
   integrity sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==
-  dependencies:
-    has-flag "^4.0.0"
-
-supports-color@7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
-  integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
 
