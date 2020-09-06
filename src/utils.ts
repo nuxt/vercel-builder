@@ -34,6 +34,18 @@ export function exec (cmd: string, args: string[], { env, ...opts }: SpawnOption
 }
 
 /**
+ * Read in a JSON file with support for UTF-16 fallback.
+ */
+
+export async function readJSON <T = unknown> (filename: string): Promise<T> {
+  try {
+    return await fs.readJSON(filename)
+  } catch {
+    return await fs.readJSON(filename, { encoding: 'utf16le' })
+  }
+}
+
+/**
  * Validate if the entrypoint is allowed to be used
  */
 export function validateEntrypoint (entrypoint: string): void {
