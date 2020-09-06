@@ -3,9 +3,9 @@ import path from 'path'
 import fs from 'fs-extra'
 import replaceInFile from 'replace-in-file'
 
-import { PackageJson, glob, FileFsRef } from '@vercel/build-utils'
+import { glob, FileFsRef, PackageJson } from '@vercel/build-utils'
 
-import { getNuxtConfig, getNuxtConfigName, exec } from './utils'
+import { exec, getNuxtConfig, getNuxtConfigName, readJSON } from './utils'
 
 export interface JsonOptions { [key: string]: number | boolean | string | Array<number | boolean | string> }
 
@@ -26,9 +26,9 @@ export async function prepareTypescriptEnvironment ({ pkg, spawnOpts, rootDir }:
   spawnOpts = { ...spawnOpts, env: { ...spawnOpts.env, NODE_PRESERVE_SYMLINKS: '1' } }
 
   if ((fs.existsSync('tsconfig.json'))) {
-    let tsConfig
+    let tsConfig: Record<string, any> & { exclude: string[] }
     try {
-      tsConfig = await fs.readJson('tsconfig.json')
+      tsConfig = await readJSON('tsconfig.json')
     } catch (e) {
       throw new Error(`Can not read tsconfig.json from ${rootDir}`)
     }
@@ -47,7 +47,7 @@ async function readAndMergeOptions (filename: string, rootDir: string, options: 
   if (fs.existsSync(filename)) {
     let tsConfig: { compilerOptions?: JsonOptions }
     try {
-      tsConfig = await fs.readJson(filename)
+      tsConfig = await readJSON(filename)
     } catch (e) {
       throw new Error(`Can not read ${filename} from ${rootDir}`)
     }

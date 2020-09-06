@@ -7,7 +7,7 @@ import consola from 'consola'
 import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Lambda, File } from '@vercel/build-utils'
 import { Route } from '@vercel/routing-utils'
 
-import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName, MutablePackageJson } from './utils'
+import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName, MutablePackageJson, readJSON } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
 
 interface BuilderOutput {
@@ -39,7 +39,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
   // Read package.json
   let pkg: MutablePackageJson
   try {
-    pkg = await fs.readJson('package.json')
+    pkg = await readJSON('package.json')
   } catch (e) {
     throw new Error(`Can not read package.json from ${rootDir}`)
   }
