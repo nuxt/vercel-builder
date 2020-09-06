@@ -1,3 +1,10 @@
+### [0.17.5](https://github.com/nuxt/vercel-builder/compare/v0.17.4...v0.17.5) (2020-09-06)
+
+
+### Bug Fixes
+
+* add support for UTF-16 LE encoded `tsconfig.json` ([#354](https://github.com/nuxt/vercel-builder/issues/354)) ([ac40dd2](https://github.com/nuxt/vercel-builder/commit/ac40dd2fe9b151521f1f1d88eaa98499f913b95e)), closes [#245](https://github.com/nuxt/vercel-builder/issues/245)
+
 ### [0.17.4](https://github.com/nuxt/vercel-builder/compare/v0.17.3...v0.17.4) (2020-08-26)
 
 ### [0.17.3](https://github.com/nuxt/now-builder/compare/v0.17.2...v0.17.3) (2020-07-02)
