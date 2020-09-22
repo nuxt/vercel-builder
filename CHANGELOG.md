@@ -1,3 +1,10 @@
+### [0.17.7](https://github.com/nuxt/vercel-builder/compare/v0.17.6...v0.17.7) (2020-09-22)
+
+
+### Bug Fixes
+
+* revert vercel monorepo support ([#366](https://github.com/nuxt/vercel-builder/issues/366)) ([f7d4ff4](https://github.com/nuxt/vercel-builder/commit/f7d4ff4e27fd1e5f175e45792a631c81abf6f976))
+
 ### [0.17.6](https://github.com/nuxt/vercel-builder/compare/v0.17.5...v0.17.6) (2020-09-22)
 
 ### [0.17.5](https://github.com/nuxt/vercel-builder/compare/v0.17.4...v0.17.5) (2020-09-06)
