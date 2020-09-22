@@ -1,3 +1,5 @@
+### [0.17.6](https://github.com/nuxt/vercel-builder/compare/v0.17.5...v0.17.6) (2020-09-22)
+
 ### [0.17.5](https://github.com/nuxt/vercel-builder/compare/v0.17.4...v0.17.5) (2020-09-06)
 
 
