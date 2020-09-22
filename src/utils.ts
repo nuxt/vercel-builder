@@ -6,7 +6,7 @@ import esm from 'esm'
 import { glob, Files, PackageJson } from '@vercel/build-utils'
 import consola from 'consola'
 import { IOptions } from 'glob'
-import { Configuration as NuxtConfiguration } from '@nuxt/types'
+import { NuxtConfig as NuxtConfiguration } from '@nuxt/types'
 
 type Mutable<T> = {
   -readonly [P in keyof T]: T[P] extends ReadonlyArray<infer U> ? Mutable<U>[] : Mutable<T[P]>
