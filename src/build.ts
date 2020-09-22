@@ -98,6 +98,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
       '--frozen-lockfile',
       '--non-interactive',
       '--production=false',
+      `--modules-folder=${rootDir}/node_modules`,
       `--cache-folder=${yarnCacheDir}`
     ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
   } else {
@@ -181,6 +182,7 @@ export async function build ({ files, entrypoint, workPath, config = {}, meta = 
       '--pure-lockfile',
       '--non-interactive',
       '--production=true',
+      `--modules-folder=${rootDir}/node_modules`,
       `--cache-folder=${yarnCacheDir}`
     ], spawnOpts)
   } else {
