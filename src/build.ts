@@ -88,11 +88,15 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
 
   // Prepare node_modules
   try {
-    await fs.mkdirp('node_modules_dev')
+    if (fs.existsSync(modulesPath)) {
+      await fs.rename(modulesPath, path.join(entrypointPath, 'node_modules_dev'))
+    } else {
+      await fs.mkdirp('node_modules_dev')
+    }
     await removePath(modulesPath)
     await fs.symlink('node_modules_dev', modulesPath)
   } catch (e) {
-    consola.log('Non-fatal error linking/unlinking node_modules_dev.', e)
+    consola.log('Error linking/unlinking node_modules_dev.', e)
   }
 
   // Install all dependencies
@@ -175,7 +179,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
     await removePath(modulesPath)
     await fs.symlink('node_modules_prod', modulesPath)
   } catch (e) {
-    consola.log('Non-fatal error linking/unlinking node_modules_prod.', e)
+    consola.log('Error linking/unlinking node_modules_prod.', e)
   }
 
   // Only keep core dependency
