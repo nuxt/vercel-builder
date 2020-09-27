@@ -1,3 +1,10 @@
+### [0.17.10](https://github.com/nuxt/vercel-builder/compare/v0.17.9...v0.17.10) (2020-09-27)
+
+
+### Bug Fixes
+
+* preserve contents of `node_modules` folder if it exists ([b9318b8](https://github.com/nuxt/vercel-builder/commit/b9318b8f98f4e807b90babdbeb2db1759d843258))
+
 ### [0.17.9](https://github.com/nuxt/vercel-builder/compare/v0.17.8...v0.17.9) (2020-09-27)
 
 
