@@ -1,3 +1,10 @@
+### [0.17.8](https://github.com/nuxt/vercel-builder/compare/v0.17.7...v0.17.8) (2020-09-27)
+
+
+### Bug Fixes
+
+* hotfix to address unlinking `node_modules` issue ([9334118](https://github.com/nuxt/vercel-builder/commit/9334118fa58ed20abd6b38a9c56e530ef3f1a353)), closes [#369](https://github.com/nuxt/vercel-builder/issues/369)
+
 ### [0.17.7](https://github.com/nuxt/vercel-builder/compare/v0.17.6...v0.17.7) (2020-09-22)
 
 
