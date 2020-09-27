@@ -88,11 +88,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
 
   // Prepare node_modules
   try {
-    if (fs.existsSync(modulesPath)) {
-      await fs.rename(modulesPath, path.join(entrypointPath, 'node_modules_dev'))
-    } else {
-      await fs.mkdirp('node_modules_dev')
-    }
+    await fs.mkdirp('node_modules_dev')
     await removePath(modulesPath)
     await fs.symlink('node_modules_dev', modulesPath)
   } catch (e) {
