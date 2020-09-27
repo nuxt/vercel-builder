@@ -189,3 +189,13 @@ export function getNuxtConfigName (rootDir: string): string {
   }
   throw new Error(`Can not read nuxt.config from ${rootDir}`)
 }
+
+export async function removePath (directoryPath: string): Promise<void> {
+  if (fs.existsSync(directoryPath)) {
+    try {
+      await fs.unlink(directoryPath)
+    } catch {
+      fs.rmdirSync(directoryPath, { recursive: true })
+    }
+  }
+}

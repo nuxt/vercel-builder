@@ -7,7 +7,7 @@ import consola from 'consola'
 import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Lambda, File } from '@vercel/build-utils'
 import { Route } from '@vercel/routing-utils'
 
-import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName, MutablePackageJson, readJSON } from './utils'
+import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName, MutablePackageJson, readJSON, removePath } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
 
 interface BuilderOutput {
@@ -89,13 +89,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
   // Prepare node_modules
   try {
     await fs.mkdirp('node_modules_dev')
-    if (fs.existsSync(modulesPath)) {
-      try {
-        await fs.unlink(modulesPath)
-      } catch (e) {
-        await fs.rmdir(modulesPath)
-      }
-    }
+    await removePath(modulesPath)
     await fs.symlink('node_modules_dev', modulesPath)
   } catch (e) {
     consola.log('Non-fatal error linking/unlinking node_modules_dev.', e)
@@ -178,13 +172,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
   // Use node_modules_prod
   try {
     await fs.mkdirp('node_modules_prod')
-    if (fs.existsSync(modulesPath)) {
-      try {
-        await fs.unlink(modulesPath)
-      } catch (e) {
-        await fs.rmdir(modulesPath)
-      }
-    }
+    await removePath(modulesPath)
     await fs.symlink('node_modules_prod', modulesPath)
   } catch (e) {
     consola.log('Non-fatal error linking/unlinking node_modules_prod.', e)
