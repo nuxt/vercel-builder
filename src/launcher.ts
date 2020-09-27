@@ -1,5 +1,4 @@
-import http, { IncomingMessage, ServerResponse } from 'http'
-import { Bridge as BridgeType } from '@vercel/node-bridge/bridge'
+import http from 'http'
 import esmCompiler from 'esm'
 
 const startTime = process.hrtime()
@@ -34,18 +33,18 @@ const readyPromise = nuxt.ready().then(() => {
 })
 
 // Create bridge and start listening
-const { Server } = require('http') // eslint-disable-line import/order
-const { Bridge } = require('./now__bridge.js')
+const { Server } = require('http') as typeof http // eslint-disable-line import/order
+const { Bridge } = require('./vercel__bridge.js') as typeof import('@vercel/node-bridge/bridge')
 
-const server = new (Server as typeof http.Server)(
-  async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
+const server = new Server(
+  async (req, res) => {
     if (!isReady) {
       await readyPromise
     }
     nuxt.server.app(req, res)
   }
 )
-const bridge = new (Bridge as typeof BridgeType)(server)
+const bridge = new Bridge(server)
 
 bridge.listen()
 

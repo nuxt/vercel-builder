@@ -10,7 +10,7 @@ async function prepareCache ({ workPath, entrypoint }: PrepareCacheOptions): Pro
 
   startStep('Collect cache')
   const cache: Record<string, FileRef> = {}
-  for (const dir of ['.now_cache', 'node_modules_dev', 'node_modules_prod']) {
+  for (const dir of ['.vercel_cache', 'node_modules_dev', 'node_modules_prod']) {
     const activeDirectory = path.join(workPath, entryDir, dir)
     if (!fs.existsSync(activeDirectory)) {
       consola.warn(activeDirectory, 'not exists. skipping!')
