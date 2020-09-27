@@ -1,3 +1,10 @@
+### [0.17.9](https://github.com/nuxt/vercel-builder/compare/v0.17.8...v0.17.9) (2020-09-27)
+
+
+### Bug Fixes
+
+* recursively delete `node_modules` if it exists ([461e2ff](https://github.com/nuxt/vercel-builder/commit/461e2ffb5c3e16c6ca1d76f2d422f702d5db2b05))
+
 ### [0.17.8](https://github.com/nuxt/vercel-builder/compare/v0.17.7...v0.17.8) (2020-09-27)
 
 
