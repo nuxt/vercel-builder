@@ -1,3 +1,11 @@
+### [0.17.12](https://github.com/nuxt/vercel-builder/compare/v0.17.11...v0.17.12) (2020-09-28)
+
+
+### Bug Fixes
+
+* improve cache handling ([bec1d02](https://github.com/nuxt/vercel-builder/commit/bec1d02cd8d41ce91f0fccca944f0c77cdafe948))
+* print debugging info and don't use `repoRootPath` for `node_modules` ([2626f7f](https://github.com/nuxt/vercel-builder/commit/2626f7f068dde19f146b82270ad3a8a153164f18))
+
 ### [0.17.11](https://github.com/nuxt/vercel-builder/compare/v0.17.10...v0.17.11) (2020-09-27)
 
 ### [0.17.10](https://github.com/nuxt/vercel-builder/compare/v0.17.9...v0.17.10) (2020-09-27)
