@@ -17,7 +17,10 @@ interface BuilderOutput {
 }
 
 export async function build (opts: BuildOptions): Promise<BuilderOutput> {
-  const { files, entrypoint, workPath, repoRootPath, config = {}, meta = {} } = opts
+  const { files, entrypoint, workPath, config = {}, meta = {} } = opts
+  // ---------------- Debugging context --------------
+  consola.log('Running with @nuxt/vercel-builder version', require('../package.json').version)
+
   // ----------------- Prepare build -----------------
   startStep('Prepare build')
 
@@ -29,7 +32,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
   // Get Nuxt path
   const entrypointPath = path.join(workPath, entrypointDirname)
   // Get folder where we'll store node_modules
-  const modulesPath = path.join(repoRootPath || entrypointPath, 'node_modules')
+  const modulesPath = path.join(entrypointPath, 'node_modules')
 
   // Create a real filesystem
   consola.log('Downloading files...')
@@ -92,7 +95,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
     await removePath(modulesPath)
     await fs.symlink('node_modules_dev', modulesPath)
   } catch (e) {
-    consola.log('Error linking/unlinking node_modules_dev.', e)
+    consola.log('Error linking/unlinking node_modules_dev.', e, { ...opts, files: null })
   }
 
   // Install all dependencies
@@ -175,7 +178,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
     await removePath(modulesPath)
     await fs.symlink('node_modules_prod', modulesPath)
   } catch (e) {
-    consola.log('Error linking/unlinking node_modules_prod.', e)
+    consola.log('Error linking/unlinking node_modules_prod.', e, { ...opts, files: null })
   }
 
   // Only keep core dependency
