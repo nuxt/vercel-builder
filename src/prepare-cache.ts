@@ -1,22 +1,14 @@
-import path from 'path'
-import { PrepareCacheOptions, glob, FileRef } from '@vercel/build-utils'
+import { PrepareCacheOptions, glob, Files } from '@vercel/build-utils'
 
-import fs from 'fs-extra'
 import consola from 'consola'
 import { startStep, endStep } from './utils'
 
-async function prepareCache ({ workPath, entrypoint }: PrepareCacheOptions): Promise<Record<string, FileRef>> {
-  const entryDir = path.dirname(entrypoint)
-
+async function prepareCache ({ workPath }: PrepareCacheOptions): Promise<Files> {
   startStep('Collect cache')
-  const cache: Record<string, FileRef> = {}
-  for (const dir of ['.vercel_cache', 'node_modules_dev', 'node_modules_prod']) {
-    const activeDirectory = path.join(workPath, entryDir, dir)
-    if (!fs.existsSync(activeDirectory)) {
-      consola.warn(activeDirectory, 'not exists. skipping!')
-      continue
-    }
-    const files = await glob(path.join(entryDir, dir, '**'), workPath)
+
+  const cache: Files = {}
+  for (const dir of ['.nuxt', '.vercel_cache', 'node_modules_dev', 'node_modules_prod']) {
+    const files = await glob(`**/${dir}/**`, workPath)
     consola.info(`${Object.keys(files).length} files collected from ${dir}`)
     Object.assign(cache, files)
   }

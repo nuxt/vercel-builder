@@ -1,13 +1,14 @@
 import path from 'path'
-import resolveFrom from 'resolve-from'
-import fs from 'fs-extra'
-import { gte, gt } from 'semver'
-import consola from 'consola'
 
-import { createLambda, download, FileFsRef, FileBlob, glob, getNodeVersion, getSpawnOptions, BuildOptions, Lambda, File } from '@vercel/build-utils'
+import consola from 'consola'
+import fs from 'fs-extra'
+import resolveFrom from 'resolve-from'
+import { gte, gt } from 'semver'
+
+import { createLambda, BuildOptions, download, File, FileBlob, FileFsRef, glob, getNodeVersion, getSpawnOptions, Lambda, runNpmInstall, runPackageJsonScript } from '@vercel/build-utils'
 import { Route } from '@vercel/routing-utils'
 
-import { exec, validateEntrypoint, globAndPrefix, preparePkgForProd, startStep, endStep, getNuxtConfig, getNuxtConfigName, MutablePackageJson, readJSON, removePath } from './utils'
+import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
 
 interface BuilderOutput {
@@ -16,7 +17,16 @@ interface BuilderOutput {
   routes: Route[];
 }
 
-export async function build (opts: BuildOptions): Promise<BuilderOutput> {
+interface NuxtBuilderConfig {
+  maxDuration?: number
+  memory?: number
+  tscOptions?: JsonOptions
+  generateStaticRoutes?: boolean
+  includeFiles?: string[] | string
+  serverFiles?: string[]
+}
+
+export async function build (opts: BuildOptions & { config: NuxtBuilderConfig }): Promise<BuilderOutput> {
   const { files, entrypoint, workPath, config = {}, meta = {} } = opts
   // ---------------- Debugging context --------------
   consola.log('Running with @nuxt/vercel-builder version', require('../package.json').version)
@@ -51,7 +61,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
   }
 
   // Node version
-  const nodeVersion = await getNodeVersion(entrypointPath, undefined, config, meta)
+  const nodeVersion = await getNodeVersion(entrypointPath, undefined, {}, meta)
   const spawnOpts = getSpawnOptions(meta, nodeVersion)
 
   // Prepare TypeScript environment if required.
@@ -90,42 +100,22 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
   startStep('Install devDependencies')
 
   // Prepare node_modules
-  try {
-    await fs.mkdirp('node_modules_dev')
-    await removePath(modulesPath)
-    await fs.symlink('node_modules_dev', modulesPath)
-  } catch (e) {
-    consola.log('Error linking/unlinking node_modules_dev.', e, { ...opts, files: null })
-  }
+  await prepareNodeModules(entrypointPath, 'node_modules_dev')
 
   // Install all dependencies
-  if (isYarn) {
-    await exec('yarn', [
-      'install',
-      '--prefer-offline',
-      '--frozen-lockfile',
-      '--non-interactive',
-      '--production=false',
-      `--modules-folder=${modulesPath}`,
-      `--cache-folder=${yarnCachePath}`
-    ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
-  } else {
-    await exec('npm', ['install'], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } })
-  }
+  await runNpmInstall(entrypointPath, [
+    '--prefer-offline',
+    '--frozen-lockfile',
+    '--non-interactive',
+    '--production=false',
+    `--modules-folder=${modulesPath}`,
+    `--cache-folder=${yarnCachePath}`
+  ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } }, meta)
 
   // ----------------- Pre build -----------------
   if (pkg.scripts && Object.keys(pkg.scripts).includes('now-build')) {
     startStep('Pre build')
-    if (isYarn) {
-      await exec('yarn', [
-        'now-build'
-      ], spawnOpts)
-    } else {
-      await exec('npm', [
-        'run',
-        'now-build'
-      ], spawnOpts)
-    }
+    await runPackageJsonScript(entrypointPath, 'now-build', spawnOpts)
   }
 
   // ----------------- Nuxt build -----------------
@@ -133,7 +123,7 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
 
   let compiledTypescriptFiles: { [filePath: string]: FileFsRef } = {}
   if (needsTypescriptBuild) {
-    const tscOptions = config.tscOptions as JsonOptions | undefined
+    const { tscOptions } = config
     compiledTypescriptFiles = await compileTypescriptBuildFiles({ rootDir: entrypointPath, spawnOpts, tscOptions })
   }
 
@@ -147,11 +137,6 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
   const buildDir = nuxtConfigFile.buildDir ? path.relative(entrypointPath, nuxtConfigFile.buildDir) : '.nuxt'
   const srcDir = nuxtConfigFile.srcDir ? path.relative(entrypointPath, nuxtConfigFile.srcDir) : '.'
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
-
-  // Execute nuxt build
-  if (fs.existsSync(buildDir)) {
-    consola.warn(buildDir, 'exists! Please ensure to ignore it with `.vercelignore`')
-  }
 
   await exec('nuxt', [
     'build',
@@ -173,31 +158,26 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
   startStep('Install dependencies')
 
   // Use node_modules_prod
-  try {
-    await fs.mkdirp('node_modules_prod')
-    await removePath(modulesPath)
-    await fs.symlink('node_modules_prod', modulesPath)
-  } catch (e) {
-    consola.log('Error linking/unlinking node_modules_prod.', e, { ...opts, files: null })
-  }
+  await prepareNodeModules(entrypointPath, 'node_modules_prod')
 
   // Only keep core dependency
   const nuxtDep = preparePkgForProd(pkg)
   await fs.writeJSON('package.json', pkg)
 
-  if (isYarn) {
-    await exec('yarn', [
-      'install',
-      '--prefer-offline',
-      '--pure-lockfile',
-      '--non-interactive',
-      '--production=true',
-      `--modules-folder=${modulesPath}`,
-      `--cache-folder=${yarnCachePath}`
-    ], spawnOpts)
-  } else {
-    await exec('npm', ['install'], spawnOpts)
-  }
+  await runNpmInstall(entrypointPath, [
+    '--prefer-offline',
+    '--pure-lockfile',
+    '--non-interactive',
+    '--production=true',
+    `--modules-folder=${modulesPath}`,
+    `--cache-folder=${yarnCachePath}`
+  ], {
+    ...spawnOpts,
+    env: {
+      ...spawnOpts.env,
+      NPM_ONLY_PRODUCTION: 'true'
+    }
+  }, meta)
 
   // Validate nuxt version
   const nuxtPkg = require(resolveFrom(entrypointPath, `@nuxt/core${nuxtDep.suffix}/package.json`))
@@ -271,7 +251,10 @@ export async function build (opts: BuildOptions): Promise<BuilderOutput> {
     files: launcherFiles,
     environment: {
       NODE_ENV: 'production'
-    }
+    },
+    //
+    maxDuration: config.maxDuration,
+    memory: config.memory
   })
 
   // await download(launcherFiles, rootDir)

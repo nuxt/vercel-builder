@@ -190,12 +190,28 @@ export function getNuxtConfigName (rootDir: string): string {
   throw new Error(`Can not read nuxt.config from ${rootDir}`)
 }
 
-export async function removePath (directoryPath: string): Promise<void> {
-  if (fs.existsSync(directoryPath)) {
-    try {
-      await fs.unlink(directoryPath)
-    } catch {
-      fs.rmdirSync(directoryPath, { recursive: true })
+export async function prepareNodeModules (entrypointPath: string, modulesDir: string): Promise<void> {
+  const modulesPath = path.join(entrypointPath, 'node_modules')
+
+  try {
+    const prodPath = path.join(entrypointPath, modulesDir)
+    if (fs.existsSync(prodPath)) {
+      consola.log(`Using cached ${modulesDir}`)
     }
+    try {
+      if (fs.existsSync(modulesPath)) {
+        await fs.unlink(modulesPath)
+      }
+      await fs.mkdirp(modulesDir)
+    } catch {
+      if (fs.existsSync(prodPath)) {
+        fs.rmdirSync(modulesPath, { recursive: true })
+      } else {
+        fs.moveSync(modulesPath, prodPath)
+      }
+    }
+    await fs.symlink(modulesDir, modulesPath)
+  } catch (e) {
+    consola.log(`Error linking/unlinking ${modulesDir}.`, e)
   }
 }
