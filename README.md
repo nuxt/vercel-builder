@@ -78,6 +78,60 @@ See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) fo
 
 References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
 
+## Using with `serverMiddleware` and `asyncData`
+
+A common use case in Nuxt is to use [`serverMiddleware`][serverMiddleware] put an API server on the same server as Nuxt. This requires some set up:
+
+1. Set up `serverMiddleware` config in `nuxt.config.js`:
+
+    ```js
+      serverMiddleware: [
+        { path: '/api', handler: '~/api/index.js' },
+      ],
+    ```
+
+   **Note:** This assumes that your API will be served at `/api` and its source code is in `api/index.js` (same as [Nuxt’s documentation][serverMiddleware]).
+
+2. Go to your **Project Settings** &rarr; **Environment Variables** and add an environment variable `VERCEL_URL` to all environments. When you type in the name, Vercel will say that it is a [system environment variable](https://vercel.com/docs/build-step#system-environment-variables) and its value will be automatically populated by the system.
+
+3. Set up `serverFiles` in `now.json`:
+
+    ```json
+    {
+      "version": 2,
+      "builds": [
+        {
+          "src": "nuxt.config.js",
+          "use": "@nuxtjs/vercel-builder",
+          "config": {
+            "serverFiles": ["api/**"]
+          }
+        }
+      ]
+    }
+    ```
+
+4. Set up `@nuxtjs/axios` to use the base URL from Vercel.
+
+    ```js
+    const baseUrl = process.env.baseUrl || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined)
+    export default {
+      // ...
+      modules: [
+        ['@nuxtjs/axios', withoutNullishEntries({ baseURL: baseUrl })],
+      ],
+      env: withoutNullishEntries({
+        baseUrl
+      }),
+    }
+
+    function withoutNullishEntries(x) {
+      return Object.fromEntries(Object.entries(x).filter(([k, v]) => v != null))
+    }
+    ```
+
+[serverMiddleware]: https://nuxtjs.org/api/configuration-servermiddleware/
+
 ## Configuration
 
 ### `serverFiles`
