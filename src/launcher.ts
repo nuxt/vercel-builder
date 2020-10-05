@@ -36,16 +36,20 @@ const readyPromise = nuxt.ready().then(() => {
 const { Server } = require('http') as typeof http // eslint-disable-line import/order
 const { Bridge } = require('./vercel__bridge.js') as typeof import('@vercel/node-bridge/bridge')
 
-const server = new Server(
-  async (req, res) => {
-    if (!isReady) {
-      await readyPromise
-    }
-    nuxt.server.app(req, res)
+const requestListener: http.RequestListener = async (req, res) => {
+  if (!isReady) {
+    await readyPromise
   }
-)
-const bridge = new Bridge(server)
+  nuxt.server.app(req, res)
+}
 
+// This is used by Vercel
+const server = new Server(requestListener)
+const bridge = new Bridge(server)
 bridge.listen()
+
+// Allow internal calls from Nuxt to endpoints registered as serverMiddleware
+const internalServer = new Server(requestListener)
+internalServer.listen(3000, '127.0.0.1')
 
 export const launcher: typeof bridge.launcher = bridge.launcher
