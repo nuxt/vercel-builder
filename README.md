@@ -92,9 +92,7 @@ A common use case in Nuxt is to use [`serverMiddleware`][serverMiddleware] put a
 
    **Note:** This assumes that your API will be served at `/api` and its source code is in `api/index.js` (same as [Nuxt’s documentation][serverMiddleware]).
 
-2. Go to your **Project Settings** &rarr; **Environment Variables** and add an environment variable `VERCEL_URL` to all environments. When you type in the name, Vercel will say that it is a [system environment variable](https://vercel.com/docs/build-step#system-environment-variables) and its value will be automatically populated by the system.
-
-3. Set up `serverFiles` in `now.json`:
+2. Set up `serverFiles` in `now.json`:
 
     ```json
     {
