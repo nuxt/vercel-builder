@@ -111,25 +111,6 @@ A common use case in Nuxt is to use [`serverMiddleware`][serverMiddleware] put a
     }
     ```
 
-4. Set up `@nuxtjs/axios` to use the base URL from Vercel.
-
-    ```js
-    const baseUrl = process.env.baseUrl || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined)
-    export default {
-      // ...
-      modules: [
-        ['@nuxtjs/axios', withoutNullishEntries({ baseURL: baseUrl })],
-      ],
-      env: withoutNullishEntries({
-        baseUrl
-      }),
-    }
-
-    function withoutNullishEntries(x) {
-      return Object.fromEntries(Object.entries(x).filter(([k, v]) => v != null))
-    }
-    ```
-
 [serverMiddleware]: https://nuxtjs.org/api/configuration-servermiddleware/
 
 ## Configuration
