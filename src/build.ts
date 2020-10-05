@@ -108,7 +108,6 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     '--frozen-lockfile',
     '--non-interactive',
     '--production=false',
-    `--modules-folder=${modulesPath}`,
     `--cache-folder=${yarnCachePath}`
   ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } }, meta)
 
@@ -169,7 +168,6 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     '--pure-lockfile',
     '--non-interactive',
     '--production=true',
-    `--modules-folder=${modulesPath}`,
     `--cache-folder=${yarnCachePath}`
   ], {
     ...spawnOpts,

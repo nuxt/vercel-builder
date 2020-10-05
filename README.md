@@ -153,6 +153,12 @@ Package dependencies are installed with either `npm` (if a `package-lock.json` i
 
 **NOTE:** Using `yarn` is HIGHLY recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality , which can decrease lambda size.
 
+### Monorepos
+
+Just enable the "Include source files outside of the Root Directory in the Build Step" option in the **Root Directory** section within the project settings.
+
+![Vercel monorepo config](./docs/monorepo-config.png)
+
 ### Private npm modules
 
 To install private npm modules, define `NPM_TOKEN` as a [build environment](https://vercel.com/docs/configuration#project/build-env) in `now.json`.
