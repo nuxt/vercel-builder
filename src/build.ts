@@ -27,7 +27,7 @@ interface NuxtBuilderConfig {
 }
 
 export async function build (opts: BuildOptions & { config: NuxtBuilderConfig }): Promise<BuilderOutput> {
-  const { files, entrypoint, workPath, repoRootPath, config = {}, meta = {} } = opts
+  const { files, entrypoint, workPath, config = {}, meta = {} } = opts
   // ---------------- Debugging context --------------
   consola.log('Running with @nuxt/vercel-builder version', require('../package.json').version)
 
@@ -42,7 +42,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   // Get Nuxt path
   const entrypointPath = path.join(workPath, entrypointDirname)
   // Get folder where we'll store node_modules
-  const modulesPath = !repoRootPath && path.join(entrypointPath, 'node_modules')
+  const modulesPath = path.join(entrypointPath, 'node_modules')
 
   // Create a real filesystem
   consola.log('Downloading files...')
@@ -108,7 +108,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     '--frozen-lockfile',
     '--non-interactive',
     '--production=false',
-    ...(modulesPath ? [`--modules-folder=${modulesPath}`] : []),
+    `--modules-folder=${modulesPath}`,
     `--cache-folder=${yarnCachePath}`
   ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } }, meta)
 
@@ -169,7 +169,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     '--pure-lockfile',
     '--non-interactive',
     '--production=true',
-    ...(modulesPath ? [`--modules-folder=${modulesPath}`] : []),
+    `--modules-folder=${modulesPath}`,
     `--cache-folder=${yarnCachePath}`
   ], {
     ...spawnOpts,
