@@ -47,7 +47,7 @@
     "@vercel/routing-utils": "1.9.0",
     "codecov": "^3.8.0",
     "eslint": "^7.12.1",
-    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard": "^15.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-node": "^11.1.0",
