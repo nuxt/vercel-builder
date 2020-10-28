@@ -24,8 +24,8 @@
       }
     },
     {
-      "src": "/api/hello",
-      "dest": "/api/hello.js",
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js",
       "methods": ["GET", "OPTIONS"],
       "headers": {
         "Access-Control-Allow-Methods": "GET",
