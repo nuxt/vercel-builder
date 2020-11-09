@@ -1,5 +1,17 @@
 {
   "extends": [
-    "@nuxtjs"
+    "@nuxtjs",
+    "packages:linters",
+    ":maintainLockFilesWeekly",
+    ":automergeLinters",
+    ":automergeTypes",
+    ":automergePatch"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["lint"],
+      "groupName": "all lint dependencies",
+      "groupSlug": "all-lint"
+    }
   ]
 }
