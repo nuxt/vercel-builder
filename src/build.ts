@@ -24,6 +24,7 @@ interface NuxtBuilderConfig {
   generateStaticRoutes?: boolean
   includeFiles?: string[] | string
   serverFiles?: string[]
+  internalServer?: boolean
 }
 
 export async function build (opts: BuildOptions & { config: NuxtBuilderConfig }): Promise<BuilderOutput> {
@@ -137,6 +138,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   const buildDir = nuxtConfigFile.buildDir ? path.relative(entrypointPath, nuxtConfigFile.buildDir) : '.nuxt'
   const srcDir = nuxtConfigFile.srcDir ? path.relative(entrypointPath, nuxtConfigFile.srcDir) : '.'
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
+  const usesServerMiddleware = config.internalServer !== undefined ? config.internalServer : !!nuxtConfigFile.serverMiddleware
 
   await exec('nuxt', [
     'build',
@@ -222,6 +224,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   const launcherSrc = (await fs.readFile(launcherPath, 'utf8'))
     .replace(/__NUXT_SUFFIX__/g, nuxtDep.suffix)
     .replace(/__NUXT_CONFIG__/g, './' + nuxtConfigName)
+    .replace(/\/\* __ENABLE_INTERNAL_SERVER__ \*\/ *true/g, String(usesServerMiddleware))
 
   const launcherFiles = {
     'vercel__launcher.js': new FileBlob({ data: launcherSrc }),

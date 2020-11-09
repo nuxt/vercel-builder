@@ -102,6 +102,15 @@ Example:
 }
 ```
 
+### internalServer
+
+- Type: `Boolean`
+- Default: `false`
+
+If you have defined `serverMiddleware` in your `nuxt.config`, this builder will automatically enable an internal server within the lambda so you can access your own endpoints via `http://localhost:3000`. (This does not affect how you call your endpoints from client-side.)
+
+If you need to enable or disable the internal server manually (for example, if you are adding server middleware via a module), just set `internalServer` within the builder options.
+
 ### `generateStaticRoutes`
 
 - Type: `Boolean`

@@ -1,4 +1,4 @@
-import http from 'http'
+import type { RequestListener } from 'http'
 import esmCompiler from 'esm'
 
 const startTime = process.hrtime()
@@ -33,19 +33,26 @@ const readyPromise = nuxt.ready().then(() => {
 })
 
 // Create bridge and start listening
-const { Server } = require('http') as typeof http // eslint-disable-line import/order
+const { Server } = require('http') as typeof import('http') // eslint-disable-line import/order
 const { Bridge } = require('./vercel__bridge.js') as typeof import('@vercel/node-bridge/bridge')
 
-const server = new Server(
-  async (req, res) => {
-    if (!isReady) {
-      await readyPromise
-    }
-    nuxt.server.app(req, res)
+const requestListener: RequestListener = async (req, res) => {
+  if (!isReady) {
+    await readyPromise
   }
-)
-const bridge = new Bridge(server)
+  nuxt.server.app(req, res)
+}
 
+// This is used by Vercel
+const server = new Server(requestListener)
+const bridge = new Bridge(server)
 bridge.listen()
+
+// eslint-disable-next-line
+if (/* __ENABLE_INTERNAL_SERVER__ */true) {
+  // Allow internal calls from Nuxt to endpoints registered as serverMiddleware
+  const internalServer = new Server(requestListener)
+  internalServer.listen(3000, '127.0.0.1')
+}
 
 export const launcher: typeof bridge.launcher = bridge.launcher
