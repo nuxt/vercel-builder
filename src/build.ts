@@ -1,12 +1,11 @@
 import path from 'path'
 
+import { createLambda, BuildOptions, download, File, FileBlob, FileFsRef, glob, getNodeVersion, getSpawnOptions, Lambda, runNpmInstall, runPackageJsonScript } from '@vercel/build-utils'
+import type { Route } from '@vercel/routing-utils'
 import consola from 'consola'
 import fs from 'fs-extra'
 import resolveFrom from 'resolve-from'
 import { gte, gt } from 'semver'
-
-import { createLambda, BuildOptions, download, File, FileBlob, FileFsRef, glob, getNodeVersion, getSpawnOptions, Lambda, runNpmInstall, runPackageJsonScript } from '@vercel/build-utils'
-import { Route } from '@vercel/routing-utils'
 
 import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'

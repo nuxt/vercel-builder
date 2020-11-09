@@ -1,12 +1,13 @@
 import path from 'path'
 import { SpawnOptions } from 'child_process'
-import fs from 'fs-extra'
-import execa, { ExecaReturnValue } from 'execa'
-import esm from 'esm'
+
+import type { NuxtConfig as NuxtConfiguration } from '@nuxt/types'
 import { glob, Files, PackageJson } from '@vercel/build-utils'
 import consola from 'consola'
-import { IOptions } from 'glob'
-import { NuxtConfig as NuxtConfiguration } from '@nuxt/types'
+import esm from 'esm'
+import execa, { ExecaReturnValue } from 'execa'
+import fs from 'fs-extra'
+import type { IOptions } from 'glob'
 
 type Mutable<T> = {
   -readonly [P in keyof T]: T[P] extends ReadonlyArray<infer U> ? Mutable<U>[] : Mutable<T[P]>

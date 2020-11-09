@@ -1,27 +1,35 @@
 {
   "name": "@nuxtjs/vercel-builder",
   "version": "0.17.12",
-  "license": "MIT",
   "repository": "nuxt/vercel-builder",
+  "license": "MIT",
+  "exports": {
+    ".": "./lib/index.js",
+    "./launcher": "./lib/launcher.js"
+  },
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "siroc build",
     "lint": "eslint --ext .vue,.js,.ts src examples test",
-    "test": "yarn build && jest test",
+    "prepare": "yarn build",
     "refresh": "run-s refresh:*",
-    "refresh:fixture": "cd test/fixture/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
-    "refresh:fixture-ts": "cd test/fixture-ts/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
-    "refresh:fixture-generated": "cd test/fixture-generated/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
     "refresh:example-basic": "cd examples/basic && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
     "refresh:example-side-by-side-admin": "cd examples/side-by-side/admin && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
     "refresh:example-side-by-side-app": "cd examples/side-by-side/app && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
-    "prepare": "yarn build",
-    "release": "standard-version && git push --follow-tags"
+    "refresh:fixture": "cd test/fixture/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
+    "refresh:fixture-generated": "cd test/fixture-generated/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
+    "refresh:fixture-ts": "cd test/fixture-ts/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
+    "release": "release-it",
+    "test": "yarn build && jest test"
+  },
+  "resolutions": {
+    "minimist": ">=1.2.5"
   },
   "dependencies": {
+    "@vercel/build-utils": "2.5.4",
     "@vercel/node-bridge": "1.3.1",
     "consola": "2.15.0",
     "esm": "3.2.25",
@@ -42,8 +50,6 @@
     "@types/semver": "^7.3.4",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
-    "@vercel/build-utils": "2.5.4",
-    "@vercel/frameworks": "0.1.1",
     "@vercel/routing-utils": "1.9.0",
     "codecov": "^3.8.1",
     "eslint": "^7.13.0",
@@ -58,10 +64,6 @@
     "npm-run-all": "^4.1.5",
     "nuxt": "2.14.7",
     "release-it": "^14.2.1",
-    "standard-version": "^9.0.0",
-    "typescript": "^4.0.5"
-  },
-  "resolutions": {
-    "minimist": ">=1.2.5"
+    "siroc": "^0.4.0"
   }
 }
