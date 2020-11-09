@@ -78,38 +78,6 @@ See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) fo
 
 References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
 
-## Using with `serverMiddleware` and `asyncData`
-
-A common use case in Nuxt is to use [`serverMiddleware`][serverMiddleware] put an API server on the same server as Nuxt. This requires some set up:
-
-1. Set up `serverMiddleware` config in `nuxt.config.js`:
-
-    ```js
-      serverMiddleware: [
-        { path: '/api', handler: '~/api/index.js' },
-      ],
-    ```
-
-   **Note:** This assumes that your API will be served at `/api` and its source code is in `api/index.js` (same as [Nuxt’s documentation][serverMiddleware]).
-
-2. Set up `serverFiles` in `now.json`:
-
-    ```json
-    {
-      "version": 2,
-      "builds": [
-        {
-          "src": "nuxt.config.js",
-          "use": "@nuxtjs/vercel-builder",
-          "config": {
-            "serverFiles": ["api/**"]
-          }
-        }
-      ]
-    }
-    ```
-
-[serverMiddleware]: https://nuxtjs.org/api/configuration-servermiddleware/
 
 ## Configuration
 
@@ -134,6 +102,15 @@ Example:
   ]
 }
 ```
+
+### internalServer
+
+- Type: `Boolean`
+- Default: `false`
+
+If you have defined `serverMiddleware` in your `nuxt.config`, this builder will automatically enable an internal server within the lambda so you can access your own endpoints via `http://localhost:3000`. (This does not affect how you call your endpoints from client-side.)
+
+If you need to enable or disable the internal server manually (for example, if you are adding server middleware via a module), just set `internalServer` within the builder options.
 
 ### `generateStaticRoutes`
 
