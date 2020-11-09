@@ -23,11 +23,10 @@
     "refresh:fixture-generated": "cd test/fixture-generated/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
     "refresh:fixture-ts": "cd test/fixture-ts/www && yarn upgrade && rm yarn.lock && yarn && rm -rf node_modules",
     "release": "release-it",
-    "test": "yarn build && jest test"
+    "test": "jest test"
   },
   "resolutions": {
-    "minimist": ">=1.2.5",
-    "rollup-plugin-esbuild": "2.3.0"
+    "minimist": ">=1.2.5"
   },
   "dependencies": {
     "@vercel/build-utils": "2.5.4",
@@ -66,8 +65,5 @@
     "nuxt": "2.14.7",
     "release-it": "^14.2.1",
     "siroc": "^0.4.0"
-  },
-  "volta": {
-    "node": "10.23.0"
   }
 }

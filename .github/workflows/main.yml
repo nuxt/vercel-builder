@@ -19,10 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
       - uses: actions/cache@v2
         id: cache
         with:
@@ -35,6 +31,13 @@ jobs:
 
       - name: Lint
         run: yarn lint
+
+      - name: Build
+        run: yarn build
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
 
       - name: Test
         run: yarn test
