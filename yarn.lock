@@ -1646,6 +1646,14 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@rollup/pluginutils@^4.0.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.1.0.tgz#0dcc61c780e39257554feb7f77207dceca13c838"
+  integrity sha512-TrBhfJkFxA+ER+ew2U2/fHbebhLT/l/2pRk0hfj9KusXUuRXd2v0R58AfaZK9VXDQ4TogOSEmICVrQAA3zFnHQ==
+  dependencies:
+    estree-walker "^2.0.1"
+    picomatch "^2.2.2"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -7413,6 +7421,11 @@ jiti@^0.1.11:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-0.1.11.tgz#8b27b92e4c0866b3c8c91945c55a99a1db17a782"
   integrity sha512-zSPegl+ageMLSYcq1uAZa6V56pX2GbNl/eU3Or7PFHu10a2YhLAXj5fnHJGd6cHZTalSR8zXGH8WmyuyufMhLA==
 
+joycon@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/joycon/-/joycon-2.2.5.tgz#8d4cf4cbb2544d7b7583c216fcdfec19f6be1615"
+  integrity sha512-YqvUxoOcVPnCp0VU1/56f+iKSdvIRJYPznH22BdXV3xMk75SFXhWeJkZ8C9XxUWt1b5x2X1SxuFygW1U0FmkEQ==
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -10570,12 +10583,14 @@ rollup-plugin-dts@^1.4.13:
   optionalDependencies:
     "@babel/code-frame" "^7.10.4"
 
-rollup-plugin-esbuild@2.3.2, rollup-plugin-esbuild@2.5.2:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-2.3.0.tgz#7c107d4508af80d30966a148b306cb7d5b36b258"
-  integrity sha512-lNbWDRaClwXauaIybuaiOBRWgxcp3GkZu0UUix9yH/OHFgVohKmzlU0NtNbvfbxAcfEooyuBRAv6YCaJl1Mbpw==
+rollup-plugin-esbuild@2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-2.5.2.tgz#fd7d4a88518898012a9d07e4c3ef8b4009c244d3"
+  integrity sha512-E4q3ac1AlMd0m0ZRYffdiorOt2eZcxfbdPaqBLs7JLnPE8krgIAihOD6cTUc54UJjoOMA9WcY63TR+JKWLzYNw==
   dependencies:
-    "@rollup/pluginutils" "^3.1.0"
+    "@rollup/pluginutils" "^4.0.0"
+    joycon "^2.2.5"
+    strip-json-comments "^3.1.1"
 
 rollup@^2.29.0:
   version "2.33.1"

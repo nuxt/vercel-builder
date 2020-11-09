@@ -27,7 +27,7 @@
   },
   "resolutions": {
     "minimist": ">=1.2.5",
-    "rollup-plugin-esbuild": "2.3.0"
+    "rollup-plugin-esbuild": "2.5.2"
   },
   "dependencies": {
     "@vercel/build-utils": "2.5.4",
