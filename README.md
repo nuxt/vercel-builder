@@ -78,7 +78,6 @@ See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) fo
 
 References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
 
-
 ## Configuration
 
 ### `serverFiles`
