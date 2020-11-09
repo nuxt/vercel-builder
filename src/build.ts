@@ -138,7 +138,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   const buildDir = nuxtConfigFile.buildDir ? path.relative(entrypointPath, nuxtConfigFile.buildDir) : '.nuxt'
   const srcDir = nuxtConfigFile.srcDir ? path.relative(entrypointPath, nuxtConfigFile.srcDir) : '.'
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
-  const usesServerMiddleware = config.internalServer ?? !!nuxtConfigFile.serverMiddleware
+  const usesServerMiddleware = config.internalServer !== undefined ? config.internalServer : !!nuxtConfigFile.serverMiddleware
 
   await exec('nuxt', [
     'build',
