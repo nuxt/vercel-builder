@@ -1,3 +1,10 @@
+## [0.18.0](https://github.com/nuxt/vercel-builder/compare/v0.17.12...v0.18.0) (2020-11-09)
+
+
+### Features
+
+* add internal server for serverMiddleware ([#375](https://github.com/nuxt/vercel-builder/issues/375)) ([4935cab](https://github.com/nuxt/vercel-builder/commit/4935cab146a04366beb31fc14c35f78cb779d202))
+
 ### [0.17.12](https://github.com/nuxt/vercel-builder/compare/v0.17.11...v0.17.12) (2020-09-28)
 
 

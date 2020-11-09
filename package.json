@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/vercel-builder",
-  "version": "0.17.12",
+  "version": "0.18.0",
   "repository": "nuxt/vercel-builder",
   "license": "MIT",
   "exports": {
