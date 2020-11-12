@@ -2226,10 +2226,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-1.3.1.tgz#6f896493b3a1a21e38c8733cfb7aacb5e4f8f8bd"
   integrity sha512-bKE7Z1haZuJAtsnrBUM6Bmm9uhRIavMdXXkat4w0RKzjLXgfjW+vvtm/J8xQUSuseOXf1sEC9345IcB5XwynRA==
 
-"@vercel/routing-utils@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@vercel/routing-utils/-/routing-utils-1.9.0.tgz#b83228e1f2570da53a87506470cdb6f2d7ecf30a"
-  integrity sha512-5vc2l6oM0k03+fdJe5mnvZIpYkQ115DeMhUyFBbXz2jLFdw1pwASJ6fhWlklbrg52JNyP7dHmWuFGFnsrgCbMg==
+"@vercel/routing-utils@1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@vercel/routing-utils/-/routing-utils-1.9.1.tgz#2e19353b63c033df28c5f94cb698e69e6128418d"
+  integrity sha512-AVtAdrB5fCrAbY7SnwgoZB7cOISHsWY0k9YLnB+ift24r1RT/bWx21kpcHl1Qk+kp0phl7Wav/M4HyYtTGZ7EA==
   dependencies:
     path-to-regexp "6.1.0"
   optionalDependencies:
