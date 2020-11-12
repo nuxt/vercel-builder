@@ -50,7 +50,7 @@
     "@types/semver": "^7.3.4",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
-    "@vercel/routing-utils": "1.9.0",
+    "@vercel/routing-utils": "1.9.1",
     "codecov": "^3.8.1",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.1",
