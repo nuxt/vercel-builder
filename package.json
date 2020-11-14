@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.7",
-    "@nuxtjs/eslint-config": "^4.0.0",
+    "@nuxtjs/eslint-config": "^5.0.0",
     "@release-it/conventional-changelog": "^2.0.0",
     "@types/aws-lambda": "^8.10.64",
     "@types/fs-extra": "^9.0.4",
