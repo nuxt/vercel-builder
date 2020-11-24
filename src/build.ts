@@ -85,8 +85,8 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   }
 
   // Write .yarnclean
-  if (isYarn && !fs.existsSync('.yarnclean')) {
-    await fs.copyFile(path.join(__dirname, '.yarnclean'), '.yarnclean')
+  if (isYarn && !fs.existsSync('../.yarnclean')) {
+    await fs.copyFile(path.join(__dirname, '../.yarnclean'), '.yarnclean')
   }
 
   // Cache dir
