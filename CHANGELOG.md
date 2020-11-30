@@ -1,3 +1,10 @@
+### [0.18.1](https://github.com/nuxt/vercel-builder/compare/v0.18.0...v0.18.1) (2020-11-30)
+
+
+### Bug Fixes
+
+* collect all static generated files ([fe4e507](https://github.com/nuxt/vercel-builder/commit/fe4e50701bd9d8ad855c5fcdcf87ff4fb210a243)), closes [#391](https://github.com/nuxt/vercel-builder/issues/391)
+
 ## [0.18.0](https://github.com/nuxt/vercel-builder/compare/v0.17.12...v0.18.0) (2020-11-09)
 
 
