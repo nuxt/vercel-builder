@@ -210,7 +210,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
 
   // Generated static files
   const generatedDir = path.join(entrypointPath, 'dist')
-  const generatedPagesFiles = config.generateStaticRoutes ? await globAndPrefix('**/*.html', generatedDir, './') : {}
+  const generatedPagesFiles = config.generateStaticRoutes ? await globAndPrefix('**/*.*', generatedDir, './') : {}
 
   // node_modules_prod
   const nodeModulesDir = path.join(entrypointPath, 'node_modules_prod')
