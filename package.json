@@ -41,7 +41,7 @@
     "semver": "7.3.4"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.8",
+    "@nuxt/types": "^2.14.9",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@release-it/conventional-changelog": "^2.0.0",
     "@types/aws-lambda": "^8.10.64",
