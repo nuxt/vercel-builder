@@ -1708,10 +1708,10 @@
     "@types/browserslist" "*"
     postcss "7.x.x"
 
-"@types/aws-lambda@^8.10.65":
-  version "8.10.65"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.65.tgz#fdd1f960a536d5a95c842258a7bb032aa0fbb9b6"
-  integrity sha512-JgRpDnvQFrGIO6zckdT9+8FvkPqiaI6JzL2erZtsbQVvWuQiQgaUiOXxFxRqOvSuG9MBGQ08GWkj0G3j81Kzdg==
+"@types/aws-lambda@^8.10.66":
+  version "8.10.66"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.66.tgz#195ae8ff7226a4f580a0cab570d683f5b9a215d0"
+  integrity sha512-gwWIKwN3IVxRQTIZUNtjKo7w2LoB5RMzbP1PAFHsBq64dOKIhTv8y5RYRIjniLTewrBSBrV2EXxgQ1zZeGU4LA==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.12", "@types/babel__core@^7.1.7":
   version "7.1.12"
