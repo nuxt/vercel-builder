@@ -12,7 +12,9 @@ module.exports = {
   modules: ['~/modules/module.ts'],
   typescript: {
     typeCheck: {
-      tsconfig: resolve(__dirname, './tsconfig.json')
+      typescript: {
+        configFile: resolve(__dirname, './tsconfig.json')
+      }
     }
   }
 }

@@ -5,7 +5,7 @@
     "now-build": "echo 1 > static/now-build"
   },
   "devDependencies": {
-    "nuxt": "2.13.3"
+    "nuxt": "latest"
   },
   "engines": {
     "node": ">=10.x"
