@@ -2238,15 +2238,15 @@
   resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.7.0.tgz#b187a4ad970352d81b8f5f974c215f1268867727"
   integrity sha512-WyTjeFpIOfUTLWB+LrJEAbs03SKD0lcA26CMt2tzPF+jaGL/hjCcRxkZJhMSRUu3LAesjKtQ7zGUuFtV0l5S3w==
 
-"@vercel/node-bridge@1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-1.3.1.tgz#6f896493b3a1a21e38c8733cfb7aacb5e4f8f8bd"
-  integrity sha512-bKE7Z1haZuJAtsnrBUM6Bmm9uhRIavMdXXkat4w0RKzjLXgfjW+vvtm/J8xQUSuseOXf1sEC9345IcB5XwynRA==
+"@vercel/node-bridge@1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-1.3.2.tgz#63b8f2b26ad078ee64b645313052727c63f7dfb5"
+  integrity sha512-lkA6gaSXwFOFtRWFF0Y7AGHyOjgBBik8oH4YKj03vs2mE5P7YGFemEmHZUEWZAVDVLShS5hGMA0q/U0hIdetuA==
 
-"@vercel/routing-utils@1.9.1":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@vercel/routing-utils/-/routing-utils-1.9.1.tgz#2e19353b63c033df28c5f94cb698e69e6128418d"
-  integrity sha512-AVtAdrB5fCrAbY7SnwgoZB7cOISHsWY0k9YLnB+ift24r1RT/bWx21kpcHl1Qk+kp0phl7Wav/M4HyYtTGZ7EA==
+"@vercel/routing-utils@1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@vercel/routing-utils/-/routing-utils-1.9.2.tgz#3bfd1f59e88d9a81ca755fbf2996ea727087b080"
+  integrity sha512-6ECeHIaXJTdjhl5Oli3ad24YOpwtexHbXmTMVhtwEo69fTtrPkh6OQFR24MfCtdPRtBvaDxbi44hgj4k+rhv5Q==
   dependencies:
     path-to-regexp "6.1.0"
   optionalDependencies:
