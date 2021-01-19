@@ -35,7 +35,7 @@
     "consola": "2.15.0",
     "esm": "3.2.25",
     "execa": "^5.0.0",
-    "fs-extra": "9.0.1",
+    "fs-extra": "9.1.0",
     "replace-in-file": "^6.1.0",
     "resolve-from": "^5.0.0",
     "semver": "7.3.4"
