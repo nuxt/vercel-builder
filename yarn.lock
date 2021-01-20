@@ -10823,10 +10823,10 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-siroc@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/siroc/-/siroc-0.6.2.tgz#7e1d68921c4af850f824920e5f327a868074d9ff"
-  integrity sha512-c6QHoatFcbKAX1Ch6VBWpk+0c07VFR4y6Lr/RW3W3MRbktHKHXKLWvHMLp5QUZ22CwHhVK3d/THq28E9aYw+TQ==
+siroc@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/siroc/-/siroc-0.6.3.tgz#3f5a986ea3f7664be6e82e2413d5ffdb9f98f571"
+  integrity sha512-9tFbs6lJLQBwJ/5TF26y0aepMVhT0iFm8KqMBpg/XtdoJZoybruHZAE4xzk2YWPM3AAlHZ6/bO/34ZqZKINfTg==
   dependencies:
     "@rollup/plugin-alias" "^3.1.1"
     "@rollup/plugin-commonjs" "^17.0.0"
