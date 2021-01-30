@@ -1,3 +1,10 @@
+## [0.19.0](https://github.com/nuxt/vercel-builder/compare/v0.18.1...v0.19.0) (2021-01-30)
+
+
+### Features
+
+* add support for `NPM_RC` and `NPM_TOKEN` ([a223f15](https://github.com/nuxt/vercel-builder/commit/a223f15ccfb4ed39f3292d946b2c0a81289f2ecc)), closes [#488](https://github.com/nuxt/vercel-builder/issues/488)
+
 ### [0.18.1](https://github.com/nuxt/vercel-builder/compare/v0.18.0...v0.18.1) (2020-11-30)
 
 
