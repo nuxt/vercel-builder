@@ -79,9 +79,12 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   consola.log('Using', isYarn ? 'yarn' : 'npm')
 
   // Write .npmrc
-  if (process.env.NPM_AUTH_TOKEN) {
-    consola.log('Found NPM_AUTH_TOKEN in environment, creating .npmrc')
-    await fs.writeFile('.npmrc', `//registry.npmjs.org/:_authToken=${process.env.NPM_AUTH_TOKEN}`)
+  if (process.env.NPM_RC) {
+    consola.log('Found NPM_RC in environment; creating .npmrc')
+    await fs.writeFile('.npmrc', process.env.NPM_RC)
+  } else if (process.env.NPM_AUTH_TOKEN || process.env.NPM_TOKEN) {
+    consola.log('Found NPM_AUTH_TOKEN or NPM_TOKEN in environment; creating .npmrc')
+    await fs.writeFile('.npmrc', `//registry.npmjs.org/:_authToken=${process.env.NPM_AUTH_TOKEN || process.env.NPM_TOKEN}`)
   }
 
   // Write .yarnclean
