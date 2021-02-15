@@ -7,7 +7,7 @@ let nuxtConfig
 // Load Config
 try {
   const load = require('jiti')()
-  const config = load('__NUXT_CONFIG__').default
+  const config = load('__NUXT_CONFIG__')
   nuxtConfig = config.default || config
 } catch {
   const esm = require('esm')(module, {
