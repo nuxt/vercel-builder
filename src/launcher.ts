@@ -1,15 +1,11 @@
 import type { RequestListener } from 'http'
-import esmCompiler from 'esm'
+import jiti from 'jiti'
 
 const startTime = process.hrtime()
 
 // Load Config
-const esm = esmCompiler(module, {
-  cjs: {
-    dedefault: true
-  }
-})
-const nuxtConfig = esm('__NUXT_CONFIG__')
+const load = jiti()
+const nuxtConfig = load('__NUXT_CONFIG__')
 
 // Create nuxt
 const { Nuxt } = require('@nuxt/core__NUXT_SUFFIX__')

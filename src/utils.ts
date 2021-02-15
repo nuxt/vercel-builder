@@ -4,7 +4,7 @@ import { SpawnOptions } from 'child_process'
 import type { NuxtConfig as NuxtConfiguration } from '@nuxt/types'
 import { glob, Files, PackageJson } from '@vercel/build-utils'
 import consola from 'consola'
-import esm from 'esm'
+import jiti from 'jiti'
 import execa, { ExecaReturnValue } from 'execa'
 import fs from 'fs-extra'
 import type { IOptions } from 'glob'
@@ -177,8 +177,8 @@ export function startStep (step: string): void {
 }
 
 export function getNuxtConfig (rootDir: string, nuxtConfigName: string): NuxtConfiguration {
-  const _esm = esm(module)
-  const nuxtConfigFile = _esm(path.resolve(rootDir, nuxtConfigName))
+  const load = jiti()
+  const nuxtConfigFile = load(path.resolve(rootDir, nuxtConfigName))
   return nuxtConfigFile.default || nuxtConfigFile
 }
 
