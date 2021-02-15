@@ -116,9 +116,13 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   ], { ...spawnOpts, env: { ...spawnOpts.env, NODE_ENV: 'development' } }, meta)
 
   // ----------------- Pre build -----------------
-  if (pkg.scripts && Object.keys(pkg.scripts).includes('now-build')) {
-    startStep('Pre build')
-    await runPackageJsonScript(entrypointPath, 'now-build', spawnOpts)
+  const buildSteps = ['vercel-build', 'now-build']
+  for (const step of buildSteps) {
+    if (pkg.scripts && Object.keys(pkg.scripts).includes(step)) {
+      startStep(`Pre build (${step})`)
+      await runPackageJsonScript(entrypointPath, step, spawnOpts)
+      break
+    }
   }
 
   // ----------------- Nuxt build -----------------

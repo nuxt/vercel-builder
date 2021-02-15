@@ -1,6 +1,6 @@
 ![vercel-builder](https://user-images.githubusercontent.com/904724/61308402-7a752d00-a7f0-11e9-9502-23731ccd00fd.png)
 
-# Nuxt.js Vercel Builder
+# Nuxt Vercel Builder
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -10,23 +10,23 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-This Vercel builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it as a serverless function in a Vercel environment.
+This Vercel builder takes a [Nuxt application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it as a serverless function in a Vercel environment.
 
 It features built-in caching of `node_modules` and the yarn global cache (even with dependency changes!) and multi-stage build for fast and small deployments.
 
 ## When to use it
 
-If you are using Vercel and need SSR rendering, `@nuxtjs/vercel-builder` is the ideal way to ship a fast, production-ready [Nuxt.js application](https://nuxtjs.org) that scales automatically.
+If you are using Vercel and need SSR rendering, `@nuxtjs/vercel-builder` is the ideal way to ship a fast, production-ready [Nuxt application](https://nuxtjs.org) that scales automatically.
 
-If you do not need SSR rendering, consider deploying a statically generated Nuxt.js application instead. See [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
+If you do not need SSR rendering, consider deploying a statically generated Nuxt application instead. See [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
 
-You can also find more information on [the Nuxt.js website](https://nuxtjs.org).
+You can also find more information on [the Nuxt website](https://nuxtjs.org).
 
 ## How to use it
 
-The first step is to set up a Nuxt.js project.
+The first step is to set up a Nuxt project.
 
-To get started, make sure you have installed the Nuxt.js dependencies with the following command:
+To get started, make sure you have installed the Nuxt dependencies with the following command:
 
 ```bash
 yarn add nuxt
@@ -47,12 +47,12 @@ Create a simple `nuxt.config.js` file:
 ```js
 export default {
   head: {
-    title: "My Nuxt.js Application!"
+    title: "My Nuxt Application!"
   }
 };
 ```
 
-Then define the build in `now.json`:
+Then define the build in `vercel.json`:
 
 ```json
 {
@@ -152,7 +152,7 @@ If you need to pass TypeScript compiler options to override your `tsconfig.json`
 }
 ```
 
-You can also include a `tsconfig.now.json` file alongside your `tsconfig.json` file. The `compilerOptions` from those files, along with any `tscOptions` passed through now.json, will be merged and the resulting options used to compile your `nuxt.config.ts`, local modules and serverMiddleware.
+You can also include a `tsconfig.vercel.json` file alongside your `tsconfig.json` file. The `compilerOptions` from those files, along with any `tscOptions` passed through vercel.json, will be merged and the resulting options used to compile your `nuxt.config.ts`, local modules and serverMiddleware.
 
 ## Technical details
 
@@ -170,23 +170,25 @@ Just enable the "Include source files outside of the Root Directory in the Build
 
 ### Private npm modules
 
-To install private npm modules, define `NPM_TOKEN` as a [build environment](https://vercel.com/docs/configuration#project/build-env) in `now.json`.
+To install private npm modules, define `NPM_AUTH_TOKEN` or `NPM_TOKEN` as a [build environment variable](https://vercel.com/docs/configuration#project/build-env) in `vercel.json`.
+
+Alternatively, you can inline your entire `.npmrc` file in a `NPM_RC` environment variable.
 
 ### Node version
 
-The Node version used is the latest 12.x release. Alternatively, you can specify Node 10 in your `package.json` - see [Vercel documentation](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version).
+The Node version used is the latest 14.x release. Alternatively, you can specify Node 12 or 10 in your `package.json` - see [Vercel documentation](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version).
 
-### `now-build` script support
+### `vercel-build` script support
 
-This builder will run a given [custom build step](https://vercel.com/docs/runtimes?query=now-build#advanced-usage/advanced-node-js-usage/custom-build-step-for-node-js) if you have added a `now-build` key under `scripts` in `package.json`.
+This builder will run a given [custom build step](https://vercel.com/docs/runtimes#advanced-usage/advanced-node-js-usage/custom-build-step-for-node-js) if you have added a `vercel-build` key under `scripts` in `package.json`.
 
 ## Troubleshooting
 
 ### Environment variables
 
-Because of Nuxt.js' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
+Because of Nuxt' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
 
-You may, therefore, need to include them in your `now.json` in both the `env` and `build.env` keys (see [Vercel documentation](https://vercel.com/docs/configuration#project/env)). For example:
+You may, therefore, need to include them in your `vercel.json` in both the `env` and `build.env` keys (see [Vercel documentation](https://vercel.com/docs/configuration#project/env)). For example:
 
 ```json
   "env": {

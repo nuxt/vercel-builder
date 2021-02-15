@@ -59,8 +59,15 @@ async function readAndMergeOptions (filename: string, rootDir: string, options: 
 async function getTypescriptCompilerOptions (rootDir: string, options: JsonOptions = {}): Promise<string[]> {
   let compilerOptions: string[] = []
 
-  options = await readAndMergeOptions('tsconfig.json', rootDir, options)
-  options = await readAndMergeOptions('tsconfig.now.json', rootDir, options)
+  const sources = [
+    'tsconfig.json',
+    'tsconfig.vercel.json',
+    'tsconfig.now.json'
+  ]
+
+  for (const source of sources) {
+    options = await readAndMergeOptions(source, rootDir, options)
+  }
 
   compilerOptions = Object.keys(options).reduce((compilerOptions, option) => {
     if (compilerOptions && !['rootDirs', 'paths', 'outDir', 'rootDir', 'noEmit'].includes(option)) {
