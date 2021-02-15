@@ -1,3 +1,14 @@
+## [0.20.0](https://github.com/nuxt/vercel-builder/compare/v0.19.0...v0.20.0) (2021-02-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to nuxt 2.15
+
+### Miscellaneous Chores
+
+* upgrade to nuxt 2.15 ([1588c3b](https://github.com/nuxt/vercel-builder/commit/1588c3b5b1a4383176b47d2a60cdc73cada1554a))
+
 ## [0.19.0](https://github.com/nuxt/vercel-builder/compare/v0.18.1...v0.19.0) (2021-01-30)
 
 
