@@ -1,3 +1,10 @@
+### [0.20.1](https://github.com/nuxt/vercel-builder/compare/v0.20.0...v0.20.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* add workaround for esm for Nuxt < 2.15 ([a7a2e49](https://github.com/nuxt/vercel-builder/commit/a7a2e49a20d70766b7eace060b305baeb6fecc14))
+
 ## [0.20.0](https://github.com/nuxt/vercel-builder/compare/v0.19.0...v0.20.0) (2021-02-15)
 
 
