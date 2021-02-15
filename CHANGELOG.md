@@ -1,3 +1,10 @@
+### [0.20.3](https://github.com/nuxt/vercel-builder/compare/v0.20.2...v0.20.3) (2021-02-15)
+
+
+### Bug Fixes
+
+* remove needless default ([455ff1a](https://github.com/nuxt/vercel-builder/commit/455ff1a7aa3185cfb5db1de6930e38fa6faa7a47))
+
 ### [0.20.2](https://github.com/nuxt/vercel-builder/compare/v0.20.1...v0.20.2) (2021-02-15)
 
 
