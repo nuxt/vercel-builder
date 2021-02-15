@@ -1,3 +1,10 @@
+### [0.20.2](https://github.com/nuxt/vercel-builder/compare/v0.20.1...v0.20.2) (2021-02-15)
+
+
+### Bug Fixes
+
+* de-default the jiti import ([bce0a26](https://github.com/nuxt/vercel-builder/commit/bce0a26f253aca14362ae1825f517c439c019baa))
+
 ### [0.20.1](https://github.com/nuxt/vercel-builder/compare/v0.20.0...v0.20.1) (2021-02-15)
 
 
