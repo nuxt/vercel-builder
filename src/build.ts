@@ -6,6 +6,7 @@ import consola from 'consola'
 import fs from 'fs-extra'
 import resolveFrom from 'resolve-from'
 import { gte, gt } from 'semver'
+import { update as updaterc } from 'rc9'
 
 import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
@@ -99,6 +100,15 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   const yarnCachePath = path.join(cachePath, 'yarn')
   await fs.mkdirp(yarnCachePath)
 
+  // Detect vercel analytics
+  if (process.env.VERCEL_ANALYTICS_ID) {
+    consola.log('Vercel Analytics Detected. Adding @nuxtjs/web-vitals to .nuxtrc')
+    updaterc(
+      { 'buildModules[]': require.resolve('@nuxtjs/web-vitals') },
+      { dir: entrypointPath, name: '.nuxtrc' }
+    )
+  }
+
   // ----------------- Install devDependencies -----------------
   startStep('Install devDependencies')
 
@@ -150,7 +160,8 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     'build',
     '--standalone',
     '--no-lock', // #19
-    `--config-file "${nuxtConfigName}"`
+    `--config-file "${nuxtConfigName}"`,
+    entrypointPath
   ], spawnOpts)
 
   if (config.generateStaticRoutes) {
@@ -158,7 +169,8 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
       'generate',
       '--no-build',
       '--no-lock', // #19
-      `--config-file "${nuxtConfigName}"`
+      `--config-file "${nuxtConfigName}"`,
+      entrypointPath
     ], spawnOpts)
   }
 
