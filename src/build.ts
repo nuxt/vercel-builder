@@ -100,7 +100,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   const yarnCachePath = path.join(cachePath, 'yarn')
   await fs.mkdirp(yarnCachePath)
 
-  // Detect aercel analytics
+  // Detect vercel analytics
   if (process.env.VERCEL_ANALYTICS_ID) {
     consola.log('Vercel Analytics Detected. Adding @nuxtjs/web-vitals to .nuxtrc')
     updaterc(
