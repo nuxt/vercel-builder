@@ -1,3 +1,10 @@
+## [0.21.0](https://github.com/nuxt/vercel-builder/compare/v0.20.3...v0.21.0) (2021-02-25)
+
+
+### Features
+
+* zero-config integration with vercel analytics ([#518](https://github.com/nuxt/vercel-builder/issues/518)) ([5001a4a](https://github.com/nuxt/vercel-builder/commit/5001a4ac8a30162c8a4a2855750e27bd8318073f))
+
 ### [0.20.3](https://github.com/nuxt/vercel-builder/compare/v0.20.2...v0.20.3) (2021-02-15)
 
 
