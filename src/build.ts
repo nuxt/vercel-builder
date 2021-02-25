@@ -100,7 +100,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   const yarnCachePath = path.join(cachePath, 'yarn')
   await fs.mkdirp(yarnCachePath)
 
-  // ----------------- Vercel Analytics -----------------
+  // Detect aercel analytics
   if (process.env.VERCEL_ANALYTICS_ID) {
     consola.log('Vercel Analytics Detected. Adding @nuxtjs/web-vitals to .nuxtrc')
     updaterc(
@@ -160,7 +160,8 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     'build',
     '--standalone',
     '--no-lock', // #19
-    `--config-file "${nuxtConfigName}"`
+    `--config-file "${nuxtConfigName}"`,
+    entrypointPath
   ], spawnOpts)
 
   if (config.generateStaticRoutes) {
@@ -168,7 +169,8 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
       'generate',
       '--no-build',
       '--no-lock', // #19
-      `--config-file "${nuxtConfigName}"`
+      `--config-file "${nuxtConfigName}"`,
+      entrypointPath
     ], spawnOpts)
   }
 
