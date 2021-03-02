@@ -1,3 +1,10 @@
+### [0.21.1](https://github.com/nuxt/vercel-builder/compare/v0.21.0...v0.21.1) (2021-03-02)
+
+
+### Bug Fixes
+
+* improve error messages when failing to load nuxt config ([4874361](https://github.com/nuxt/vercel-builder/commit/48743613505eba308a98b3ade7ba0880599a3b2c))
+
 ## [0.21.0](https://github.com/nuxt/vercel-builder/compare/v0.20.3...v0.21.0) (2021-02-25)
 
 
