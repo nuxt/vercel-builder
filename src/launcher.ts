@@ -5,17 +5,25 @@ const startTime = process.hrtime()
 let nuxtConfig
 
 // Load Config
-try {
-  const load = require('jiti')()
-  const config = load('__NUXT_CONFIG__')
-  nuxtConfig = config.default || config
-} catch {
-  const esm = require('esm')(module, {
+const loaders = [{ name: 'jiti', args: [] }, {
+  name: 'esm',
+  args: [module, {
     cjs: {
       dedefault: true
     }
-  })
-  nuxtConfig = esm('__NUXT_CONFIG__')
+  }]
+}]
+for (const { name, args } of loaders) {
+  try {
+    const load = require(name)(...args)
+    const config = load('__NUXT_CONFIG__')
+    nuxtConfig = config.default || config
+    break
+  } catch (err) {
+    if (name === 'esm') {
+      throw new Error(`Could not load Nuxt configuration. Make sure all dependencies are listed in package.json dependencies or in serverFiles within builder options:\n ${err}`)
+    }
+  }
 }
 
 // Create nuxt
