@@ -36,7 +36,7 @@
     "consola": "2.15.3",
     "execa": "^5.0.0",
     "fs-extra": "9.1.0",
-    "jiti": "^1.4.0",
+    "jiti": "^1.6.4",
     "rc9": "^1.2.0",
     "replace-in-file": "^6.2.0",
     "resolve-from": "^5.0.0",
@@ -67,6 +67,6 @@
     "npm-run-all": "^4.1.5",
     "nuxt": "2.15.2",
     "release-it": "^14.4.1",
-    "siroc": "^0.7.0"
+    "siroc": "^0.8.0"
   }
 }
