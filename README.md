@@ -157,12 +157,12 @@ You can also include a `tsconfig.vercel.json` file alongside your `tsconfig.json
 ### `memory`
 - Type: `Number`
 
-Pass this option if you neeed customize the default memory limit of the serverless function that renders your pages.
+Pass this option if you need to customize the default memory limit of the serverless function that renders your pages.
 
 ### `maxDuration`
 - Type: `Number`
 
-Pass this option if you neeed customize the max duration of the serverless function that renders your pages.
+Pass this option if you need to customize the max duration of the serverless function that renders your pages.
 
 ## Technical details
 
