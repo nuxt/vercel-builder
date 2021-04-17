@@ -102,7 +102,7 @@ Example:
 }
 ```
 
-### internalServer
+### `internalServer`
 
 - Type: `Boolean`
 - Default: `false`
@@ -153,6 +153,16 @@ If you need to pass TypeScript compiler options to override your `tsconfig.json`
 ```
 
 You can also include a `tsconfig.vercel.json` file alongside your `tsconfig.json` file. The `compilerOptions` from those files, along with any `tscOptions` passed through vercel.json, will be merged and the resulting options used to compile your `nuxt.config.ts`, local modules and serverMiddleware.
+
+### `memory`
+- Type: `Number`
+
+Pass this option if you need to customize the default memory limit of the serverless function that renders your pages.
+
+### `maxDuration`
+- Type: `Number`
+
+Pass this option if you need to customize the max duration of the serverless function that renders your pages.
 
 ## Technical details
 
