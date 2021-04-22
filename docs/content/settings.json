@@ -1,0 +1,13 @@
+{
+  "title": "@nuxtjs/vercel-builder",
+  "header": {
+    "title": true,
+    "logo": false
+  },
+  "colors": {
+    "primary": "#00c58e"
+  },
+  "url": "https://vercel-builder.nuxtjs.org",
+  "twitter": "@nuxt_js",
+  "github": "nuxt/vercel-builder"
+}
