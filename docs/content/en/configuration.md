@@ -97,6 +97,10 @@ Pass this option if you need to customize the max duration of the serverless fun
 
 Because of Nuxt' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
 
+<d-alert type="warning">
+Environment variables are baked in at build time. This means that if you update the variables in the Vercel dashboard, you will need to trigger a deployment again for the changes to take effect.
+</d-alert>
+
 You may, therefore, need to include them in your `vercel.json` in both the `env` and `build.env` keys (see [Vercel documentation](https://vercel.com/docs/configuration#project/env)). For example:
 
 ```json
