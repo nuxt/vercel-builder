@@ -35,7 +35,7 @@
     "@vercel/node-bridge": "1.3.3",
     "consola": "2.15.3",
     "execa": "^5.0.0",
-    "fs-extra": "9.1.0",
+    "fs-extra": "10.0.0",
     "jiti": "^1.9.1",
     "rc9": "^1.2.0",
     "replace-in-file": "^6.2.0",
