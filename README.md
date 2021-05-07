@@ -190,7 +190,7 @@ Don't forget to update your Nuxt config filename in your `vercel.json` file.
 
 Just enable the "Include source files outside of the Root Directory in the Build Step" option in the **Root Directory** section within the project settings.
 
-![Vercel monorepo config](/monorepo-config.png)
+![Vercel monorepo config](/docs/monorepo-config.png)
 
 ### Private npm modules
 
