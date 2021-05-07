@@ -226,7 +226,7 @@ Create an `api` folder at the root of your projet, and then create a file in it,
 
 ```js
 const express = require("express");
-const bodyParser = require("bodyParser);
+const bodyParser = require("bodyParser");
 
 const app = express();
 app.use(bodyParser.json());
