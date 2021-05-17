@@ -10,49 +10,25 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-This Vercel builder takes a [Nuxt application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it as a serverless function in a Vercel environment.
+`@nuxtjs/vercel-builder` is the ideal way to ship a fast, production-ready [Nuxt application](https://nuxtjs.org) that scales automatically on Vercel when using SSR rendering.
 
-It features built-in caching of `node_modules` and the yarn global cache (even with dependency changes!) and multi-stage build for fast and small deployments.
+### How it works
 
-## When to use it
+This Vercel builder takes a Nuxt application defined by a `nuxt.config.js` (or `.ts`) entrypoint and deploys it as a serverless function in a Vercel environment.
 
-If you are using Vercel and need SSR rendering, `@nuxtjs/vercel-builder` is the ideal way to ship a fast, production-ready [Nuxt application](https://nuxtjs.org) that scales automatically.
+It features built-in caching of `node_modules` and the global yarn cache (even when dependencies change) and a multi-stage build for fast and small deployments.
 
-If you do not need SSR rendering, consider deploying a statically generated Nuxt application instead. See [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
+### When to use it
 
-You can also find more information on [the Nuxt website](https://nuxtjs.org).
+**This package is only made for SSR applications.**
 
-## How to use it
+If you want to deploy a statically generated Nuxt application instead, check [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel).
 
-The first step is to set up a Nuxt project.
+## Setup
 
-To get started, make sure you have installed the Nuxt dependencies with the following command:
+All you need is a [Nuxt](https://nuxtjs.org) application and a [Vercel](https://vercel.com) account.
 
-```bash
-yarn add nuxt
-```
-
-Then, in your project directory, create a `pages` directory with some example pages, for example; the home index page, `pages/index.vue`:
-
-```html
-<template>
-  <div>
-    Works!
-  </div>
-</template>
-```
-
-Create a simple `nuxt.config.js` file:
-
-```js
-export default {
-  head: {
-    title: "My Nuxt Application!"
-  }
-};
-```
-
-Then define the build in `vercel.json`:
+Then, simply create a `vercel.json` file at the root of your project:
 
 ```json
 {
@@ -66,17 +42,13 @@ Then define the build in `vercel.json`:
 }
 ```
 
-Upon deployment, you will get a URL like this: `https://nuxtjs-8fnzfb1ci.vercel.app`
+**NOTE:** When installing your dependencies, Vercel will use the same package manager that is used in the project. Using `yarn` is **highly** recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality, which can decrease lambda size.
+
+## Examples
 
 See [Basic example](./examples/basic) for a more complete deployable example, including an example of how to set up `vercel dev` support.
 
 See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) for details on deploying two Nuxt apps in one monorepo.
-
-## Using with TypeScript
-
-`vercel-builder` supports TypeScript runtime compilation, though it does so in a slightly different way from `@nuxt/typescript-runtime`. It adds in a pre-compilation step as part of building the lambda for files not compiled by Webpack, such as `nuxt.config.ts`, local modules and serverMiddleware.
-
-References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
 
 ## Configuration
 
@@ -84,9 +56,9 @@ References to original TS files in strings outside of `modules` or `serverMiddle
 
 - Type: `Array`
 
-If you need to include files in the server lambda that are not built by webpack or within `static/`, such as a local module or serverMiddleware, you may specify them with this option. Each item can be a glob pattern.
+If you need to include files in the server lambda that are not built by webpack (or within `static/`), such as a local module or serverMiddleware, you may specify them with this option. Each item can be a glob pattern.
 
-Example:
+**Example**
 
 ```json
 {
@@ -118,7 +90,7 @@ If you need to enable or disable the internal server manually (for example, if y
 
 To pre-render routes during the build using `nuxt generate` set this to true. Routes that are not generated will fallback to the server lambda. You will need to [specify the routes to be generated](https://nuxtjs.org/api/configuration-generate/#routes) in your `nuxt.config`.
 
-Example:
+**Example**
 
 ```json
 {
@@ -138,7 +110,9 @@ Example:
 
 - Type: `Object`
 
-If you need to pass TypeScript compiler options to override your `tsconfig.json`, you can pass them here. See [the TypeScript documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for valid options. Example:
+If you need to pass TypeScript compiler options to override your `tsconfig.json`, you can pass them here. See [the TypeScript documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for valid options.
+
+**Example**
 
 ```json
 {
@@ -155,28 +129,59 @@ If you need to pass TypeScript compiler options to override your `tsconfig.json`
 You can also include a `tsconfig.vercel.json` file alongside your `tsconfig.json` file. The `compilerOptions` from those files, along with any `tscOptions` passed through vercel.json, will be merged and the resulting options used to compile your `nuxt.config.ts`, local modules and serverMiddleware.
 
 ### `memory`
+
 - Type: `Number`
 
 Pass this option if you need to customize the default memory limit of the serverless function that renders your pages.
 
 ### `maxDuration`
+
 - Type: `Number`
 
 Pass this option if you need to customize the max duration of the serverless function that renders your pages.
 
+### Environment variables
+
+#### `env`
+
+If you are [accessing environment variables via `env`](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-env#process-env-) within your Nuxt build, then they will be **baked in at build time**. This means that if you update the variables in the Vercel dashboard, you will need to trigger a deployment again for the changes to take effect. You must include these variables in `build.env` in your `vercel.json` (see below).
+
+#### `runtimeConfig`
+
+If you are using Nuxt 2.13+, it is recommended to use the [new runtimeConfig options](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config) instead.
+
+#### Exposing variables
+
+There are two environments where you may need to expose environment variables within `vercel.json`. They are `env` (for _runtime_ variables) and `build.env` (for _build-time_ variables, which may not be required for `runtimeConfig`). See [Vercel documentation](https://vercel.com/docs/configuration#project/env). For example:
+
+```json
+  "env": {
+    "MY_VARIABLE": true
+  },
+  "build": {
+    "env": {
+      "MY_VARIABLE": true
+    }
+  }
+```
+
+Finally, note that if you want to access Vercel's [system environment variables](https://vercel.com/docs/environment-variables#system-environment-variables), you may want ensure that system environment variables are automatically exposed.
+
+## Usage with Typescript
+
+`vercel-builder` supports TypeScript runtime compilation. It adds in a pre-compilation step as part of building the lambda for files not compiled by Webpack, such as `nuxt.config.ts`, local modules and serverMiddleware.
+
+References to original TS files in strings outside of `modules` or `serverMiddleware` may therefore cause unexpected errors.
+
+Don't forget to update your Nuxt config filename in your `vercel.json` file.
+
 ## Technical details
-
-### Dependency installation
-
-Package dependencies are installed with either `npm` (if a `package-lock.json` is present) or `yarn`.
-
-**NOTE:** Using `yarn` is HIGHLY recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality , which can decrease lambda size.
 
 ### Monorepos
 
 Just enable the "Include source files outside of the Root Directory in the Build Step" option in the **Root Directory** section within the project settings.
 
-![Vercel monorepo config](./docs/monorepo-config.png)
+![Vercel monorepo config](/docs/monorepo-config.png)
 
 ### Private npm modules
 
@@ -192,32 +197,75 @@ The Node version used is the latest 14.x release. Alternatively, you can specify
 
 This builder will run a given [custom build step](https://vercel.com/docs/runtimes#advanced-usage/advanced-node-js-usage/custom-build-step-for-node-js) if you have added a `vercel-build` key under `scripts` in `package.json`.
 
-## Troubleshooting
+## Deploying additional serverless functions
 
-### Environment variables
+You can also deploy additional serverless functions _alongside_ your Nuxt application.
 
-Because of Nuxt' [approach to environment variables](https://nuxtjs.org/api/configuration-env#process-env-), environment variables present at build time will be compiled into the lambda. They may also be required at runtime, depending on how you are consuming them.
+### serverMiddleware
 
-You may, therefore, need to include them in your `vercel.json` in both the `env` and `build.env` keys (see [Vercel documentation](https://vercel.com/docs/configuration#project/env)). For example:
+Create an `api` folder at the root of your project, and then create a file in it, for example `hello.js`:
+
+```js
+import express from 'express'
+import bodyParser from 'bodyParser'
+
+const app = express()
+app.use(bodyParser.json())
+
+// It is important that the full path is specified here
+app.post('/api/hello', function(req, res) {
+  const { info } = req.body
+  console.log(info)
+  res
+    .status(200)
+    .json({ info })
+    .end()
+})
+
+export default app
+```
+
+### Setup the Vercel config
+
+In your `vercel.json`, add your additional endpoints:
 
 ```json
-  "env": {
-    "MY_VARIABLE": true
-  },
-  "build": {
-    "env": {
-      "MY_VARIABLE": true
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/hello",
+      "dest": "/api/hello.js"
     }
-  }
+  ],
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "nuxt.config.ts",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": ["api/**"]
+      }
+    }
+  ]
+}
 ```
 
-If you are using Nuxt 2.13+, it is recommended to use the [new runtimeConfig options](https://nuxtjs.org/guide/runtime-config/) which can decrease this duplication by only requiring that you set the variable once:
+### Add it to the Nuxt config
 
-```json
-  "env": {
-    "MY_VARIABLE": true
-  }
+If you want to interact with this API whilst developing your Nuxt app, you can add it to your `serverMiddleware` conditionally.
+
+```js
+export default {
+  serverMiddleware:
+    process.env.NODE_ENV === 'production' ? [] : ['~/api/hello.js'],
+}
 ```
+
+And that's it! You can now go to `http://locahost:3000/api/hello` and see the result! In production the endpoint will be handled with Vercel, but locally Nuxt will manage it for you.
 
 # License
 
