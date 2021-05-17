@@ -1,4 +1,3 @@
-import type { SpawnOptions } from 'child_process'
 import path from 'path'
 
 import { glob, FileFsRef, PackageJson } from '@vercel/build-utils'
@@ -6,6 +5,8 @@ import fs from 'fs-extra'
 import replaceInFile from 'replace-in-file'
 
 import { exec, getNuxtConfig, getNuxtConfigName, readJSON } from './utils'
+
+import type { SpawnOptions } from 'child_process'
 
 export interface JsonOptions { [key: string]: number | boolean | string | Array<number | boolean | string> }
 

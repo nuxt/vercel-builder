@@ -1,7 +1,6 @@
 import path from 'path'
 
 import { createLambda, BuildOptions, download, File, FileBlob, FileFsRef, glob, getNodeVersion, getSpawnOptions, Lambda, runNpmInstall, runPackageJsonScript } from '@vercel/build-utils'
-import type { Route } from '@vercel/routing-utils'
 import consola from 'consola'
 import fs from 'fs-extra'
 import resolveFrom from 'resolve-from'
@@ -10,6 +9,8 @@ import { update as updaterc } from 'rc9'
 
 import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
+
+import type { Route } from '@vercel/routing-utils'
 
 interface BuilderOutput {
   watch?: string[];
