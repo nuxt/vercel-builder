@@ -26,24 +26,9 @@ If you want to deploy a statically generated Nuxt application instead, check [th
 
 ## Setup
 
-### Requirements
+All you need is a [Nuxt](https://nuxtjs.org) application and a [Vercel](https://vercel.com) account.
 
-- A [Nuxt](https://nuxtjs.org) application
-- A [Vercel](https://vercel.com) account
-
-### Installation
-
-```bash
-yarn add @nuxtjs/vercel-builder
-# OR
-npm install @nuxtjs/vercel-builder
-```
-
-**NOTE:** Vercel will use the same package manager that is used in the project. Using `yarn` is **highly** recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality, which can decrease lambda size.
-
-### Configure
-
-Then, create a `vercel.json` file at the root of your project:
+Then, simply create a `vercel.json` file at the root of your project:
 
 ```json
 {
@@ -56,6 +41,14 @@ Then, create a `vercel.json` file at the root of your project:
   ]
 }
 ```
+
+**NOTE:** When installing your dependencies, Vercel will use the same package manager that is used in the project. Using `yarn` is **highly** recommended due to its [autoclean](https://yarnpkg.com/lang/en/docs/cli/autoclean) functionality, which can decrease lambda size.
+
+## Examples
+
+See [Basic example](./examples/basic) for a more complete deployable example, including an example of how to set up `vercel dev` support.
+
+See [Deploying two Nuxt apps side-by-side](./examples/side-by-side/README.md) for details on deploying two Nuxt apps in one monorepo.
 
 ## Configuration
 
