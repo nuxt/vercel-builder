@@ -22,7 +22,7 @@ It features built-in caching of `node_modules` and the yarn global cache (even w
 
 **This package is only made for SSR applications.**
 
-If you wan't to deploy a statically generated Nuxt application instead, check [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
+If you want to deploy a statically generated Nuxt application instead, check [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel).
 
 ## Setup
 
