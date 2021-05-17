@@ -33,8 +33,6 @@ If you want to deploy a statically generated Nuxt application instead, check [th
 
 ### Installation
 
-Add `@nuxtjs/vercel-builder` dependency to your project:
-
 ```bash
 yarn add @nuxtjs/vercel-builder
 # OR
