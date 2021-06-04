@@ -4,7 +4,7 @@
 
 The goal of this, is to run multiple Nuxt apps in one Vercel deployment, and allow them to use shared components.
 
-To see this working altogether, check out [a deployable example of two side-by-side apps](./side-by-side-example).
+To see this working altogether, check out [a deployable example of two side-by-side apps](./).
 
 ## Setting up this example.
 
