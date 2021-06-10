@@ -7,6 +7,7 @@ import fs from 'fs-extra'
 import resolveFrom from 'resolve-from'
 import { gte, gt } from 'semver'
 import { update as updaterc } from 'rc9'
+import { hasProtocol } from 'ufo'
 
 import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
@@ -150,7 +151,10 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
 
   // Read options from nuxt.config.js otherwise set sensible defaults
   const staticDir = (nuxtConfigFile.dir && nuxtConfigFile.dir.static) ? nuxtConfigFile.dir.static : 'static'
-  const publicPath = ((nuxtConfigFile.build && nuxtConfigFile.build.publicPath) ? nuxtConfigFile.build.publicPath : '/_nuxt/').replace(/^\//, '')
+  let publicPath = ((nuxtConfigFile.build && nuxtConfigFile.build.publicPath) ? nuxtConfigFile.build.publicPath : '/_nuxt/').replace(/^\//, '')
+  if (hasProtocol(publicPath)) {
+    publicPath = '_nuxt/'
+  }
   const buildDir = nuxtConfigFile.buildDir ? path.relative(entrypointPath, nuxtConfigFile.buildDir) : '.nuxt'
   const srcDir = nuxtConfigFile.srcDir ? path.relative(entrypointPath, nuxtConfigFile.srcDir) : '.'
   const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'

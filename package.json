@@ -40,7 +40,8 @@
     "rc9": "^1.2.0",
     "replace-in-file": "^6.2.0",
     "resolve-from": "^5.0.0",
-    "semver": "7.3.5"
+    "semver": "7.3.5",
+    "ufo": "^0.7.5"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.6",
