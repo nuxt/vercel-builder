@@ -1,3 +1,10 @@
+### [0.21.3](https://github.com/nuxt/vercel-builder/compare/v0.21.2...v0.21.3) (2021-06-10)
+
+
+### Bug Fixes
+
+* only use custom `publicPath` if it is not absolute ([d8df9af](https://github.com/nuxt/vercel-builder/commit/d8df9aff618c322617523c6b07ba65b45e69be59)), closes [#578](https://github.com/nuxt/vercel-builder/issues/578)
+
 ### [0.21.2](https://github.com/nuxt/vercel-builder/compare/v0.21.1...v0.21.2) (2021-03-02)
 
 ### [0.21.1](https://github.com/nuxt/vercel-builder/compare/v0.21.0...v0.21.1) (2021-03-02)
