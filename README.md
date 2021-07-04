@@ -207,7 +207,7 @@ Create an `api` folder at the root of your project, and then create a file in it
 
 ```js
 import express from 'express'
-import bodyParser from 'bodyParser'
+import bodyParser from 'body-parser'
 
 const app = express()
 app.use(bodyParser.json())
