@@ -30,8 +30,8 @@
     "minimist": ">=1.2.5"
   },
   "dependencies": {
-    "@nuxtjs/web-vitals": "^0.1.4",
-    "@vercel/build-utils": "2.11.1",
+    "@nuxtjs/web-vitals": "^0.1.8",
+    "@vercel/build-utils": "2.12.2",
     "@vercel/node-bridge": "1.3.3",
     "consola": "2.15.3",
     "execa": "^5.1.1",
@@ -41,33 +41,33 @@
     "replace-in-file": "^6.2.0",
     "resolve-from": "^5.0.0",
     "semver": "7.3.5",
-    "ufo": "^0.7.7"
+    "ufo": "^0.7.9"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.15.7",
+    "@nuxt/types": "^2.15.8",
     "@nuxtjs/eslint-config": "^6.0.1",
-    "@release-it/conventional-changelog": "^3.0.1",
-    "@types/aws-lambda": "^8.10.81",
+    "@release-it/conventional-changelog": "^3.3.0",
+    "@types/aws-lambda": "^8.10.83",
     "@types/fs-extra": "^9.0.12",
     "@types/glob": "^7.1.4",
     "@types/node": "^14.17.6",
     "@types/semver": "^7.3.8",
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "@vercel/routing-utils": "1.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "@vercel/routing-utils": "1.11.3",
     "codecov": "^3.8.3",
-    "eslint": "^7.31.0",
+    "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
-    "eslint-plugin-vue": "^7.14.0",
-    "jest": "27.0.6",
+    "eslint-plugin-vue": "^7.17.0",
+    "jest": "27.1.0",
     "npm-run-all": "^4.1.5",
-    "nuxt": "2.15.7",
-    "release-it": "^14.10.1",
-    "siroc": "^0.14.0"
+    "nuxt": "2.15.8",
+    "release-it": "^14.11.5",
+    "siroc": "^0.16.0"
   }
 }
