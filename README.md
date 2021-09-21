@@ -152,9 +152,10 @@ If you are using Nuxt 2.13+, it is recommended to use the [new runtimeConfig opt
 
 #### Exposing variables
 
-There are two environments where you may need to expose environment variables within `vercel.json`. They are `env` (for _runtime_ variables) and `build.env` (for _build-time_ variables, which may not be required for `runtimeConfig`). See [Vercel documentation](https://vercel.com/docs/configuration#project/env). For example:
+There are two environments where you may need to expose environment variables within `vercel.json`. They are `env` (for _runtime_ variables) and `build.env` (for _build-time_ variables, which may not be required for `runtimeConfig`). See [Vercel documentation](https://vercel.com/docs/cli#project-configuration/env). For example:
 
 ```json
+{
   "env": {
     "MY_VARIABLE": true
   },
@@ -163,6 +164,7 @@ There are two environments where you may need to expose environment variables wi
       "MY_VARIABLE": true
     }
   }
+}
 ```
 
 Finally, note that if you want to access Vercel's [system environment variables](https://vercel.com/docs/environment-variables#system-environment-variables), you may want ensure that system environment variables are automatically exposed.
