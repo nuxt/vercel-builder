@@ -1,3 +1,19 @@
+## [0.22.0](https://github.com/nuxt/vercel-builder/compare/v0.21.3...v0.22.0) (2021-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade `@vercel/node-bridge`
+
+### Features
+
+* allow disabling cache with `NUXT_CACHE_DISABLED` flag ([#628](https://github.com/nuxt/vercel-builder/issues/628)) ([e993410](https://github.com/nuxt/vercel-builder/commit/e993410575f39d55c6abda7861804018f82532fd))
+
+
+### Miscellaneous Chores
+
+* upgrade `@vercel/node-bridge` ([73af3f9](https://github.com/nuxt/vercel-builder/commit/73af3f941eee2eb782eec468c1538e6b46e819b5))
+
 ### [0.21.3](https://github.com/nuxt/vercel-builder/compare/v0.21.2...v0.21.3) (2021-06-10)
 
 
