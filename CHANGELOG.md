@@ -1,3 +1,10 @@
+### [0.22.1](https://github.com/nuxt/vercel-builder/compare/v0.22.0...v0.22.1) (2021-09-28)
+
+
+### Bug Fixes
+
+* revert `@vercel/build-utils` upgrade (hotfix) ([c34432f](https://github.com/nuxt/vercel-builder/commit/c34432fc948564790196583fa3ef2c55adbc4e20)), closes [nuxt/vercel-builder#633](https://github.com/nuxt/vercel-builder/issues/633)
+
 ## [0.22.0](https://github.com/nuxt/vercel-builder/compare/v0.21.3...v0.22.0) (2021-09-25)
 
 
