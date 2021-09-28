@@ -20,7 +20,7 @@
     "refresh:example-basic": "cd examples/basic && rm yarn.lock && yarn && rm -rf node_modules",
     "refresh:example-side-by-side-admin": "cd examples/side-by-side/admin && rm yarn.lock && yarn && rm -rf node_modules",
     "refresh:example-side-by-side-app": "cd examples/side-by-side/app && rm yarn.lock && yarn && rm -rf node_modules",
-    "refresh:fixture": "cd test/fixture/www && rm yarn.lock && yarn && rm -rf node_modules",
+    "refresh:fixture": "cd test/fixture/www && rm package-lock.json && npm install && rm -rf node_modules",
     "refresh:fixture-generated": "cd test/fixture-generated/www && rm yarn.lock && yarn && rm -rf node_modules",
     "refresh:fixture-ts": "cd test/fixture-ts/www && rm yarn.lock && yarn && rm -rf node_modules",
     "release": "release-it",
@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@nuxtjs/web-vitals": "^0.1.10",
+    "@vercel/build-utils": "2.12.2",
     "@vercel/node-bridge": "3.1.2",
     "consola": "2.15.3",
     "execa": "^5.1.1",
@@ -69,5 +70,9 @@
     "nuxt": "2.15.8",
     "release-it": "^15.5.0",
     "siroc": "^0.16.0"
+  },
+  "volta": {
+    "node": "14.18.0",
+    "npm": "7.24.1"
   }
 }

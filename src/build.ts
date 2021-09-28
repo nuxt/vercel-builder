@@ -203,6 +203,16 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     }
   }, meta)
 
+  // npm v7 refuses to use `node_modules_prod` so we restore the status quo ante
+  const modulesFolder = path.join(entrypointPath, 'node_modules')
+  const prodModulesFolder = path.join(entrypointPath, 'node_modules_prod')
+  const stats = await fs.stat(modulesFolder)
+  if (!stats.isSymbolicLink()) {
+    await fs.rm(prodModulesFolder, { recursive: true, force: true })
+    await fs.move(modulesFolder, prodModulesFolder)
+    await fs.symlink(prodModulesFolder, modulesFolder)
+  }
+
   // Validate nuxt version
   const nuxtPkg = require(resolveFrom(entrypointPath, `@nuxt/core${nuxtDep.suffix}/package.json`))
   if (!gte(nuxtPkg.version, '2.4.0')) {
