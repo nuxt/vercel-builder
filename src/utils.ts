@@ -206,7 +206,11 @@ export async function prepareNodeModules (entrypointPath: string, namespaceDir: 
       }
       await fs.mkdirp(namespaceDir)
     } catch {
-      await fs.rm(modulesPath, { force: true, recursive: true })
+      if (fs.existsSync(namespacedPath)) {
+        fs.rmdirSync(modulesPath, { recursive: true })
+      } else {
+        fs.moveSync(modulesPath, namespacedPath)
+      }
       await fs.mkdirp(namespaceDir)
     }
     await fs.symlink(namespaceDir, modulesPath)
