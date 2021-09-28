@@ -192,28 +192,40 @@ export function getNuxtConfigName (rootDir: string): string {
   throw new Error(`Can not read nuxt.config from ${rootDir}`)
 }
 
-export async function prepareNodeModules (entrypointPath: string, modulesDir: string): Promise<void> {
+export async function prepareNodeModules (entrypointPath: string, namespaceDir: string): Promise<void> {
   const modulesPath = path.join(entrypointPath, 'node_modules')
 
   try {
-    const prodPath = path.join(entrypointPath, modulesDir)
-    if (fs.existsSync(prodPath)) {
-      consola.log(`Using cached ${modulesDir}`)
+    const namespacedPath = path.join(entrypointPath, namespaceDir)
+    if (fs.existsSync(namespacedPath)) {
+      consola.log(`Using cached ${namespaceDir}`)
     }
     try {
       if (fs.existsSync(modulesPath)) {
         await fs.unlink(modulesPath)
       }
-      await fs.mkdirp(modulesDir)
+      await fs.mkdirp(namespaceDir)
     } catch {
-      if (fs.existsSync(prodPath)) {
-        fs.rmdirSync(modulesPath, { recursive: true })
-      } else {
-        fs.moveSync(modulesPath, prodPath)
-      }
+      await fs.rm(modulesPath, { force: true, recursive: true })
+      await fs.mkdirp(namespaceDir)
     }
-    await fs.symlink(modulesDir, modulesPath)
+    await fs.symlink(namespaceDir, modulesPath)
   } catch (e) {
-    consola.log(`Error linking/unlinking ${modulesDir}.`, e)
+    consola.log(`Error linking/unlinking ${namespaceDir}.`, e)
+  }
+}
+
+export async function backupNodeModules (entrypointPath: string, namespaceDir: string): Promise<void> {
+  const modulesPath = path.join(entrypointPath, 'node_modules')
+
+  try {
+    const namespacedPath = path.join(entrypointPath, namespaceDir)
+    const stats = await fs.stat(modulesPath)
+    if (!stats.isSymbolicLink()) {
+      await fs.rm(namespacedPath, { force: true, recursive: true })
+      await fs.move(modulesPath, namespacedPath)
+    }
+  } catch (e) {
+    consola.log(`Error backing up node_modules to ${namespaceDir}.`, e)
   }
 }
