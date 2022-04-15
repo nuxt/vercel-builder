@@ -157,7 +157,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   }
   const buildDir = nuxtConfigFile.buildDir ? path.relative(entrypointPath, nuxtConfigFile.buildDir) : '.nuxt'
   const srcDir = nuxtConfigFile.srcDir ? path.relative(entrypointPath, nuxtConfigFile.srcDir) : '.'
-  const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
+  const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'lambdaname' //we don't call it index, otherwise a pre-generated index.vue file is not reachable anymore
   const usesServerMiddleware = config.internalServer !== undefined ? config.internalServer : !!nuxtConfigFile.serverMiddleware
 
   await exec('nuxt', [
@@ -297,7 +297,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
       { src: `/${publicPath}.+`, headers: { 'Cache-Control': 'max-age=31557600' } },
       ...Object.keys(staticFiles).map(file => ({ src: `/${file}`, headers: { 'Cache-Control': 'max-age=31557600' } })),
       { handle: 'filesystem' },
-      { src: '/(.*)', dest: '/index' }
+      { src: '/(.*)', dest: '/' + lambdaName }
     ]
   }
 }
