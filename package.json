@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@nuxtjs/web-vitals": "^0.1.8",
-    "@vercel/build-utils": "2.11.0",
     "@vercel/node-bridge": "2.1.0",
     "consola": "2.15.3",
     "execa": "^5.1.1",
@@ -54,6 +53,7 @@
     "@types/semver": "^7.3.9",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
+    "@vercel/build-utils": "2.11.0",
     "@vercel/routing-utils": "1.11.3",
     "codecov": "^3.8.3",
     "eslint": "^8.7.0",
