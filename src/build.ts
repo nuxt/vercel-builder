@@ -151,7 +151,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
 
   // Read options from nuxt.config.js otherwise set sensible defaults
   const staticDir = (nuxtConfigFile.dir && nuxtConfigFile.dir.static) ? nuxtConfigFile.dir.static : 'static'
-  let publicPath = ((nuxtConfigFile.build && nuxtConfigFile.build.publicPath) ? nuxtConfigFile.build.publicPath : '/_nuxt/').replace(/^\//, '')
+  let publicPath = ((nuxtConfigFile.build && nuxtConfigFile.build.publicPath) ? nuxtConfigFile.build.publicPath : (nuxtConfigFile.router && nuxtConfigFile.router.base) ? `/${nuxtConfigFile.router.base.split('/').filter(Boolean).join('/')}/_nuxt/` : '/_nuxt/').replace(/^\//, '')
   if (hasProtocol(publicPath)) {
     publicPath = '_nuxt/'
   }
