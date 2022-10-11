@@ -54,7 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "@vercel/build-utils": "5.5.4",
-    "@vercel/routing-utils": "1.13.5",
+    "@vercel/routing-utils": "2.0.2",
     "codecov": "^3.8.3",
     "eslint": "^8.25.0",
     "eslint-config-standard": "^17.0.0",
