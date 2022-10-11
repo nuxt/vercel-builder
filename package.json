@@ -33,7 +33,7 @@
     "@nuxtjs/web-vitals": "^0.1.8",
     "@vercel/node-bridge": "2.1.0",
     "consola": "2.15.3",
-    "execa": "^5.1.1",
+    "execa": "^6.1.0",
     "fs-extra": "10.1.0",
     "jiti": "^1.12.9",
     "rc9": "^1.2.0",
