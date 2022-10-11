@@ -2426,10 +2426,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-5.5.4.tgz#e6204fc579df786cffd22d95ea8bfec5ec4ca327"
   integrity sha512-urAVFyrH6NTznN8bG1S4KHMpMwEaRXMRMeUXuMZXdGiznB83pACZ/5xpSzaLTIKrOrdYWVUrGcFjhLDMVRqCWQ==
 
-"@vercel/node-bridge@2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-2.2.2.tgz#f63466ab6a2588afdc6262c2d060289bfe8baa6b"
-  integrity sha512-haGBC8noyA5BfjCRXRH+VIkHCDVW5iD5UX24P2nOdilwUxI4qWsattS/co8QBGq64XsNLRAMdM5pQUE3zxkF9Q==
+"@vercel/node-bridge@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-3.0.0.tgz#443655b74713ec65531726fb5a30c5c528c804bf"
+  integrity sha512-TNQK6cufwrhd8ASDk5YHHenH8Xhp9sY8xUjOTKnQQI37KLk+Sw2HlHhT5rzUFN23ahosUlkY8InwtYUmSNb9kw==
 
 "@vercel/routing-utils@1.13.5":
   version "1.13.5"
