@@ -1636,7 +1636,7 @@
     eslint-plugin-unicorn "^43.0.2"
     eslint-plugin-vue "^9.4.0"
 
-"@nuxtjs/web-vitals@^0.1.8":
+"@nuxtjs/web-vitals@^0.1.10":
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@nuxtjs/web-vitals/-/web-vitals-0.1.10.tgz#6dcc227d712ddc626a64b87079738214657612da"
   integrity sha512-Sf8v7BUB+Bfmao6AioPRmSpyq/MMvq0tFwFiXVe2oL9HgdDgu+6sfcSBDnvzmgcEQPfPZp1KCxc5N2vNERem0w==
@@ -1900,7 +1900,7 @@
     "@types/browserslist" "*"
     postcss "7.x.x"
 
-"@types/aws-lambda@^8.10.91":
+"@types/aws-lambda@^8.10.106":
   version "8.10.106"
   resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.106.tgz#8f64c61c978e46a592044b5a697cb80ea9a542d3"
   integrity sha512-yzgMaql7aW1by1XuhKhovuhLyK/1A60lapFXDXXBeHmoyRGQFO2T8lkL3g8hAhHoW5PEvqPJFWPd8jvXiRnxeQ==
@@ -2221,7 +2221,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/semver@^7.3.9":
+"@types/semver@^7.3.12":
   version "7.3.12"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.12.tgz#920447fdd78d76b19de0438b7f60df3c4a80bf1c"
   integrity sha512-WwA1MW0++RfXmCr12xeYOOC5baSC9mSb0ZqCquFzKhcoF4TvHu5MKOuXsncgZcpVFhB1pXd5hZmM0ryAoCp12A==
@@ -7531,7 +7531,7 @@ jest@29.1.2:
     import-local "^3.0.2"
     jest-cli "^29.1.2"
 
-jiti@^1.10.1, jiti@^1.11.0, jiti@^1.12.9, jiti@^1.9.2:
+jiti@^1.10.1, jiti@^1.11.0, jiti@^1.12.15, jiti@^1.9.2:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.16.0.tgz#f72065954446ad1866fa8d6bcc3bed3cc1cebdaa"
   integrity sha512-L3BJStEf5NAqNuzrpfbN71dp43mYIcBUlCRea/vdyv5dW/AYa1d4bpelko4SHdY3I6eN9Wzyasxirj1/vv5kmg==
@@ -10101,7 +10101,7 @@ raw-body@^2.2.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-rc9@^1.2.0:
+rc9@^1.2.0, rc9@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/rc9/-/rc9-1.2.2.tgz#0d79202e088dd80e2e0f77ac36f520247d2d3964"
   integrity sha512-zbe8+HR2X28eZepAwohuKkebbEsA67h0DO9I7g12QrHa2CQopR9gztOLPIPXXGTvcxeUjAN4wZ+b29t3m/u05g==
@@ -10384,7 +10384,7 @@ repeat-string@^1.6.1:
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
   integrity sha1-jcrkcOHIirwtYA//Sndihtp15jc=
 
-replace-in-file@^6.3.2:
+replace-in-file@^6.3.5:
   version "6.3.5"
   resolved "https://registry.yarnpkg.com/replace-in-file/-/replace-in-file-6.3.5.tgz#ff956b0ab5bc96613207d603d197cd209400a654"
   integrity sha512-arB9d3ENdKva2fxRnSjwBEXfK1npgyci7ZZuwysgAp7ORjHSyxz6oqIjTEv8R0Ydl4Ll7uOAZXL4vbkhGIizCg==
