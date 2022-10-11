@@ -2421,10 +2421,10 @@
     "@typescript-eslint/types" "5.40.0"
     eslint-visitor-keys "^3.3.0"
 
-"@vercel/build-utils@2.17.0":
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.17.0.tgz#18a24eeaf765fc97c7aed822a6ad83fa825f4c50"
-  integrity sha512-eKHx3nW5MJ21xQC9RQrm+OthmHiV0PHr6bRpJAhsXryE/H6fbNqr1ZxOAQJpq2MaoKzEA/6Lt7J4TjJLd4pkqA==
+"@vercel/build-utils@5.5.4":
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-5.5.4.tgz#e6204fc579df786cffd22d95ea8bfec5ec4ca327"
+  integrity sha512-urAVFyrH6NTznN8bG1S4KHMpMwEaRXMRMeUXuMZXdGiznB83pACZ/5xpSzaLTIKrOrdYWVUrGcFjhLDMVRqCWQ==
 
 "@vercel/node-bridge@2.2.2":
   version "2.2.2"
