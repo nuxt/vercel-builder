@@ -1,3 +1,12 @@
+
+
+## [0.23.0](https://github.com/nuxt/vercel-builder/compare/v0.22.1...v0.23.0) (2022-10-12)
+
+
+### Bug Fixes
+
+* move `@vercel/build-utils` to a devDependency ([#674](https://github.com/nuxt/vercel-builder/issues/674)) ([feca866](https://github.com/nuxt/vercel-builder/commit/feca866e2ad69760eb3ed517f3a0706a9a7d3d31))
+
 ### [0.22.1](https://github.com/nuxt/vercel-builder/compare/v0.22.0...v0.22.1) (2021-09-28)
 
 
