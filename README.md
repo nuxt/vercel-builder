@@ -191,9 +191,9 @@ To install private npm modules, define `NPM_AUTH_TOKEN` or `NPM_TOKEN` as a [bui
 
 Alternatively, you can inline your entire `.npmrc` file in a `NPM_RC` environment variable.
 
-### Node version
+### Node.js version
 
-The Node version used is the latest 14.x release. Alternatively, you can specify Node 12 or 10 in your `package.json` - see [Vercel documentation](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version).
+The newest available Node.js version is automatically selected. If your packages depend on a particular major release Node.js version, you can specify the version in your `package.json` - see [Vercel documentation](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/node-js#node.js-version).
 
 ### `vercel-build` script support
 
