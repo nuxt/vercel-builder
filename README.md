@@ -195,9 +195,11 @@ Alternatively, you can inline your entire `.npmrc` file in a `NPM_RC` environmen
 
 The newest available Node.js version is automatically selected. If your packages depend on a particular major release Node.js version, you can specify the version in your `package.json` - see [Vercel documentation](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/node-js#node.js-version).
 
-### `vercel-build` script support
+### `vercel-build`, `post-vercel-build` script support
 
-This builder will run a given [custom build step](https://vercel.com/docs/runtimes#advanced-usage/advanced-node-js-usage/custom-build-step-for-node-js) if you have added a `vercel-build` key under `scripts` in `package.json`.
+This builder will run a given [custom build step](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/node-js#custom-build-step-for-node.js) if you have added a `vercel-build` or `post-vercel-build` key under `scripts` in `package.json`.
+
+`vercel-build` script will run before nuxt build and `post-vercel-build` will run after then.
 
 ## Deploying additional serverless functions
 

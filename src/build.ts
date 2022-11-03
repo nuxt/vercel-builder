@@ -178,6 +178,16 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     ], spawnOpts)
   }
 
+  // ----------------- Post build -----------------
+  const postBuildSteps = ['post-vercel-build', 'post-now-build']
+  for (const step of postBuildSteps) {
+    if (pkg.scripts && Object.keys(pkg.scripts).includes(step)) {
+      startStep(`Post build (${step})`)
+      await runPackageJsonScript(entrypointPath, step, spawnOpts)
+      break
+    }
+  }
+
   // ----------------- Install dependencies -----------------
   startStep('Install dependencies')
 
