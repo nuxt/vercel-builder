@@ -40,7 +40,7 @@
     "replace-in-file": "^6.3.5",
     "resolve-from": "^5.0.0",
     "semver": "7.3.8",
-    "ufo": "^0.8.5"
+    "ufo": "^1.0.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
