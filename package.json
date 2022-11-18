@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@nuxtjs/web-vitals": "^0.1.10",
-    "@vercel/build-utils": "2.12.2",
     "@vercel/node-bridge": "3.1.2",
     "consola": "2.15.3",
     "execa": "^5.1.1",
@@ -70,9 +69,5 @@
     "nuxt": "2.15.8",
     "release-it": "^15.5.0",
     "siroc": "^0.16.0"
-  },
-  "volta": {
-    "node": "14.18.0",
-    "npm": "7.24.1"
   }
 }
