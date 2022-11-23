@@ -88,11 +88,11 @@ export function globAndPrefix (pattern: string, opts: IOptions | string, prefix:
 }
 
 interface NuxtVersion {
-  name: string;
-  version: string;
-  semver: string;
-  suffix: string;
-  section: string;
+  name: string
+  version: string
+  semver: string
+  suffix: string
+  section: string
 }
 
 export function findNuxtDep (pkg: MutablePackageJson): void | NuxtVersion {
@@ -197,25 +197,17 @@ export async function prepareNodeModules (entrypointPath: string, namespaceDir: 
 
   try {
     const namespacedPath = path.join(entrypointPath, namespaceDir)
-    if (fs.existsSync(namespacedPath)) {
-      consola.log(`Using cached ${namespaceDir}`)
-    }
     try {
       if (fs.existsSync(modulesPath)) {
         await fs.unlink(modulesPath)
       }
-      await fs.mkdirp(namespaceDir)
-    } catch {
-      if (fs.existsSync(namespacedPath)) {
-        fs.rmdirSync(modulesPath, { recursive: true })
-      } else {
-        fs.moveSync(modulesPath, namespacedPath)
-      }
-      await fs.mkdirp(namespaceDir)
+    } catch {}
+    if (fs.existsSync(namespacedPath)) {
+      consola.log(`Using cached ${namespaceDir}`)
+      fs.moveSync(namespaceDir, modulesPath)
     }
-    await fs.symlink(namespaceDir, modulesPath)
   } catch (e) {
-    consola.log(`Error linking/unlinking ${namespaceDir}.`, e)
+    consola.log(`Error creating ${namespaceDir}.`, e)
   }
 }
 
@@ -225,7 +217,7 @@ export async function backupNodeModules (entrypointPath: string, namespaceDir: s
   try {
     const namespacedPath = path.join(entrypointPath, namespaceDir)
     const stats = await fs.stat(modulesPath)
-    if (!stats.isSymbolicLink()) {
+    if (stats.isDirectory()) {
       await fs.rm(namespacedPath, { force: true, recursive: true })
       await fs.move(modulesPath, namespacedPath)
     }
