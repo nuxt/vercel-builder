@@ -10,7 +10,11 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-`@nuxtjs/vercel-builder` is the ideal way to ship a fast, production-ready [Nuxt application](https://nuxtjs.org) that scales automatically on Vercel when using SSR rendering.
+> This is a _legacy builder_ and only works for Nuxt 2. We'd strongly recommend using [Nuxt Bridge](https://github.com/nuxt/bridge) or [Nuxt 3](https://nuxt.com/docs/getting-started/introduction), which use the latest Vercel features instead.
+
+---
+
+`@nuxtjs/vercel-builder` allows you to ship a fast, production-ready [Nuxt 2 application](https://nuxtjs.org) that scales automatically on Vercel when using SSR rendering.
 
 ### How it works
 
@@ -208,23 +212,20 @@ You can also deploy additional serverless functions _alongside_ your Nuxt appli
 Create an `api` folder at the root of your project, and then create a file in it, for example `hello.js`:
 
 ```js
-import express from 'express'
-import bodyParser from 'body-parser'
+import express from "express";
+import bodyParser from "body-parser";
 
-const app = express()
-app.use(bodyParser.json())
+const app = express();
+app.use(bodyParser.json());
 
 // It is important that the full path is specified here
-app.post('/api/hello', function(req, res) {
-  const { info } = req.body
-  console.log(info)
-  res
-    .status(200)
-    .json({ info })
-    .end()
-})
+app.post("/api/hello", function (req, res) {
+  const { info } = req.body;
+  console.log(info);
+  res.status(200).json({ info }).end();
+});
 
-export default app
+export default app;
 ```
 
 ### Setup the Vercel config
@@ -263,8 +264,8 @@ If you want to interact with this API whilst developing your Nuxt app, you can a
 ```js
 export default {
   serverMiddleware:
-    process.env.NODE_ENV === 'production' ? [] : ['~/api/hello.js'],
-}
+    process.env.NODE_ENV === "production" ? [] : ["~/api/hello.js"],
+};
 ```
 
 And that's it! You can now go to `http://locahost:3000/api/hello` and see the result! In production the endpoint will be handled with Vercel, but locally Nuxt will manage it for you.
