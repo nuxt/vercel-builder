@@ -10,7 +10,11 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-`@nuxtjs/vercel-builder` is the ideal way to ship a fast, production-ready [Nuxt application](https://nuxtjs.org) that scales automatically on Vercel when using SSR rendering.
+> This is a _legacy builder_ and only works for Nuxt 2. We'd strongly recommend using [Nuxt Bridge](https://github.com/nuxt/bridge) or [Nuxt 3](https://nuxt.com/docs/getting-started/introduction), which use the latest Vercel features instead.
+
+---
+
+`@nuxtjs/vercel-builder` allows you ship a fast, production-ready [Nuxt 2 application](https://nuxtjs.org) that scales automatically on Vercel when using SSR rendering.
 
 ### How it works
 
@@ -191,9 +195,9 @@ To install private npm modules, define `NPM_AUTH_TOKEN` or `NPM_TOKEN` as a [bui
 
 Alternatively, you can inline your entire `.npmrc` file in a `NPM_RC` environment variable.
 
-### Node version
+### Node.js version
 
-The Node version used is the latest 14.x release. Alternatively, you can specify Node 12 or 10 in your `package.json` - see [Vercel documentation](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version).
+The newest available Node.js version is automatically selected. If your packages depend on a particular major release Node.js version, you can specify the version in your `package.json` - see [Vercel documentation](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/node-js#node.js-version).
 
 ### `vercel-build` script support
 

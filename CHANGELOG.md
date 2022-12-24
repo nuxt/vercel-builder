@@ -1,3 +1,20 @@
+
+
+## [0.24.0](https://github.com/nuxt/vercel-builder/compare/v0.23.0...v0.24.0) (2022-12-02)
+
+
+### Bug Fixes
+
+* **deps:** upgrade rc9 to latest patch version ([#742](https://github.com/nuxt/vercel-builder/issues/742)) ([28a5bb9](https://github.com/nuxt/vercel-builder/commit/28a5bb90f47fd7254982d7fe17905706752c2f31))
+* handle npm v7 overwriting `node_modules` symlink ([#636](https://github.com/nuxt/vercel-builder/issues/636)) ([ff20a34](https://github.com/nuxt/vercel-builder/commit/ff20a34dbc1fcfc576c745ff5db824adc81e1cdf))
+
+## [0.23.0](https://github.com/nuxt/vercel-builder/compare/v0.22.1...v0.23.0) (2022-10-12)
+
+
+### Bug Fixes
+
+* move `@vercel/build-utils` to a devDependency ([#674](https://github.com/nuxt/vercel-builder/issues/674)) ([feca866](https://github.com/nuxt/vercel-builder/commit/feca866e2ad69760eb3ed517f3a0706a9a7d3d31))
+
 ### [0.22.1](https://github.com/nuxt/vercel-builder/compare/v0.22.0...v0.22.1) (2021-09-28)
 
 

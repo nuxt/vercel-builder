@@ -9,7 +9,7 @@ import { gte, gt } from 'semver'
 import { update as updaterc } from 'rc9'
 import { hasProtocol } from 'ufo'
 
-import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
+import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, backupNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
 
 interface BuilderOutput {
@@ -178,6 +178,8 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     ], spawnOpts)
   }
 
+  await backupNodeModules(entrypointPath, 'node_modules_dev')
+
   // ----------------- Install dependencies -----------------
   startStep('Install dependencies')
 
@@ -216,6 +218,8 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   if (process.env.NPM_AUTH_TOKEN) {
     await fs.unlink('.npmrc')
   }
+
+  await backupNodeModules(entrypointPath, 'node_modules_prod')
 
   // ----------------- Collect artifacts -----------------
   startStep('Collect artifacts')
