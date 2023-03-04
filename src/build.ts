@@ -7,7 +7,7 @@ import fs from 'fs-extra'
 import resolveFrom from 'resolve-from'
 import { gte, gt } from 'semver'
 import { update as updaterc } from 'rc9'
-import { hasProtocol } from 'ufo'
+import { hasProtocol, withTrailingSlash, withoutLeadingSlash } from 'ufo'
 
 import { endStep, exec, getNuxtConfig, getNuxtConfigName, globAndPrefix, MutablePackageJson, prepareNodeModules, preparePkgForProd, readJSON, startStep, validateEntrypoint } from './utils'
 import { prepareTypescriptEnvironment, compileTypescriptBuildFiles, JsonOptions } from './typescript'
@@ -151,7 +151,11 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
 
   // Read options from nuxt.config.js otherwise set sensible defaults
   const staticDir = (nuxtConfigFile.dir && nuxtConfigFile.dir.static) ? nuxtConfigFile.dir.static : 'static'
-  let publicPath = ((nuxtConfigFile.build && nuxtConfigFile.build.publicPath) ? nuxtConfigFile.build.publicPath : (nuxtConfigFile.router && nuxtConfigFile.router.base) ? `/${nuxtConfigFile.router.base.split('/').filter(Boolean).join('/')}/_nuxt/` : '/_nuxt/').replace(/^\//, '')
+  let publicPath = (nuxtConfigFile.build && nuxtConfigFile.build.publicPath)
+    ? withTrailingSlash(withoutLeadingSlash(nuxtConfigFile.build.publicPath))
+    : (nuxtConfigFile.router && nuxtConfigFile.router.base)
+        ? `${withTrailingSlash(withoutLeadingSlash(nuxtConfigFile.router.base))}_nuxt/`
+        : '_nuxt/'
   if (hasProtocol(publicPath)) {
     publicPath = '_nuxt/'
   }
