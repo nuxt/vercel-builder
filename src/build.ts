@@ -277,6 +277,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
     Object.assign(launcherFiles, files)
   }
 
+  console.log('--- ---- ------ -------- nodeVersion.runtime, now hardcoded to 18', nodeVersion.runtime)
   // lambdaName will be titled index, unless specified in nuxt.config.js
   lambdas[lambdaName] = await createLambda({
     handler: 'vercel__launcher.launcher',
