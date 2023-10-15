@@ -10,23 +10,27 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
-> This is a _legacy builder_ and only works for Nuxt 2. We'd strongly recommend using [Nuxt Bridge](https://github.com/nuxt/bridge) or [Nuxt 3](https://nuxt.com/docs/getting-started/introduction), which use the latest Vercel features instead.
+> ⚠️ This is a _legacy builder_ and only works for Nuxt 2. We'd strongly recommend using [Nuxt Bridge](https://github.com/nuxt/bridge) or [Nuxt 3](https://nuxt.com/docs/getting-started/introduction), which use the latest Vercel features instead.
 
 ---
 
 `@nuxtjs/vercel-builder` allows you ship a fast, production-ready [Nuxt 2 application](https://nuxtjs.org) that scales automatically on Vercel when using SSR rendering.
+
+### When to use it
+
+**This package is only made for Nuxt 2 SSR applications - and you probably do not need to use it.**
+
+👉 If you want to deploy a statically generated Nuxt 2 application instead, Vercel is a zero configuration provider. Check [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel) for more information.
+
+👉 If you want to deploy a Nuxt Bridge or Nuxt 3 app, Vercel deployment will work with zero configuration. Check [this guide](https://nitro.unjs.io/deploy/providers/vercel) for more information.
+
+⚠️ We would advise you migrate your app to Nuxt 3, which features a much superior integration with Vercel using their latest Build API.
 
 ### How it works
 
 This Vercel builder takes a Nuxt application defined by a `nuxt.config.js` (or `.ts`) entrypoint and deploys it as a serverless function in a Vercel environment.
 
 It features built-in caching of `node_modules` and the global yarn cache (even when dependencies change) and a multi-stage build for fast and small deployments.
-
-### When to use it
-
-**This package is only made for SSR applications.**
-
-If you want to deploy a statically generated Nuxt application instead, check [this guide from Vercel](https://vercel.com/guides/deploying-nuxtjs-with-vercel).
 
 ## Setup
 
