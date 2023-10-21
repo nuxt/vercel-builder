@@ -1,6 +1,6 @@
 {
   "name": "@fabioni/vercel-builder-fix",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "repository": "fabioni/vercel-builder",
   "license": "MIT",
   "exports": {
