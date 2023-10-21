@@ -31,7 +31,7 @@ interface NuxtBuilderConfig {
 export async function build (opts: BuildOptions & { config: NuxtBuilderConfig }): Promise<BuilderOutput> {
   const { files, entrypoint, workPath, config = {}, meta = {} } = opts
   // ---------------- Debugging context --------------
-  consola.log('Running with @nuxt/vercel-builder version', require('../package.json').version)
+  consola.log('Running with @fabioni/vercel-builder-fix version', require('../package.json').version)
 
   // ----------------- Prepare build -----------------
   startStep('Prepare build')
@@ -63,7 +63,9 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   }
 
   // Node version
-  const nodeVersion = await getNodeVersion(entrypointPath, undefined, {}, meta)
+  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! nodeVersion now hardcoded to 18 in @fabioni/vercel-builder-fix')
+  // TODO node verion https://github.com/vercel/vercel/blob/main/packages/build-utils/src/fs/node-version.ts
+  const nodeVersion = { major: 18, range: '18.x', runtime: 'nodejs18.x' } //await getNodeVersion(entrypointPath, undefined, {}, meta)
   const spawnOpts = getSpawnOptions(meta, nodeVersion)
 
   // Prepare TypeScript environment if required.
@@ -161,7 +163,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   }
   const buildDir = nuxtConfigFile.buildDir ? path.relative(entrypointPath, nuxtConfigFile.buildDir) : '.nuxt'
   const srcDir = nuxtConfigFile.srcDir ? path.relative(entrypointPath, nuxtConfigFile.srcDir) : '.'
-  const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'index'
+  const lambdaName = nuxtConfigFile.lambdaName ? nuxtConfigFile.lambdaName : 'lambdaname' //we don't call it index, otherwise a pre-generated index.vue file is not reachable anymore
   const usesServerMiddleware = config.internalServer !== undefined ? config.internalServer : !!nuxtConfigFile.serverMiddleware
 
   await exec('nuxt', [
@@ -280,7 +282,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
   // lambdaName will be titled index, unless specified in nuxt.config.js
   lambdas[lambdaName] = await createLambda({
     handler: 'vercel__launcher.launcher',
-    runtime: nodeVersion.runtime,
+    runtime: nodeVersion.runtime, //  hardcoded zu "nodejs18.x"
     files: launcherFiles,
     environment: {
       NODE_ENV: 'production'
@@ -305,7 +307,7 @@ export async function build (opts: BuildOptions & { config: NuxtBuilderConfig })
       { src: `/${publicPath}.+`, headers: { 'Cache-Control': 'max-age=31557600' } },
       ...Object.keys(staticFiles).map(file => ({ src: `/${file}`, headers: { 'Cache-Control': 'max-age=31557600' } })),
       { handle: 'filesystem' },
-      { src: '/(.*)', dest: '/index' }
+      { src: '/(.*)', dest: '/' + lambdaName }
     ]
   }
 }
