@@ -1,5 +1,13 @@
 
 
+## [0.25.0](https://github.com/nuxt/vercel-builder/compare/v0.24.0...v0.25.0) (2024-04-12)
+
+
+### Bug Fixes
+
+* do not inline `@vercel/build-utils` ([c72143a](https://github.com/nuxt/vercel-builder/commit/c72143ab37a422837051b5749b0e936ed4372abf))
+* respect `router.base` if set ([#682](https://github.com/nuxt/vercel-builder/issues/682)) ([6d87f55](https://github.com/nuxt/vercel-builder/commit/6d87f55e08d253db2cfdd546c1a1adccf0e50430))
+
 ## [0.24.0](https://github.com/nuxt/vercel-builder/compare/v0.23.0...v0.24.0) (2022-12-02)
 
 
