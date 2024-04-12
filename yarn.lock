@@ -6591,6 +6591,19 @@ eslint-plugin-jest@^27.9.0:
   dependencies:
     "@typescript-eslint/utils" "^5.10.0"
 
+eslint-plugin-n@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-n/-/eslint-plugin-n-14.0.0.tgz#aa7944f5b1fd69cf64ecb1ddd1a4762bb0f4f352"
+  integrity sha512-mNwplPLsbaKhHyA0fa/cy8j+oF6bF6l81hzBTWa6JOvPcMNAuIogk2ih6d9tYvWYzyUG+7ZFeChqbzdFpg2QrQ==
+  dependencies:
+    eslint-plugin-es "^4.1.0"
+    eslint-utils "^3.0.0"
+    ignore "^5.1.1"
+    is-core-module "^2.3.0"
+    minimatch "^3.0.4"
+    resolve "^1.10.1"
+    semver "^6.1.0"
+
 eslint-plugin-n@^15.5.1:
   version "15.5.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-n/-/eslint-plugin-n-15.5.1.tgz#b3991857d1edaa47e0108ead825470ce63f391c1"
@@ -8329,7 +8342,7 @@ is-core-module@^2.11.0, is-core-module@^2.5.0, is-core-module@^2.8.1, is-core-mo
   dependencies:
     has "^1.0.3"
 
-is-core-module@^2.13.0, is-core-module@^2.13.1:
+is-core-module@^2.13.0, is-core-module@^2.13.1, is-core-module@^2.3.0:
   version "2.13.1"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.13.1.tgz#ad0d7532c6fea9da1ebdc82742d74525c6273384"
   integrity sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==
