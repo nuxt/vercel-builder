@@ -27,7 +27,7 @@
     "test": "jest test"
   },
   "resolutions": {
-    "@types/mime": "^3.0.4"
+    "@types/mime": "^4.0.0"
   },
   "dependencies": {
     "@nuxtjs/web-vitals": "^0.2.7",
