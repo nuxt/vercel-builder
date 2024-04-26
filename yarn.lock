@@ -1860,7 +1860,7 @@
     node-html-parser "^6.1.12"
     ufo "^1.3.2"
 
-"@nuxt/kit@^3.5.0":
+"@nuxt/kit@^3.11.2":
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.11.2.tgz#dfc43c05992691bcd6aa58c14f88cf43e3abb788"
   integrity sha512-yiYKP0ZWMW7T3TCmsv4H8+jEsB/nFriRAR8bKoSqSV9bkVYWPE36sf7JDux30dQ91jSlQG6LQkB3vCHYTS2cIg==
@@ -2111,16 +2111,16 @@
     eslint-plugin-vue "^9.7.0"
     local-pkg "^0.4.2"
 
-"@nuxtjs/web-vitals@^0.2.6":
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/web-vitals/-/web-vitals-0.2.6.tgz#a7e35680db509d1e65b5813ab5d1d88ec0c0ba40"
-  integrity sha512-hoLo/Lcl63rDEm1gR/VN3sSG7mO4UKzJF69lyKjm+cSWtnSinSQo4n/8V0qmDqVgC3GPfvC1X/IqZx5FaRSS/g==
+"@nuxtjs/web-vitals@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/web-vitals/-/web-vitals-0.2.7.tgz#bb576400ef5b5f2efee8dc0864a4c1fafa5cfa08"
+  integrity sha512-ztqk+PsdozVExk0IkzH64+5LnHhyUQboIBp/IdDHaOZEHybMZRtdMB53z6OqSg/DCK3638sHDXoza44DYvveaw==
   dependencies:
-    "@nuxt/kit" "^3.5.0"
-    defu "^6.1.2"
-    pathe "^1.1.0"
-    ufo "^1.1.2"
-    web-vitals "^3.3.1"
+    "@nuxt/kit" "^3.11.2"
+    defu "^6.1.4"
+    pathe "^1.1.2"
+    ufo "^1.5.3"
+    web-vitals "^3.5.2"
 
 "@nuxtjs/youch@^4.2.3":
   version "4.2.3"
@@ -2605,7 +2605,7 @@
   resolved "https://registry.yarnpkg.com/@types/less/-/less-3.0.6.tgz#279b51245ba787c810a0d286226c5900cd5e6765"
   integrity sha512-PecSzorDGdabF57OBeQO/xFbAkYWo88g4Xvnsx7LRwqLC17I7OoKtA3bQB9uXkY6UkMWCOsA8HSVpaoitscdXw==
 
-"@types/mime@*", "@types/mime@^1", "@types/mime@^3.0.1":
+"@types/mime@*", "@types/mime@^1", "@types/mime@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-3.0.4.tgz#2198ac274de6017b44d941e00261d5bc6a0e0a45"
   integrity sha512-iJt33IQnVRkqeqC7PzBHPTC6fDlRNRW8vjrgqtScAhrmMwe8c4Eo7+fUGTa+XdWrpEgpyKWMYmi2dIwMAYRzPw==
@@ -5315,7 +5315,7 @@ defu@^5.0.0:
   resolved "https://registry.yarnpkg.com/defu/-/defu-5.0.1.tgz#a034278f9b032bf0845d261aa75e9ad98da878ac"
   integrity sha512-EPS1carKg+dkEVy3qNTqIdp2qV7mUP08nIsupfwQpz++slCVRw7qbQyWvSTig+kFPwz2XXp5/kIIkH+CwrJKkQ==
 
-defu@^6.0.0, defu@^6.1.2, defu@^6.1.3, defu@^6.1.4:
+defu@^6.0.0, defu@^6.1.3, defu@^6.1.4:
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/defu/-/defu-6.1.4.tgz#4e0c9cf9ff68fe5f3d7f2765cc1a012dfdcb0479"
   integrity sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==
@@ -12937,7 +12937,7 @@ ua-parser-js@^1.0.37:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-1.0.37.tgz#b5dc7b163a5c1f0c510b08446aed4da92c46373f"
   integrity sha512-bhTyI94tZofjo+Dn8SN6Zv8nBDvyXTymAdM3LDI/0IboIUwTu1rEhW7v2TfiVsoYWgkQ4kOVqnI8APUFbIQIFQ==
 
-ufo@^1.1.2, ufo@^1.3.2, ufo@^1.4.0, ufo@^1.5.3:
+ufo@^1.3.2, ufo@^1.4.0, ufo@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.5.3.tgz#3325bd3c977b6c6cd3160bf4ff52989adc9d3344"
   integrity sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==
@@ -13426,7 +13426,7 @@ web-streams-polyfill@^3.0.3:
   resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-3.3.3.tgz#2073b91a2fdb1fbfbd401e7de0ac9f8214cecb4b"
   integrity sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==
 
-web-vitals@^3.3.1:
+web-vitals@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-3.5.2.tgz#5bb58461bbc173c3f00c2ddff8bfe6e680999ca9"
   integrity sha512-c0rhqNcHXRkY/ogGDJQxZ9Im9D19hDihbzSQJrsioex+KnFgmMzBiy57Z1EjkhX/+OjyBpclDCzz2ITtjokFmg==
