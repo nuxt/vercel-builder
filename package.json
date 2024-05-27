@@ -37,7 +37,7 @@
     "fs-extra": "11.2.0",
     "jiti": "^1.21.0",
     "rc9": "^2.1.2",
-    "replace-in-file": "^6.3.5",
+    "replace-in-file": "^7.2.0",
     "resolve-from": "^5.0.0",
     "semver": "7.6.0",
     "ufo": "^1.5.3"
