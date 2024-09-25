@@ -39,7 +39,7 @@
     "rc9": "^2.1.2",
     "replace-in-file": "^6.3.5",
     "resolve-from": "^5.0.0",
-    "semver": "7.6.0",
+    "semver": "7.6.1",
     "ufo": "^1.5.3"
   },
   "devDependencies": {
