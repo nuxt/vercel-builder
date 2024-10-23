@@ -49,7 +49,7 @@
     "@types/aws-lambda": "^8.10.137",
     "@types/fs-extra": "^11.0.4",
     "@types/glob": "^8.1.0",
-    "@types/node": "^18.19.31",
+    "@types/node": "^20.17.0",
     "@types/semver": "^7.5.8",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
